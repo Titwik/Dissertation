@@ -11,20 +11,24 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 # set the seed for reproducibility
-#random.seed(45)
+random.seed(45)
 
 ####################################################################################################
-
-# create a graph first
-G = nx.Graph()
-G.add_edge(0, 1)
-G.add_edge(0,3)
-G.add_edge(2, 1)
-G.add_edge(2,3)
-nx.draw_networkx(G)
+# isomorphism checking code
+def check_isomorphism(Graphs):
+    for i in range(len(Graphs)):
+        for j in range(len(Graphs)):    
+            if nx.is_isomorphic(Graphs[i], Graphs[j]) == True and i != j:
+                print(f'Graphs G{i+1} and G{j+1} are isomorphic')
 
 ####################################################################################################
+# planarity checking code
+def check_planarity(G):
+    is_planar, G_example = nx.check_planarity(G)
+    if is_planar == False:
+        return False
 
+####################################################################################################
 # create a function that plots the graph on the x-y plane
 def G_coordinates(G):
     num_of_nodes = len(G.nodes)
@@ -100,8 +104,7 @@ def rigidity_matrix(G):
 ####################################################################################################
 
 # create the criteria for rigidity
-# A generic framework is rigid iff it is infinitesimally rigid
-# CHECK TO SEE GRAPH IS GENERIC???
+# check for inf rigidity as this implies rigidity
 
 def check_rigidity(G):
     
@@ -120,21 +123,65 @@ def check_rigidity(G):
     # check whether the rank satsifies Infinitesimal rigidity condition
     if n >= d + 2:
         if R_rank == d * n - math.comb(d+1, 2):
-            print('Framework is rigid')
+            return True
         else:
-            print('Framework is flexible')
+            return False
+            
     elif n  <= d + 1:
         if R_rank == math.comb(n, 2):
-            print('Framework is Rigid')
+            return True
         else:
-            print('Framework is flexible')
+            return False
     else:
-        print('Framework is flexible')
+        return False
 
-check_rigidity(G)
-            
-            
-            
+####################################################################################################
+
+# Examples of planar and minimally rigid
+# Minimally rigid graphs have 2n-3 edges, where n is number of nodes
+
+# load all graphs on 8 vertices and 13 edges
+Graphs_8 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-graphs-8-nodes-13-edges.g6")
+
+# identify rigid graphs
+# 476 rigid graphs on 8 vertices and 13 edges
+rigid_graphs_8 = []   # 476 rigid graphs on 8 vertices
+
+for i in range(len(Graphs_8)):
+    if check_rigidity(Graphs_8[i]) == True:
+        rigid_graphs_8.append(Graphs_8[i])
+
+print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13')
+
+####################################################################################################
+
+# load all graphs on 9 vertices and 15 edges
+Graphs_9 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-9-15.g6")
+
+# identify rigid graphs
+# 4668 rigid graphs on 9 vertices and 15 edges
+rigid_graphs_9 = []   
+
+for i in range(len(Graphs_9)):
+    if check_rigidity(Graphs_9[i]) == True:
+        rigid_graphs_9.append(Graphs_9[i])
+
+print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15')
+
+####################################################################################################
+
+# load all graphs on 10 vertices and 17 edges
+Graphs_10 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-10-17.g6")
+
+# identify rigid graphs
+# 54544 rigid graphs on 10 vertices and 17 edges
+rigid_graphs_10 = []   
+
+for i in range(len(Graphs_10)):
+    if check_rigidity(Graphs_10[i]) == True:
+        rigid_graphs_10.append(Graphs_10[i])
+
+print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17')
     
 
 
@@ -159,7 +206,3 @@ check_rigidity(G)
 
 
 
-
-
-
-    
