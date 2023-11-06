@@ -140,50 +140,113 @@ def check_rigidity(G):
 # Examples of planar and minimally rigid
 # Minimally rigid graphs have 2n-3 edges, where n is number of nodes
 
-# load all graphs on 8 vertices and 13 edges
-Graphs_8 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-graphs-8-nodes-13-edges.g6")
+# number of vertices
+v = 8
 
-# identify rigid graphs
-# 476 rigid graphs on 8 vertices and 13 edges
-rigid_graphs_8 = []   # 476 rigid graphs on 8 vertices
+# load all graphs on 8 vertices and 13 edges
+Graphs_8 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-8-13.g6")
+
+# filter out the graphs that have degree 2 vertices
+graphs_without_degree_2 = []
 
 for i in range(len(Graphs_8)):
-    if check_rigidity(Graphs_8[i]) == True:
-        rigid_graphs_8.append(Graphs_8[i])
+    
+    G = Graphs_8[i]
+    has_low_degree = False
+    
+    for j in range(8):
+        if len(list(G[j])) <= 2:
+            has_low_degree = True
+            break
+        
+    if has_low_degree == False:
+        graphs_without_degree_2.append(G)
+            
+# identify rigid graphs
+# 17 rigid graphs on 8 vertices and 13 edges without degree 2 vertices
+rigid_graphs_8 = []   
+
+for i in range(len(graphs_without_degree_2)):
+    
+    G = graphs_without_degree_2[i]
+    
+    if check_rigidity(G) == True:
+        rigid_graphs_8.append(G)
 
 print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13')
 
 ####################################################################################################
 
+# number of vertices
+v = 9
+
 # load all graphs on 9 vertices and 15 edges
 Graphs_9 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-9-15.g6")
 
-# identify rigid graphs
-# 4668 rigid graphs on 9 vertices and 15 edges
-rigid_graphs_9 = []   
+# filter out the graphs that have degree 2 vertices
+graphs_without_degree_2 = []
 
 for i in range(len(Graphs_9)):
-    if check_rigidity(Graphs_9[i]) == True:
-        rigid_graphs_9.append(Graphs_9[i])
+    
+    G = Graphs_9[i]
+    has_low_degree = False
+    
+    for j in range(v):
+        if len(list(G[j])) <= 2:
+            has_low_degree = True
+            break
+        
+    if has_low_degree == False:
+        graphs_without_degree_2.append(G)
+
+# identify rigid graphs
+# 111 rigid graphs on 9 vertices and 15 edges without degree 2 vertices
+rigid_graphs_9 = []   
+
+for i in range(len(graphs_without_degree_2)):
+    G = graphs_without_degree_2[i]
+    if check_rigidity(G) == True:
+        rigid_graphs_9.append(G)
 
 print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15')
 
 ####################################################################################################
 
+# number of vertices
+v = 10
+
 # load all graphs on 10 vertices and 17 edges
 Graphs_10 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-10-17.g6")
 
-# identify rigid graphs
-# 54544 rigid graphs on 10 vertices and 17 edges
-rigid_graphs_10 = []   
+# filter out the graphs that have degree 2 vertices
+graphs_without_degree_2 = []
 
 for i in range(len(Graphs_10)):
-    if check_rigidity(Graphs_10[i]) == True:
-        rigid_graphs_10.append(Graphs_10[i])
+    
+    G = Graphs_10[i]
+    has_low_degree = False
+    
+    for j in range(v):
+        if len(list(G[j])) <= 2:
+            has_low_degree = True
+            break
+        
+    if has_low_degree == False:
+        graphs_without_degree_2.append(G)
+
+# identify rigid graphs
+# 926 rigid graphs on 10 vertices and 17 edges without degree 2 vertices
+rigid_graphs_10 = []   
+
+for i in range(len(graphs_without_degree_2)):
+    G = graphs_without_degree_2[i]
+    if check_rigidity(G) == True:
+        rigid_graphs_10.append(G)
 
 print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17')
     
-
+nx.draw_planar(rigid_graphs_10[103])
+plt.show()
 
 
 
