@@ -6,7 +6,6 @@
 # import relevant modules
 import math
 import random
-import circlify
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -177,52 +176,19 @@ def find_rigid_graphs(Graphs):
 # Minimally rigid graphs have 2n-3 edges, where n is number of nodes
 
 # load all graphs on 8 vertices and 13 edges
-Graphs_8 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-8-13.g6")
+Graphs_8 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-8-13.g6")
 rigid_graphs_8 = find_rigid_graphs(Graphs_8)
 
 # load all graphs on 9 vertices and 15 edges
-#Graphs_9 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-9-15.g6")
-#rigid_graphs_9 = find_rigid_graphs(Graphs_9)
+Graphs_9 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-9-15.g6")
+rigid_graphs_9 = find_rigid_graphs(Graphs_9)
 
 # load all graphs on 10 vertices and 17 edges
-#Graphs_10 = nx.read_graph6("C:/Users/amrit/Desktop/University/Python/Diss Work/planar-10-17.g6")
-#rigid_graphs_10 = find_rigid_graphs(Graphs_10)
+Graphs_10 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-10-17.g6")
+rigid_graphs_10 = find_rigid_graphs(Graphs_10)
 
-#print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13') # 17 graphs
-#print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15') # 111 graphs
-#print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17') # 962 graphs
+print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13') # 17 graphs
+print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15') # 111 graphs
+print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17') # 962 graphs
 
 ####################################################################################################
-
-# circlify code
-
-G = rigid_graphs_8[0]
-nodes = np.array(G.nodes()) + 1
-nodes = list(nodes)
-
-circles = circlify.circlify(
-    nodes,
-    show_enclosure = True)
-
-# Create just a figure and only one subplot
-fig, ax = plt.subplots(figsize=(10,10))
-
-# Remove axes
-ax.axis('off')
-
-# Find axis boundaries
-lim = max(
-    max(
-        abs(circle.x) + circle.r,
-        abs(circle.y) + circle.r,
-    )
-    for circle in circles
-)
-plt.xlim(-lim, lim)
-plt.ylim(-lim, lim)
-
-# print circles
-for circle in circles:
-    x, y, r = circle
-    ax.add_patch(plt.Circle((x, y), r, alpha=0.2, linewidth=2, fill=False))
-
