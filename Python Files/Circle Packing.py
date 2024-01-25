@@ -1,7 +1,7 @@
 import numpy as np
 import networkx as nx
-from scipy.optimize import minimize
 import matplotlib.pyplot as plt 
+from scipy.optimize import minimize
 
 # example G for testing purposes
 # 8 vertices
@@ -11,40 +11,44 @@ edges = [(0, 4), (0, 5), (0, 6), (1, 4), (1, 5), (1, 7),
          (2, 4), (2, 6), (2, 7), (3, 5), (3, 6), (3, 7), (4, 7)]
 
 # Create a graph
-G = nx.Graph()
+G8 = nx.Graph()
 
 # Add nodes and edges to the graph
-G.add_nodes_from(nodes)
-G.add_edges_from(edges)
+G8.add_nodes_from(nodes)
+G8.add_edges_from(edges)
 
 ####################################################################################################
 
 # 9 vertices
-#nodes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-#edges = [(0, 4), (0, 7), (0, 8), (1, 5), (1, 6), (1, 8), 
-#         (2, 5), (2, 6), (2, 8), (3, 6), (3, 7), (3, 8), (4, 7), (4, 8), (5, 8)]
+nodes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+edges = [(0, 4), (0, 7), (0, 8), (1, 5), (1, 6), (1, 8), 
+         (2, 5), (2, 6), (2, 8), (3, 6), (3, 7), (3, 8), (4, 7), (4, 8), (5, 8)]
 
 # Create a graph
-#G = nx.Graph()
+G9 = nx.Graph()
 
 # Add nodes and edges to the graph
-#G.add_nodes_from(nodes)
-#G.add_edges_from(edges)
+G9.add_nodes_from(nodes)
+G9.add_edges_from(edges)
 
 ####################################################################################################
 
 # 10 vertices
-#nodes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-#edges = [(0, 5), (0, 8), (0, 9), (1, 6), (1, 7), (1, 8), (2, 6), (2, 7), 
-#         (2, 9), (3, 6), (3, 8), (3, 9), (4, 7), (4, 8), (4, 9), (5, 8), (5, 9)]
+nodes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+edges = [(0, 5), (0, 8), (0, 9), (1, 6), (1, 7), (1, 8), (2, 6), (2, 7), 
+         (2, 9), (3, 6), (3, 8), (3, 9), (4, 7), (4, 8), (4, 9), (5, 8), (5, 9)]
 
 # Create a graph
-#G = nx.Graph()
+G10 = nx.Graph()
 
 # Add nodes and edges to the graph
-#G.add_nodes_from(nodes)
-#G.add_edges_from(edges)
+G10.add_nodes_from(nodes)
+G10.add_edges_from(edges)
 
+# set G
+#G = G8
+#G = G9
+G = G10
 ####################################################################################################
 
 # create a function that takes in a graph
@@ -56,7 +60,7 @@ def outer(G):
 
         def objective_function(vars):
 
-            # identify all the x's, y's and r's. The format I'm using is (x1,y1,r1,x2,y2,r2, ...)
+            # initialise all the x's, y's and r's. The format I'm using is (x1,y1,r1,x2,y2,r2, ...)
             x1,y1,r1,x2,y2,r2,x3,y3,r3,x4,y4,r4,x5,y5,r5,x6,y6,r6,x7,y7,r7,x8,y8,r8 = vars
 
             # create a list to contain the x's, y's and r's
@@ -71,7 +75,7 @@ def outer(G):
             for i in range(n):
                 for j in range(n):
                     if (i,j) in G.edges() and (j,i) not in edges:
-                        edges.append((i,j))
+                        edges.append((i,j))                        
             
             # compute the RHS of the equations
             RHS = []
@@ -225,63 +229,26 @@ def outer(G):
 # specify the constraints
 def cons(G):
 
-    # consider the length of G
-    if len(G.nodes()) == 8:
+    # set the constraints
+    # radius should greater than 0
+    # set an epsilon to ensure strictly positive solutions
+    epsilon = 1
+    constraints = []
 
-        # set the constraints
-        # radius should greater than 0
-        # set an epsilon to ensure strictly positive solutions
-        epsilon = 1
-        constraints = []
+    for i in range(len(G)):
+            
+        # radius greater than 0
+        constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: vars[3*i + 2] - epsilon}) 
+            
+        # radius at most 1
+        constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 1 - vars[3*i + 2]}) 
 
-        for i in range(len(G)):
-            constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: vars[3*i + 2] - epsilon}) # radius greater than 0
-            constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 1 - vars[3*i + 2]}) # radius at most 1
-    
         # constraint to prevent overlapping
-        for i in range(len(G)):
-            for j in range(len(G)):
-                if i != j:
-                    constraints.append({'type': 'ineq', 'fun': lambda vars, i=i, j=j: # (xi - xj)^2 + (yi - yj)^2 >= (ri - rj)^2
-                                        (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - (np.abs(vars[3*i + 2]) + np.abs(vars[3*j + 2]))**2})
+        for j in range(len(G)):
+            if i != j:
+                constraints.append({'type': 'ineq', 'fun': lambda vars, i=i, j=j: # (xi - xj)^2 + (yi - yj)^2 >= (ri - rj)^2
+                                    (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - (np.abs(vars[3*i + 2]) + np.abs(vars[3*j + 2]))**2})           
         
-    if len(G.nodes()) == 9:
-
-        # set the constraints
-        # radius should greater than 0
-        # set an epsilon to ensure strictly positive solutions
-        epsilon = 1
-        constraints = []
-
-        for i in range(len(G)):
-            constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: vars[3*i + 2] - epsilon}) # radius greater than 0
-            constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 1 - vars[3*i + 2]}) # radius at most 1
-    
-        # constraint to prevent overlapping
-        for i in range(len(G)):
-            for j in range(len(G)):
-                if i != j:
-                    constraints.append({'type': 'ineq', 'fun': lambda vars, i=i, j=j: # (xi - xj)^2 + (yi - yj)^2 >= (ri - rj)^2
-                                        (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - (np.abs(vars[3*i + 2]) + np.abs(vars[3*j + 2]))**2})
-    
-    if len(G.nodes()) == 10:
-
-        # set the constraints
-        # radius should greater than 0
-        # set an epsilon to ensure strictly positive solutions
-        epsilon = 1
-        constraints = []
-
-        for i in range(len(G)):
-            constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: vars[3*i + 2] - epsilon}) # radius greater than 0
-            constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 1 - vars[3*i + 2]}) # radius at most 1
-    
-        # constraint to prevent overlapping
-        for i in range(len(G)):
-            for j in range(len(G)):
-                if i != j:
-                    constraints.append({'type': 'ineq', 'fun': lambda vars, i=i, j=j: # (xi - xj)^2 + (yi - yj)^2 >= (ri - rj)^2
-                                        (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - (np.abs(vars[3*i + 2]) + np.abs(vars[3*j + 2]))**2})
     return constraints
     
 
