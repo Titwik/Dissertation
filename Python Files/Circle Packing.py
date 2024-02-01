@@ -182,10 +182,8 @@ def circle_packing(G, constraints):
         
         # code is successful if we get 2n-3 tangent circles
         if counter == (2*n - 3):       
-            
-            #print("Optimal solution:")
-            for i in range(len(G)):
-            #    print(f'x{i+1}, y{i+1}, r{i+1}: {result.x[3*i], result.x[3*i+1], result.x[3*i+2]}')
+
+            for i in range(len(G)):    
                 
                 x = result.x[3*i]
                 x_list.append(x)
@@ -195,6 +193,7 @@ def circle_packing(G, constraints):
 
                 r = result.x[3*i + 2]
                 r_list.append(r)
+            
             
             # generate the contact graph
             contact_graph = nx.Graph()
@@ -210,21 +209,48 @@ def circle_packing(G, constraints):
             # Check if the contact graph has vertices of degree 1 or 2
             bad_degree = any(contact_graph.degree(v) <= 2 for v in contact_graph.nodes())
 
-            if not bad_degree:
+            if not bad_degree or len(G) <= 5:
+                
+                print('')
+                print("Optimal solution:")
                 
                 # generate the circle packing
                 fig, ax = plt.subplots()
                 
                 for i in range(n):
+                    
+                    print(f'x{i+1}, y{i+1}, r{i+1}: {result.x[3*i], result.x[3*i+1], result.x[3*i+2]}')
+                    
                     x, y, r = x_list[i], y_list[i], r_list[i]
                     
                     # Create the circle
                     circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')
                     ax.add_patch(circle)
                 
+                # draw the plots
+                # find x_min, x_max, y_min and y_max
+                x_min_values = []
+                x_max_values = []
+                y_min_values = []
+                y_max_values = []
+                
+                for i in range(n):
+                    for j in range(n):
+                        
+                        x_min_values.append(x_list[i] - r_list[j])
+                        x_max_values.append(x_list[i] + r_list[j])
+                        y_min_values.append(y_list[i] - r_list[j])
+                        y_max_values.append(y_list[i] + r_list[j])
+                        
+                        x_min = min(x_min_values)
+                        x_max = max(x_max_values)
+                        
+                        y_min = min(y_min_values)
+                        y_max = max(y_max_values)
+                
                 fig.set_figheight(8)
                 fig.set_figwidth(8)
-                ax.set(xlim=(min(x_list) - 0.5, max(x_list) + 0.5), ylim=(min(y_list) - 0.5, max(y_list) + 0.5))
+                ax.set(xlim=(x_min - 0.25,x_max + 0.25), ylim=(y_min - 0.25,y_max + 0.25))
                 plt.xlabel('X-axis')  
                 plt.ylabel('Y-axis')
                 plt.title(f'Circle Packing for n = {n}')
@@ -239,12 +265,12 @@ def circle_packing(G, constraints):
                 plt.show()
 
                 # my own debugging statement
-                print(f'The graph has {len(G.edges())} edges for n = {n}')
-                print(f'The contact graph has {len(contact_graph.edges())} edges for n = {n}')
-                print('')
+                #print(f'The graph has {len(G.edges())} edges for n = {n}')
+                #print(f'The contact graph has {len(contact_graph.edges())} edges for n = {n}')
+                #print('')
                 
                 break
 
     
-for n in range(6,11):
+for n in range(3,11):
     circle_packing(graph(n), cons(graph(n)))
