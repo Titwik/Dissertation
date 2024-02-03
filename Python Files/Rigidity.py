@@ -175,6 +175,15 @@ def find_rigid_graphs(Graphs):
 # Examples of planar and minimally rigid
 # Minimally rigid graphs have 2n-3 edges, where n is number of nodes
 
+Graphs_5 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-5-7.g6")
+rigid_graphs_5 = find_rigid_graphs(Graphs_5)
+
+Graphs_6 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-6-9.g6")
+rigid_graphs_6 = find_rigid_graphs(Graphs_6)
+
+Graphs_7 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-7-11.g6")
+rigid_graphs_7 = find_rigid_graphs(Graphs_7)
+
 # load all graphs on 8 vertices and 13 edges
 Graphs_8 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-8-13.g6")
 rigid_graphs_8 = find_rigid_graphs(Graphs_8)
@@ -187,8 +196,18 @@ rigid_graphs_9 = find_rigid_graphs(Graphs_9)
 Graphs_10 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-10-17.g6")
 rigid_graphs_10 = find_rigid_graphs(Graphs_10)
 
-print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13') # 17 graphs
-print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15') # 111 graphs
-print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17') # 962 graphs
+# load all graphs on 11 vertices and 19 edges
+#Graphs_11 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-11-19.g6")
+#rigid_graphs_11 = find_rigid_graphs(Graphs_11)
+
+#print(f'There are {len(rigid_graphs_5)} rigid graphs for n = 5 and e = 7') # 0 graphs because all have degree 2
+#print(f'There are {len(rigid_graphs_6)} rigid graphs for n = 6 and e = 9') # 1 graph
+#print(f'There are {len(rigid_graphs_7)} rigid graphs for n = 7 and e = 11') # 3 graphs
+#print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13') # 17 graphs
+#print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15') # 111 graphs
+#print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17') # 936 graphs
+#print(f'There are {len(rigid_graphs_11)} rigid graphs for n = 11 and e = 19') 
 
 ####################################################################################################
+
+

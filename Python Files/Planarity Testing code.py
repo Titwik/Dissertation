@@ -9,20 +9,14 @@
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+import Rigidity
 
 # Make a graph
 G = nx.complete_graph(5)
 G.add_edge(1,5)
 G.add_edge(5,2)
 G.add_edge(2,6)
-nx.draw_networkx(G, node_color="w", edgecolors="k")
-plt.title('Graph of G')
-plt.show()
 
 H = nx.complete_graph(4)
-nx.draw_networkx(H, node_color="w", edgecolors="k")
-plt.title('Graph of H')
-plt.show()
 
-print('Is G planar?', nx.is_planar(G))
-print('Is H planar?', nx.is_planar(H))
+print(Rigidity.check_rigidity(G))

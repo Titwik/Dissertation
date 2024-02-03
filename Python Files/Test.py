@@ -4,68 +4,63 @@ import networkx as nx
 import matplotlib.pyplot as plt 
 from scipy.optimize import minimize 
 
-# 3 vertices
-G3 = nx.complete_graph((3))
+# create a function to produce a pre-selected list of graphs with n vertices
+def graph(n):
 
-# 4 vertices
-edges = [(0,1), (1,2), (2,3), (3,0), (1,3)]
-G4 = nx.Graph()
-G4.add_edges_from(edges)
+    if n == 3:
+        return nx.complete_graph((3))
 
-# 5 vertices
-edges = [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 4)]
-G5 = nx.Graph()
-G5.add_edges_from(edges)
+    # 4 vertices
+    elif n == 4:
+        edges = [(0,1), (1,2), (2,3), (3,0), (1,3)]
+        G4 = nx.Graph()
+        G4.add_edges_from(edges)
+        return G4
 
-# 6 vertices
-edges = [(0, 2), (0, 3), (0, 4), (1, 3), (1, 4), (1, 5), (2, 4), (2, 5), (3, 5)]
-G6 = nx.Graph()
-G6.add_edges_from(edges)
+    # 5 vertices
+    elif n == 5:
+        edges = [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 4)]
+        G5 = nx.Graph()
+        G5.add_edges_from(edges)
+        return G5
 
-####################################################################################################
+    # 6 vertices
+    elif n == 6:
+        edges = [(0, 2), (0, 3), (0, 4), (1, 3), (1, 4), (1, 5), (2, 4), (2, 5), (3, 5)]
+        G6 = nx.Graph()
+        G6.add_edges_from(edges)
+        return G6
 
-# 8 vertices
-edges = [(0, 4), (0, 5), (0, 6), (1, 4), (1, 5), (1, 7), 
-         (2, 4), (2, 6), (2, 7), (3, 5), (3, 6), (3, 7), (4, 7)]
+    # 7 vertices
+    elif n == 7:
+        edges = [(0, 3), (0, 4), (0, 5), (1, 3), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6), (3, 6), (4, 6)]
+        G7 = nx.Graph()
+        G7.add_edges_from(edges)
+        return G7
 
-# Create a graph
-G8 = nx.Graph()
+    # 8 vertices
+    elif n == 8:
+        edges = [(0, 4), (0, 5), (0, 6), (1, 4), (1, 5), (1, 7), 
+                (2, 4), (2, 6), (2, 7), (3, 5), (3, 6), (3, 7), (4, 7)]
+        G8 = nx.Graph()
+        G8.add_edges_from(edges)
+        return G8
 
-# Add nodes and edges to the graph
-G8.add_edges_from(edges)
+    # 9 vertices
+    elif n == 9:
+        edges = [(0, 4), (0, 6), (0, 7), (1, 5), (1, 6), (1, 7), (2, 5), 
+                (2, 6), (2, 8), (3, 5), (3, 7), (3, 8), (4, 7), (4, 8), (6, 8)]
+        G9 = nx.Graph()
+        G9.add_edges_from(edges)
+        return G9
 
-####################################################################################################
-
-# 9 vertices
-edges = [(0, 4), (0, 6), (0, 7), (1, 5), (1, 6), (1, 7), (2, 5), 
-         (2, 6), (2, 8), (3, 5), (3, 7), (3, 8), (4, 7), (4, 8), (6, 8)]
-
-# Create a graph
-G9 = nx.Graph()
-
-# Add nodes and edges to the graph
-G9.add_edges_from(edges)
-
-####################################################################################################
-
-# 10 vertices
-edges = [(0, 5), (0, 8), (0, 9), (1, 6), (1, 7), (1, 8), (2, 6), (2, 7), 
-         (2, 9), (3, 6), (3, 8), (3, 9), (4, 7), (4, 8), (4, 9), (5, 8), (5, 9)]
-
-# Create a graph
-G10 = nx.Graph()
-
-# Add nodes and edges to the graph
-G10.add_edges_from(edges)
-
-# set G
-#G = G3
-#G = G4
-#G = G5
-G = G6
-#G = G8
-#G = G9
-#G = G10
+    # 10 vertices
+    elif n == 10:
+        edges = [(0, 5), (0, 8), (0, 9), (1, 6), (1, 7), (1, 8), (2, 6), (2, 7), 
+                (2, 9), (3, 6), (3, 8), (3, 9), (4, 7), (4, 8), (4, 9), (5, 8), (5, 9)]
+        G10 = nx.Graph()
+        G10.add_edges_from(edges)
+        return G10
 
 def mk_obj(G):
     
@@ -121,7 +116,6 @@ def cons(G):
                                     (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - ((vars[3*i + 2]) + (vars[3*j + 2]))**2})           
         
     return constraints
-    
 
 # set an initial guess
 def initial_conditions(G):
@@ -145,52 +139,21 @@ def initial_conditions(G):
         
     return IC
 
-# set the constraints for G
-constraints = cons(G)
-
-# ensure that we get a packing that has a contact graph of 2n-3 edges
-n = len(G)
-while True:
+def circle_packing(G, constraints):
     
-    # use the minimize function
-    result = minimize(mk_obj(G), initial_conditions(G), constraints = constraints, method='COBYLA')
+    # obtain the number of nodes in G
+    n = len(G)
 
-    # create lists to store x, y and r
-    x_list, y_list, r_list = [], [], []
-
-    for i in range(n):
-        x = result.x[3*i]
-        x_list.append(x)
-
-        y = result.x[3*i + 1]
-        y_list.append(y)
-
-        r = result.x[3*i + 2]
-        r_list.append(r)
-
-    # Reset the counter for each iteration
-    # this counter counts how many circles are tangent to each other in the packing
-    # we expect 2n-3 tangential circles
-    counter = 0
-
-    for i in range(n):
-        x1 = x_list[i]
-        y1 = y_list[i]
-        for j in range(i+1,n):
-            x2 = x_list[j]
-            y2 = y_list[j]
-            if np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r_list[i] + r_list[j]) < 0.001:
-                counter += 1
-    
-    if counter == (2 * n - 3):
+    # start finding a packing
+    while True:
         
-        # generate a circle packing
-        fig, ax = plt.subplots()
-        
-        print("Optimal solution:")
-        for i in range(len(G)):
-            print(f'x{i+1}, y{i+1}, r{i+1}: {result.x[3*i], result.x[3*i+1], result.x[3*i+2]}')
-            
+        # use the minimize function
+        result = minimize(mk_obj(G), initial_conditions(G), constraints = constraints, method='COBYLA')
+
+        # create lists to store x, y and r
+        x_list, y_list, r_list = [], [], []
+
+        for i in range(n):
             x = result.x[3*i]
             x_list.append(x)
 
@@ -199,36 +162,115 @@ while True:
 
             r = result.x[3*i + 2]
             r_list.append(r)
-            
-            # Create the circle
-            circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')  # You can customize edgecolor and facecolor
-            ax.add_patch(circle)
+
+        # Reset the counter for each iteration
+        # this counter counts how many circles are tangent to each other in the packing
+        # we expect 2n-3 tangential circles
+        counter = 0
+
+        # obtain the coordinates of the centers of two circles
+        for i in range(n):
+            x1 = x_list[i]
+            y1 = y_list[i]
+            for j in range(i+1,n):
+                x2 = x_list[j]
+                y2 = y_list[j]
+                
+                # check if the distance between the centers is equal to the sum of radii
+                if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r_list[i] + r_list[j])) < 0.001:
+                    counter += 1
         
-        # break out of the while loop
-        break
+        # code is successful if we get 2n-3 tangent circles
+        if counter == (2*n - 3):       
 
-fig.set_figheight(8)
-fig.set_figwidth(8)
-ax.set(xlim=(min(x_list) - 0.5, max(x_list) + 0.5), ylim=(min(y_list) - 0.5, max(y_list) + 0.5))
-plt.xlabel('X-axis')  
-plt.ylabel('Y-axis')
-plt.title('Circle Packing')
-plt.show()
+            for i in range(len(G)):    
+                
+                x = result.x[3*i]
+                x_list.append(x)
 
+                y = result.x[3*i + 1]
+                y_list.append(y)
 
+                r = result.x[3*i + 2]
+                r_list.append(r)
+            
+            
+            # generate the contact graph
+            contact_graph = nx.Graph()
+            
+            # add an edge if two circles are tangential
+            for i in range(n):
+                x1, y1, r1 = x_list[i], y_list[i], r_list[i]
+                for j in range(i+1, n):
+                    x2, y2, r2 = x_list[j], y_list[j], r_list[j]
+                    if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < 0.001:
+                        contact_graph.add_edge(i, j)  # Add an edge between tangential circles
+                
+            # Check if the contact graph has vertices of degree 1 or 2
+            bad_degree = any(contact_graph.degree(v) <= 2 for v in contact_graph.nodes())
 
+            if not bad_degree or len(G) <= 5:
+                
+                print('')
+                print("Optimal solution:")
+                
+                # generate the circle packing
+                fig, ax = plt.subplots()
+                
+                for i in range(n):
+                    
+                    print(f'x{i+1}, y{i+1}, r{i+1}: {result.x[3*i], result.x[3*i+1], result.x[3*i+2]}')
+                    
+                    x, y, r = x_list[i], y_list[i], r_list[i]
+                    
+                    # Create the circle
+                    circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')
+                    ax.add_patch(circle)
+                
+                # draw the plots
+                # find x_min, x_max, y_min and y_max
+                x_min_values = []
+                x_max_values = []
+                y_min_values = []
+                y_max_values = []
+                
+                for i in range(n):
+                    for j in range(n):
+                        
+                        x_min_values.append(x_list[i] - r_list[j])
+                        x_max_values.append(x_list[i] + r_list[j])
+                        y_min_values.append(y_list[i] - r_list[j])
+                        y_max_values.append(y_list[i] + r_list[j])
+                        
+                        x_min = min(x_min_values)
+                        x_max = max(x_max_values)
+                        
+                        y_min = min(y_min_values)
+                        y_max = max(y_max_values)
+                
+                fig.set_figheight(8)
+                fig.set_figwidth(8)
+                ax.set(xlim=(x_min - 0.25,x_max + 0.25), ylim=(y_min - 0.25,y_max + 0.25))
+                plt.xlabel('X-axis')  
+                plt.ylabel('Y-axis')
+                plt.title(f'Circle Packing for n = {n}')
+                plt.show()
 
+                nx.draw_planar(G)
+                plt.title(f'Associated Graph for n = {n}')
+                plt.show()
 
+                nx.draw_planar(contact_graph)
+                plt.title(f'Contact Graph for n = {n}')
+                plt.show()
 
+                # my own debugging statement
+                #print(f'The graph has {len(G.edges())} edges for n = {n}')
+                #print(f'The contact graph has {len(contact_graph.edges())} edges for n = {n}')
+                #print('')
+                
+                break
 
-
-
-
-
-
-
-
-
-
-
-
+    
+for n in range(3,11):
+    circle_packing(graph(n), cons(graph(n)))
