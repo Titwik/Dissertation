@@ -1,4 +1,5 @@
 import random
+#import Rigidity
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt 
@@ -62,6 +63,7 @@ def graph(n):
         G10.add_edges_from(edges)
         return G10
 
+# create the objective function
 def mk_obj(G):
     
     # create a function that gives the objective function of a graph
@@ -139,7 +141,7 @@ def initial_conditions(G):
         
     return IC
 
-def circle_packing(G, constraints):
+def circle_packing(G):
     
     # obtain the number of nodes in G
     n = len(G)
@@ -148,7 +150,7 @@ def circle_packing(G, constraints):
     while True:
         
         # use the minimize function
-        result = minimize(mk_obj(G), initial_conditions(G), constraints = constraints, method='COBYLA')
+        result = minimize(mk_obj(G), initial_conditions(G), constraints = cons(G), method='COBYLA')
 
         # create lists to store x, y and r
         x_list, y_list, r_list = [], [], []
@@ -270,7 +272,11 @@ def circle_packing(G, constraints):
                 #print('')
                 
                 break
+            
+    return contact_graph
 
-    
 for n in range(3,11):
-    circle_packing(graph(n), cons(graph(n)))
+    contact_graph = circle_packing(graph(n), cons(graph(n)))
+
+#n = 7
+#print(Rigidity.check_rigidity(contact_graph))
