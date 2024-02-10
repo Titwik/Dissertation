@@ -6,38 +6,27 @@
 # import relevant modules
 import math
 import random
+import Circle_Packing
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# set the seed for reproducibility
-random.seed(45)
-
-####################################################################################################
-# isomorphism checking code
-def check_isomorphism(Graphs):
-    for i in range(len(Graphs)):
-        for j in range(len(Graphs)):    
-            if nx.is_isomorphic(Graphs[i], Graphs[j]) == True and i != j:
-                print(f'Graphs G{i+1} and G{j+1} are isomorphic')
-
-# planarity checking code
-def check_planarity(G):
-    is_planar, G_example = nx.check_planarity(G)
-    if is_planar == False:
-        return False
-
 ####################################################################################################
 # create a function that plots the graph on the x-y plane
 def G_coordinates(G):
+    
+    # set the seed for reproducibility
+    #random.seed(132)
+    
     num_of_nodes = len(G.nodes)
     x_nodes = []
     y_nodes = []
     
     # create random coordinates for each node in the graph
+    # use a lot of integers for randomised, like 2e40
     for i in range(num_of_nodes):
-        x = random.randint(-10, 10)
-        y = random.randint(-10, 10)
+        x = random.randint(-2 * 10 ** 40, 2 * 10 ** 40)
+        y = random.randint(-2 * 10 ** 40, 2 * 10 ** 40)
         x_nodes.append(x)
         y_nodes.append(y)
     
@@ -175,31 +164,6 @@ def find_rigid_graphs(Graphs):
 # Examples of planar and minimally rigid
 # Minimally rigid graphs have 2n-3 edges, where n is number of nodes
 
-Graphs_5 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-5-7.g6")
-rigid_graphs_5 = find_rigid_graphs(Graphs_5)
-
-Graphs_6 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-6-9.g6")
-rigid_graphs_6 = find_rigid_graphs(Graphs_6)
-
-Graphs_7 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-7-11.g6")
-rigid_graphs_7 = find_rigid_graphs(Graphs_7)
-
-# load all graphs on 8 vertices and 13 edges
-Graphs_8 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-8-13.g6")
-rigid_graphs_8 = find_rigid_graphs(Graphs_8)
-
-# load all graphs on 9 vertices and 15 edges
-Graphs_9 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-9-15.g6")
-rigid_graphs_9 = find_rigid_graphs(Graphs_9)
-
-# load all graphs on 10 vertices and 17 edges
-Graphs_10 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-10-17.g6")
-rigid_graphs_10 = find_rigid_graphs(Graphs_10)
-
-# load all graphs on 11 vertices and 19 edges
-#Graphs_11 = nx.read_graph6("/home/titwik/Diss Work/Misc/planar-11-19.g6")
-#rigid_graphs_11 = find_rigid_graphs(Graphs_11)
-
 #print(f'There are {len(rigid_graphs_5)} rigid graphs for n = 5 and e = 7') # 0 graphs because all have degree 2
 #print(f'There are {len(rigid_graphs_6)} rigid graphs for n = 6 and e = 9') # 1 graph
 #print(f'There are {len(rigid_graphs_7)} rigid graphs for n = 7 and e = 11') # 3 graphs
@@ -207,6 +171,25 @@ rigid_graphs_10 = find_rigid_graphs(Graphs_10)
 #print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15') # 111 graphs
 #print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17') # 936 graphs
 #print(f'There are {len(rigid_graphs_11)} rigid graphs for n = 11 and e = 19') 
+
+# add all the rigid graphs to a list    
+#rigid_graphs = [rigid_graphs_5, rigid_graphs_6, rigid_graphs_7, 
+#                rigid_graphs_8, rigid_graphs_9, rigid_graphs_10]
+
+# compute the rigidity of all circle packings of rigid graphs on 5 vertices
+#n = 5
+#for i in range(len(rigid_graphs[n - 5])):
+    
+#    print(f'Testing for packings on {n} vertices')
+
+#    G = rigid_graphs[n - 5][i]
+
+    # compute the contact graph of the circle packing
+#    contact_graph = Circle_Packing.circle_packing(G, drawing=False)
+
+    # check the rigidity
+#    if (check_rigidity(contact_graph)) == False:
+#        print(f'Graph {i} has a circle packing that is not rigid' )
 
 ####################################################################################################
 
