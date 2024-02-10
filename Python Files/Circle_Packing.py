@@ -1,5 +1,5 @@
 import random
-#import Rigidity
+import Rigidity
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt 
@@ -213,9 +213,6 @@ def circle_packing(G, drawing):
 
             if (not bad_degree or len(G) <= 5) and drawing == True:
                 
-                #print('')
-                #print("Optimal solution:")
-                
                 # generate the circle packing
                 fig, ax = plt.subplots()
                 
@@ -262,6 +259,7 @@ def circle_packing(G, drawing):
                 else:
                     x_max = y_max
                 
+                # display the plots
                 fig.set_figheight(8)
                 fig.set_figwidth(8)
                 ax.set(xlim=(x_min - 0.25,x_max + 0.25), ylim=(y_min - 0.25,y_max + 0.25))
@@ -278,34 +276,9 @@ def circle_packing(G, drawing):
                 plt.title(f'Contact Graph for n = {n}')
                 plt.show()
 
-                # my own debugging statement
-                #print(f'The graph has {len(G.edges())} edges for n = {n}')
-                #print(f'The contact graph has {len(contact_graph.edges())} edges for n = {n}')
-                #print('')
-                
                 break
     
-            elif (not bad_degree or len(G) <= 5) and drawing == False:
-                
-                #print('')
-                #print("Optimal solution:")
-                
-                #for i in range(n):
-                    
-                    #print(f'x{i+1}, y{i+1}, r{i+1}: {result.x[3*i], result.x[3*i+1], result.x[3*i+2]}')
-                
+            elif (not bad_degree or len(G) <= 5) and drawing == False:                
                 break
     
     return G, contact_graph
-
-
-i = 0
-for i in range(100):
-    print(i)
-    G, contact_graph = circle_packing(graph(10), drawing = False)
-    if nx.is_isomorphic(G, contact_graph) == True:
-        print('An isomorphic packing exists')
-        break
-
-#n = 7
-#print(Rigidity.check_rigidity(contact_graph))
