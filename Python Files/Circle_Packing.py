@@ -152,7 +152,7 @@ def initial_conditions(G):
 ###################################################################################################################
 
 # code to find packings
-def circle_packing(G, graphs):
+def circle_packing(G, contact):
     
     # obtain the number of nodes in G
     n = len(G)
@@ -199,7 +199,7 @@ def circle_packing(G, graphs):
         # code is successful if we get 2n-3 tangent circles
         if counter == (2*n - 3):
             
-            # generate the contact graph
+            # generate the contact graph in networkx
             contact_graph = nx.Graph()
             
             # add an edge if two circles are tangential
@@ -214,11 +214,11 @@ def circle_packing(G, graphs):
                 
             # Check if the contact graph has vertices of degree 1 or 2
             bad_degree = any(contact_graph.degree(v) <= 2 for v in contact_graph.nodes())
+    
+            if (not bad_degree or len(G) <= 5) and contact == True: 
 
-            if (not bad_degree or len(G) <= 5) and graphs == True:
-                
-                # generate the circle packing
-                fig, ax = plt.subplots()
+                # generate a circle packing without the contact graph                               
+                fig1, ax1 = plt.subplots()
                 
                 for i in range(n):
                     
@@ -227,66 +227,12 @@ def circle_packing(G, graphs):
                     
                     # Create the circle
                     circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')
-                    ax.add_patch(circle)
-                
-                # draw the plots
-                # find x_min, x_max, y_min and y_max
-                x_min_values = []
-                x_max_values = []
-                y_min_values = []
-                y_max_values = []
-                
-                for i in range(n):
-                        
-                    x_min_values.append(x_list[i] - r_list[i])
-                    x_max_values.append(x_list[i] + r_list[i])
-                    y_min_values.append(y_list[i] - r_list[i])
-                    y_max_values.append(y_list[i] + r_list[i])
-                        
-                x_min = min(x_min_values)
-                x_max = max(x_max_values)
-                        
-                y_min = min(y_min_values)
-                y_max = max(y_max_values)
-                
-                # ensure the plots are drawn on square axes
-                # this ensures good looking circles
-                if x_min < y_min:
-                    y_min = x_min
-                else:
-                    x_min = y_min
-                    
-                if x_max > y_max:
-                    y_max = x_max
-                else:
-                    x_max = y_max
-                
-                # hide the axes
-                ax.axis('off')
-                
-                # display the plots
-                fig.set_figheight(8)
-                fig.set_figwidth(8)
-                ax.set(xlim=(x_min - 0.05,x_max + 0.05), ylim=(y_min - 0.05,y_max + 0.05))
-                plt.xlabel('X-axis')  
-                plt.ylabel('Y-axis')
-                plt.title(f'Circle Packing for n = {n}')
-                plt.show()
 
-                nx.draw(G)
-                plt.title(f'Associated Graph for n = {n}')
-                plt.show()
-
-                nx.draw_planar(contact_graph)
-                plt.title(f'Contact Graph for n = {n}')
-                plt.show()
-
-                return G, contact_graph, fig, ax
-    
-            elif (not bad_degree or len(G) <= 5) and graphs == False: 
+                    # plot the center of the circle
+                    ax1.add_patch(circle)
                 
-                # generate the circle packing
-                fig, ax = plt.subplots()
+                # generate the circle packing with its contact graph
+                fig2, ax2 = plt.subplots()
                 
                 for i in range(n):
                     
@@ -298,15 +244,18 @@ def circle_packing(G, graphs):
 
                     # plot the center of the circle
                     plt.plot(x, y, marker='o', color='black', linestyle='None') 
-                    ax.add_patch(circle)
+                    ax2.add_patch(circle)
 
                     # create the contact graph inside the circle packing
-                    for i in range(n):
-                        x1, y1, r1 = x_list[i], y_list[i], r_list[i]
-                        for j in range(i+1, n):
-                            x2, y2, r2 = x_list[j], y_list[j], r_list[j]
+                    for j in range(n):
+                        x1, y1, r1 = x_list[j], y_list[j], r_list[j]
+                        
+                        for k in range(j+1, n):
+                            x2, y2, r2 = x_list[k], y_list[k], r_list[k]
+                        
                             if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
-                                plt.plot([x1, x2], [y1, y2], color='blue')                                
+                                plt.plot([x1, x2], [y1, y2], color='black', linewidth = 0.25, linestyle = 'dashed') 
+
                 
                 # draw the plots
                 # find x_min, x_max, y_min and y_max
@@ -341,17 +290,50 @@ def circle_packing(G, graphs):
                     x_max = y_max
                 
                 # hide the axes
-                ax.axis('off')
+                ax1.axis('off')
+                ax2.axis('off')
                 
                 # display the plots
-                fig.set_figheight(8)
-                fig.set_figwidth(8)
-                ax.set(xlim=(x_min - 0.05,x_max + 0.05), ylim=(y_min - 0.05,y_max + 0.05))
+                fig1.set_figheight(8)
+                fig1.set_figwidth(8)
+                ax1.set(xlim=(x_min,x_max), ylim=(y_min,y_max))
                 plt.xlabel('X-axis')  
                 plt.ylabel('Y-axis')
-                plt.title(f'Circle Packing for n = {n}')
-                plt.show()
+                #plt.show()
+
+                # display the plots
+                fig2.set_figheight(8)
+                fig2.set_figwidth(8)
+                ax2.set(xlim=(x_min,x_max), ylim=(y_min,y_max))
+                plt.xlabel('X-axis')  
+                plt.ylabel('Y-axis')
+                #plt.show()
+
+                # return the contact graph separately
+                plt.figure(figsize = (8,8))
+                for i in range(n):
+                    
+                    # identify the center and radius
+                    x, y, r = x_list[i], y_list[i], r_list[i]
+                    plt.plot(x, y, marker='o', color='black', markersize = 10) 
+                    
+                    for j in range(n):
+                        x1, y1, r1 = x_list[j], y_list[j], r_list[j]
+                        
+                        for k in range(j+1, n):
+                            x2, y2, r2 = x_list[k], y_list[k], r_list[k]
+                            
+                            if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
+                                plt.plot([x1, x2], [y1, y2], color='black', linewidth = 0.5)                                
+
+                plt.axis('off')
+                fig3 = plt.gcf()
                 
-                return G, contact_graph, fig, ax
+                # prevent the plots from displaying
+                plt.close(fig1)
+                plt.close(fig2)
+                plt.close(fig3)
+                
+                return G, contact_graph, fig1, fig2, fig3
 
 ###################################################################################################################
