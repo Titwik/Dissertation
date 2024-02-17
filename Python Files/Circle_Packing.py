@@ -1,11 +1,13 @@
 import random
-import Rigidity
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt 
 from scipy.optimize import minimize 
 
+###################################################################################################################
+
 # create a function to produce a pre-selected list of graphs with n vertices
+# these are purely for testing. each graph chosen is known to be (minimally) rigid
 def graph(n):
 
     if n == 3:
@@ -49,8 +51,8 @@ def graph(n):
 
     # 9 vertices
     elif n == 9:
-        edges = [(0, 4), (0, 6), (0, 7), (1, 5), (1, 6), (1, 7), (2, 5), 
-                (2, 6), (2, 8), (3, 5), (3, 7), (3, 8), (4, 7), (4, 8), (6, 8)]
+        edges = [(0, 3), (0, 5), (0, 6), (1, 4), (1, 6), (1, 7), (2, 5), 
+                 (2, 6), (2, 7), (2, 8), (3, 5), (3, 8), (4, 7), (4, 8), (6, 8)]
         G9 = nx.Graph()
         G9.add_edges_from(edges)
         return G9
@@ -62,6 +64,8 @@ def graph(n):
         G10 = nx.Graph()
         G10.add_edges_from(edges)
         return G10
+
+###################################################################################################################
 
 # create the objective function
 def mk_obj(G):
@@ -94,6 +98,8 @@ def mk_obj(G):
 
     return objective_function
 
+###################################################################################################################
+
 # specify the constraints
 def cons(G):
 
@@ -119,9 +125,11 @@ def cons(G):
         
     return constraints
 
+###################################################################################################################
+
 # set an initial guess
 def initial_conditions(G):
-    
+
     # find the number of nodes of G
     n = len(G)
     
@@ -141,7 +149,10 @@ def initial_conditions(G):
         
     return IC
 
-def circle_packing(G, drawing):
+###################################################################################################################
+
+# code to find packings
+def circle_packing(G, graphs):
     
     # obtain the number of nodes in G
     n = len(G)
@@ -165,10 +176,13 @@ def circle_packing(G, drawing):
             r = result.x[3*i + 2]
             r_list.append(r)
 
-        # Reset the counter for each iteration
-        # this counter counts how many circles are tangent to each other in the packing
+        # This counter counts how many circles are tangent to each other in the packing        
         # we expect 2n-3 tangential circles
+        # Reset the counter for each iteration       
         counter = 0
+        
+        # set a tolerance for 0
+        tolerance = 0.001
 
         # obtain the coordinates of the centers of two circles
         for i in range(n):
@@ -179,23 +193,11 @@ def circle_packing(G, drawing):
                 y2 = y_list[j]
                 
                 # check if the distance between the centers is equal to the sum of radii
-                if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r_list[i] + r_list[j])) < 0.0001:
+                if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r_list[i] + r_list[j])) < tolerance:
                     counter += 1
         
         # code is successful if we get 2n-3 tangent circles
-        if counter == (2*n - 3):       
-
-            for i in range(len(G)):    
-                
-                x = result.x[3*i]
-                x_list.append(x)
-
-                y = result.x[3*i + 1]
-                y_list.append(y)
-
-                r = result.x[3*i + 2]
-                r_list.append(r)
-            
+        if counter == (2*n - 3):
             
             # generate the contact graph
             contact_graph = nx.Graph()
@@ -203,23 +205,24 @@ def circle_packing(G, drawing):
             # add an edge if two circles are tangential
             for i in range(n):
                 x1, y1, r1 = x_list[i], y_list[i], r_list[i]
+
                 for j in range(i+1, n):
                     x2, y2, r2 = x_list[j], y_list[j], r_list[j]
-                    if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < 0.001:
+                    
+                    if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
                         contact_graph.add_edge(i, j)  # Add an edge between tangential circles
                 
             # Check if the contact graph has vertices of degree 1 or 2
             bad_degree = any(contact_graph.degree(v) <= 2 for v in contact_graph.nodes())
 
-            if (not bad_degree or len(G) <= 5) and drawing == True:
+            if (not bad_degree or len(G) <= 5) and graphs == True:
                 
                 # generate the circle packing
                 fig, ax = plt.subplots()
                 
                 for i in range(n):
                     
-                    #print(f'x{i+1}, y{i+1}, r{i+1}: {result.x[3*i], result.x[3*i+1], result.x[3*i+2]}')
-                    
+                    # identify the center and radius
                     x, y, r = x_list[i], y_list[i], r_list[i]
                     
                     # Create the circle
@@ -234,12 +237,11 @@ def circle_packing(G, drawing):
                 y_max_values = []
                 
                 for i in range(n):
-                    for j in range(n):
                         
-                        x_min_values.append(x_list[i] - r_list[j])
-                        x_max_values.append(x_list[i] + r_list[j])
-                        y_min_values.append(y_list[i] - r_list[j])
-                        y_max_values.append(y_list[i] + r_list[j])
+                    x_min_values.append(x_list[i] - r_list[i])
+                    x_max_values.append(x_list[i] + r_list[i])
+                    y_min_values.append(y_list[i] - r_list[i])
+                    y_max_values.append(y_list[i] + r_list[i])
                         
                 x_min = min(x_min_values)
                 x_max = max(x_max_values)
@@ -259,16 +261,19 @@ def circle_packing(G, drawing):
                 else:
                     x_max = y_max
                 
+                # hide the axes
+                ax.axis('off')
+                
                 # display the plots
                 fig.set_figheight(8)
                 fig.set_figwidth(8)
-                ax.set(xlim=(x_min - 0.25,x_max + 0.25), ylim=(y_min - 0.25,y_max + 0.25))
+                ax.set(xlim=(x_min - 0.05,x_max + 0.05), ylim=(y_min - 0.05,y_max + 0.05))
                 plt.xlabel('X-axis')  
                 plt.ylabel('Y-axis')
                 plt.title(f'Circle Packing for n = {n}')
                 plt.show()
 
-                nx.draw_planar(G)
+                nx.draw(G)
                 plt.title(f'Associated Graph for n = {n}')
                 plt.show()
 
@@ -276,9 +281,77 @@ def circle_packing(G, drawing):
                 plt.title(f'Contact Graph for n = {n}')
                 plt.show()
 
-                break
+                return G, contact_graph, fig, ax
     
-            elif (not bad_degree or len(G) <= 5) and drawing == False:                
-                break
-    
-    return G, contact_graph
+            elif (not bad_degree or len(G) <= 5) and graphs == False: 
+                
+                # generate the circle packing
+                fig, ax = plt.subplots()
+                
+                for i in range(n):
+                    
+                    # identify the center and radius
+                    x, y, r = x_list[i], y_list[i], r_list[i]
+                    
+                    # Create the circle
+                    circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')
+
+                    # plot the center of the circle
+                    plt.plot(x, y, marker='o', color='black', linestyle='None') 
+                    ax.add_patch(circle)
+
+                    # create the contact graph inside the circle packing
+                    for i in range(n):
+                        x1, y1, r1 = x_list[i], y_list[i], r_list[i]
+                        for j in range(i+1, n):
+                            x2, y2, r2 = x_list[j], y_list[j], r_list[j]
+                            if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
+                                plt.plot([x1, x2], [y1, y2], color='blue')                                
+                
+                # draw the plots
+                # find x_min, x_max, y_min and y_max
+                x_min_values = []
+                x_max_values = []
+                y_min_values = []
+                y_max_values = []
+                
+                for i in range(n):
+                
+                    x_min_values.append(x_list[i] - r_list[i])
+                    x_max_values.append(x_list[i] + r_list[i])
+                    y_min_values.append(y_list[i] - r_list[i])
+                    y_max_values.append(y_list[i] + r_list[i])
+                        
+                x_min = min(x_min_values)
+                x_max = max(x_max_values)
+                        
+                y_min = min(y_min_values)
+                y_max = max(y_max_values)
+                
+                # ensure the plots are drawn on square axes
+                # this ensures good looking circles
+                if x_min < y_min:
+                    y_min = x_min
+                else:
+                    x_min = y_min
+                    
+                if x_max > y_max:
+                    y_max = x_max
+                else:
+                    x_max = y_max
+                
+                # hide the axes
+                ax.axis('off')
+                
+                # display the plots
+                fig.set_figheight(8)
+                fig.set_figwidth(8)
+                ax.set(xlim=(x_min - 0.05,x_max + 0.05), ylim=(y_min - 0.05,y_max + 0.05))
+                plt.xlabel('X-axis')  
+                plt.ylabel('Y-axis')
+                plt.title(f'Circle Packing for n = {n}')
+                plt.show()
+                
+                return G, contact_graph, fig, ax
+
+###################################################################################################################
