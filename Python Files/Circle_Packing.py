@@ -115,7 +115,7 @@ def cons(G):
         constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: vars[3*i + 2] - epsilon}) 
             
         # radius at most 10
-        constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 10 - vars[3*i + 2]}) 
+        constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 1 - vars[3*i + 2]}) 
 
         # constraint to prevent overlapping
         for j in range(len(G)):
@@ -196,6 +196,8 @@ def circle_packing(G, contact):
                 if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r_list[i] + r_list[j])) < tolerance:
                     counter += 1
         
+###################################################################################################################
+
         # code is successful if we get 2n-3 tangent circles
         if counter == (2*n - 3):
             
@@ -216,48 +218,7 @@ def circle_packing(G, contact):
             bad_degree = any(contact_graph.degree(v) <= 2 for v in contact_graph.nodes())
     
             if (not bad_degree or len(G) <= 5) and contact == True: 
-
-                # generate a circle packing without the contact graph                               
-                fig1, ax1 = plt.subplots()
                 
-                for i in range(n):
-                    
-                    # identify the center and radius
-                    x, y, r = x_list[i], y_list[i], r_list[i]
-                    
-                    # Create the circle
-                    circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')
-
-                    # plot the center of the circle
-                    ax1.add_patch(circle)
-                
-                # generate the circle packing with its contact graph
-                fig2, ax2 = plt.subplots()
-                
-                for i in range(n):
-                    
-                    # identify the center and radius
-                    x, y, r = x_list[i], y_list[i], r_list[i]
-                    
-                    # Create the circle
-                    circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')
-
-                    # plot the center of the circle
-                    plt.plot(x, y, marker='o', color='black', linestyle='None') 
-                    ax2.add_patch(circle)
-
-                    # create the contact graph inside the circle packing
-                    for j in range(n):
-                        x1, y1, r1 = x_list[j], y_list[j], r_list[j]
-                        
-                        for k in range(j+1, n):
-                            x2, y2, r2 = x_list[k], y_list[k], r_list[k]
-                        
-                            if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
-                                plt.plot([x1, x2], [y1, y2], color='black', linewidth = 0.25, linestyle = 'dashed') 
-
-                
-                # draw the plots
                 # find x_min, x_max, y_min and y_max
                 x_min_values = []
                 x_max_values = []
@@ -276,27 +237,91 @@ def circle_packing(G, contact):
                         
                 y_min = min(y_min_values)
                 y_max = max(y_max_values)
+
+                # find the average of (x_min, x_max), (y_min, y_max)
+                x_scale = (x_min+x_max)/2
+                y_scale = (y_min+y_max)/2
+
+                # create lists to store the centers after the packing is translated so that 
+                # it is centered about the origin (0,0)
+                x_center = []
+                y_center = []
+
+###################################################################################################################
+
+                # generate a circle packing without the contact graph                               
+                fig1, ax1 = plt.subplots()
+
+                # draw the plots
+                for i in range(n):
+                    
+                    # identify the center and radius
+                    x, y, r = x_list[i], y_list[i], r_list[i]
+
+                    x_new, y_new = x-x_scale, y-y_scale
+                    x_center.append(x_new)
+                    y_center.append(y_new)
+                    
+                    # Create the circle
+                    circle = plt.Circle((x_new, y_new), r, edgecolor='black', facecolor='none')
+
+                    # plot the center of the circle
+                    ax1.add_patch(circle)
+            
+###################################################################################################################            
+
+                # generate the circle packing with its contact graph
+                fig2, ax2 = plt.subplots()
+                
+                for i in range(n):
+                    
+                    x = x_center[i]
+                    y = y_center[i]
+                    r = r_list[i]
+                    
+                    # Create the circle
+                    circle = plt.Circle((x, y), r, edgecolor='black', facecolor='none')                  
+
+                    # plot the center of the circle
+                    plt.plot(x, y, marker='o', color='black') 
+                    ax2.add_patch(circle)
+
+                # create the contact graph inside the circle packing
+                for j in range(n):
+                    x1, y1, r1 = x_center[j], y_center[j], r_list[j]
+                        
+                    for k in range(j+1, n):
+                        x2, y2, r2 = x_center[k], y_center[k], r_list[k]
+                        
+                        if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
+                            plt.plot([x1, x2], [y1, y2], color='black', linewidth = 0.5, linestyle = 'dashed') 
+
+###################################################################################################################                            
                 
                 # ensure the plots are drawn on square axes
-                # this ensures good looking circles
-                if x_min < y_min:
-                    y_min = x_min
-                else:
-                    x_min = y_min
-                    
-                if x_max > y_max:
-                    y_max = x_max
-                else:
-                    x_max = y_max
+                # this ensures goof x_min < y_min:
                 
                 # hide the axes
                 ax1.axis('off')
                 ax2.axis('off')
+
+                x_differences = [np.abs(x_center[i] - r_list[i]) for i in range(n)]
+                y_differences = [np.abs(y_center[i] - r_list[i]) for i in range(n)]
+
+                x_min = min(x_differences)
+                x_max = max(x_differences)
+
+                y_min = min(y_differences)
+                y_max = max(y_differences)
+
+                # Assuming you have computed x_min, x_max, y_min, and y_max after centering the circle packing
+                # Compute the range value
+                range_value = max(abs(x_min), abs(x_max), abs(y_min), abs(y_max))
                 
                 # display the plots
                 fig1.set_figheight(8)
                 fig1.set_figwidth(8)
-                ax1.set(xlim=(x_min,x_max), ylim=(y_min,y_max))
+                ax1.set(xlim=(-range_value,range_value), ylim=(-range_value, range_value))
                 plt.xlabel('X-axis')  
                 plt.ylabel('Y-axis')
                 #plt.show()
@@ -304,7 +329,7 @@ def circle_packing(G, contact):
                 # display the plots
                 fig2.set_figheight(8)
                 fig2.set_figwidth(8)
-                ax2.set(xlim=(x_min,x_max), ylim=(y_min,y_max))
+                ax2.set(xlim=(-range_value,range_value), ylim=(-range_value, range_value))
                 plt.xlabel('X-axis')  
                 plt.ylabel('Y-axis')
                 #plt.show()
