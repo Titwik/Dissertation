@@ -6,10 +6,7 @@
 # import relevant modules
 import math
 import random
-import Circle_Packing
 import numpy as np
-import networkx as nx
-import matplotlib.pyplot as plt
 
 ####################################################################################################
 # create a function that plots the graph on the x-y plane
@@ -160,37 +157,3 @@ def find_rigid_graphs(Graphs):
     return rigid_graphs
 
 ####################################################################################################
-
-# Examples of planar and minimally rigid
-# Minimally rigid graphs have 2n-3 edges, where n is number of nodes
-
-#print(f'There are {len(rigid_graphs_5)} rigid graphs for n = 5 and e = 7') # 0 graphs because all have degree 2
-#print(f'There are {len(rigid_graphs_6)} rigid graphs for n = 6 and e = 9') # 1 graph
-#print(f'There are {len(rigid_graphs_7)} rigid graphs for n = 7 and e = 11') # 3 graphs
-#print(f'There are {len(rigid_graphs_8)} rigid graphs for n = 8 and e = 13') # 17 graphs
-#print(f'There are {len(rigid_graphs_9)} rigid graphs for n = 9 and e = 15') # 111 graphs
-#print(f'There are {len(rigid_graphs_10)} rigid graphs for n = 10 and e = 17') # 936 graphs
-#print(f'There are {len(rigid_graphs_11)} rigid graphs for n = 11 and e = 19') 
-
-# add all the rigid graphs to a list    
-#rigid_graphs = [rigid_graphs_5, rigid_graphs_6, rigid_graphs_7, 
-#                rigid_graphs_8, rigid_graphs_9, rigid_graphs_10]
-
-# compute the rigidity of all circle packings of rigid graphs on 5 vertices
-#n = 5
-#for i in range(len(rigid_graphs[n - 5])):
-    
-#    print(f'Testing for packings on {n} vertices')
-
-#    G = rigid_graphs[n - 5][i]
-
-    # compute the contact graph of the circle packing
-#    contact_graph = Circle_Packing.circle_packing(G, drawing=False)
-
-    # check the rigidity
-#    if (check_rigidity(contact_graph)) == False:
-#        print(f'Graph {i} has a circle packing that is not rigid' )
-
-####################################################################################################
-
-
