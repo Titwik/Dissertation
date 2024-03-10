@@ -1,0 +1,42 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
+
+
+\begin{document}
+% Set the style for the vertices
+\tikzstyle{vertex} = [circle, draw=black, thin, inner sep=0pt,minimum size=2mm]
+
+\begin{tikzpicture}
+    
+    % Define nodes for the first K4
+    \node (11) at (0,0) [vertex, fill = black] {};
+    \node (12) at (0,2) [vertex, fill = black] {};
+    \node (13) at (2,2) [vertex, fill = black] {};
+    \node (14) at (2,0) [vertex, fill = black] {};
+
+    % add invisible node at (1,-1)
+    \node[draw = none] (graph) at (1, -.5) {Graph};
+
+    % define nodes for the second K4
+    \node (21) at (4,0) [vertex] {};
+    \node (22) at (4,2) [vertex] {};
+    \node (23) at (6,2) [vertex] {};
+    \node (24) at (6,0) [vertex] {};
+
+    \node[draw = none] (graph) at (5, -.5) {Framework};
+
+    % add the edges
+    \path[] (11) edge (12)
+                edge (14)
+            (12) edge (13)
+            (13) edge (11)
+                edge (14); 
+
+    \path[] (21) edge (22)
+                edge (24)
+            (22) edge (23)
+            (23) edge (21)
+                edge (24); 
+\end{tikzpicture}
+\end{document}

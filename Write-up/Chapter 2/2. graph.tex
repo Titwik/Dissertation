@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
+
+
+\begin{document}
+% Set the style for the vertices
+\tikzstyle{vertex} = [circle, draw=black, fill = black, thin, inner sep=0pt,minimum size=2mm]
+
+\begin{tikzpicture}
+    
+    % Define nodes
+    \node (1) at (0,0) [vertex, label=left:$1$] {};
+    \node (2) at (1,1) [vertex, label=above:$2$] {};
+    \node (3) at (2.5,1) [vertex, label=above:$3$] {};
+    \node (4) at (2.5,-1) [vertex, label=below:$4$] {};
+    \node (5) at (1,-1) [vertex, label=below:$5$] {};
+
+    % add edges
+    \path[] (1) edge (2)
+                edge (5)
+            (3) edge (2)
+                edge (4)
+            (4) edge (5);
+    
+\end{tikzpicture}
+\end{document}
+
+% when entering figures, use the following format
+
+%\begin{figure}[htbp]
+%    \centering
+%    \input{Chapter 1/framework}
+%    \caption{Caption}
+%    \label{fig:enter-label}
+%\end{figure}

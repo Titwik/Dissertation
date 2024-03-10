@@ -1,0 +1,1521 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.3.9)  10 MAR 2024 16:49
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"/home/titwik/Diss Work/Write-up/Dissertation.tex"
+(/home/titwik/Diss Work/Write-up/Dissertation.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(/home/titwik/.miktex/texmfs/install/tex/latex/memoir/memoir.cls
+Document Class: memoir 2024/01/26 v3.8.2 configurable book, report, article document class
+(/home/titwik/.miktex/texmfs/install/tex/latex/xpatch/xpatch.sty (/home/titwik/.miktex/texmfs/install/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-02-20 L3 programming layer (loader) 
+ (/home/titwik/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count188
+\l__pdf_internal_box=\box51
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+ (/home/titwik/.miktex/texmfs/install/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-02-18 L3 Experimental document command parser
+) (/home/titwik/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count189
+))
+\onelineskip=\skip48
+\lxvchars=\skip49
+\xlvchars=\skip50
+\@memcnta=\count190
+\c@@memmarkcntra=\count191
+ (/home/titwik/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\trimtop=\skip51
+\trimedge=\skip52
+ (/home/titwik/.miktex/texmfs/install/tex/latex/memoir/mem11.clo
+File: mem11.clo 2022/07/29 v0.5 memoir class 11pt size option
+)
+\binding=\skip53
+\spinemargin=\skip54
+\foremargin=\skip55
+\uppermargin=\skip56
+\lowermargin=\skip57
+\headdrop=\skip58
+\normalrulethickness=\skip59
+\mem@maxheadheight=\skip60
+\mem@maxfootheight=\skip61
+\headwidth=\skip62
+\c@storedpagenumber=\count192
+\memPD=\dimen140
+\m@mabparskip=\skip63
+\thanksmarkwidth=\skip64
+\thanksmarksep=\skip65
+\droptitle=\skip66
+\c@book=\count193
+\c@part=\count194
+\c@chapter=\count195
+\c@section=\count196
+\c@subsection=\count197
+\c@subsubsection=\count198
+\c@paragraph=\count199
+\c@subparagraph=\count266
+\beforechapskip=\skip67
+\midchapskip=\skip68
+\afterchapskip=\skip69
+\chapindent=\skip70
+\bottomsectionskip=\skip71
+\secindent=\skip72
+\beforesecskip=\skip73
+\aftersecskip=\skip74
+\subsecindent=\skip75
+\beforesubsecskip=\skip76
+\aftersubsecskip=\skip77
+\subsubsecindent=\skip78
+\beforesubsubsecskip=\skip79
+\aftersubsubsecskip=\skip80
+\paraindent=\skip81
+\beforeparaskip=\skip82
+\afterparaskip=\skip83
+\subparaindent=\skip84
+\beforesubparaskip=\skip85
+\aftersubparaskip=\skip86
+\pfbreakskip=\skip87
+\c@@ppsavesec=\count267
+\c@@ppsaveapp=\count268
+\ragrparindent=\dimen141
+\everylistparindent=\dimen142
+\parsepi=\skip88
+\topsepi=\skip89
+\itemsepi=\skip90
+\parsepii=\skip91
+\topsepii=\skip92
+\topsepiii=\skip93
+\itemsepii=\skip94
+\itemsepiii=\skip95
+\partopsepii=\skip96
+\partopsepiii=\skip97
+\m@msavetopsep=\skip98
+\m@msavepartopsep=\skip99
+\@enLab=\toks17
+\abstitleskip=\skip100
+\absleftindent=\skip101
+\abs@leftindent=\dimen143
+\absrightindent=\skip102
+\absparindent=\skip103
+\absparsep=\skip104
+\c@vslineno=\count269
+\c@poemline=\count270
+\c@modulo@vs=\count271
+\c@memfvsline=\count272
+\vleftskip=\skip105
+\vrightskip=\skip106
+\stanzaskip=\skip107
+\versewidth=\skip108
+\vgap=\skip109
+\vindent=\skip110
+\vleftmargin=\dimen144
+\c@verse=\count273
+\c@chrsinstr=\count274
+\beforepoemtitleskip=\skip111
+\afterpoemtitleskip=\skip112
+\c@poem=\count275
+\beforePoemTitleskip=\skip113
+\midPoemTitleskip=\skip114
+\afterPoemTitleskip=\skip115
+ (/home/titwik/.miktex/texmfs/install/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen145
+\ar@mcellbox=\box52
+\extrarowheight=\dimen146
+\NC@list=\toks18
+\extratabsurround=\skip116
+\backup@length=\skip117
+\ar@cellbox=\box53
+) (/home/titwik/.miktex/texmfs/install/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2023/07/08 v1.06 decimal alignment package (DPC)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/tools/delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen147
+\TX@old@table=\dimen148
+\TX@old@col=\dimen149
+\TX@target=\dimen150
+\TX@delta=\dimen151
+\TX@cols=\count276
+\TX@ftn=\toks19
+) (/home/titwik/.miktex/texmfs/install/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen152
+\lightrulewidth=\dimen153
+\cmidrulewidth=\dimen154
+\belowrulesep=\dimen155
+\belowbottomsep=\dimen156
+\aboverulesep=\dimen157
+\abovetopsep=\dimen158
+\cmidrulesep=\dimen159
+\cmidrulekern=\dimen160
+\defaultaddspace=\dimen161
+\@cmidla=\count277
+\@cmidlb=\count278
+\@aboverulesep=\dimen162
+\@belowrulesep=\dimen163
+\@thisruleclass=\count279
+\@lastruleclass=\count280
+\@thisrulewidth=\dimen164
+)
+\ctableftskip=\skip118
+\ctabrightskip=\skip119
+\abovecolumnspenalty=\count281
+\@linestogo=\count282
+\@cellstogo=\count283
+\@cellsincolumn=\count284
+\crtok=\toks20
+\@mincolumnwidth=\dimen165
+\c@newflo@tctr=\count285
+\mem@margin@floatbox=\box54
+\@contcwidth=\skip120
+\@contindw=\skip121
+\abovecaptionskip=\skip122
+\belowcaptionskip=\skip123
+\subfloattopskip=\skip124
+\subfloatcapskip=\skip125
+\subfloatcaptopadj=\skip126
+\subfloatbottomskip=\skip127
+\subfloatlabelskip=\skip128
+\subfloatcapmargin=\dimen166
+\c@@contsubnum=\count286
+\m@mscap@capbox=\box55
+\m@mscap@fbox=\box56
+\sidecapsep=\dimen167
+\sidecapwidth=\dimen168
+\m@m@tempdima=\dimen169
+\m@mscapraise=\dimen170
+\sidecapraise=\dimen171
+\m@mscapmainwidth=\dimen172
+\m@mscaplkern=\dimen173
+\beforeepigraphskip=\skip129
+\afterepigraphskip=\skip130
+\epigraphwidth=\skip131
+\epigraphrule=\skip132
+LaTeX Info: Redefining \em on input line 6932.
+LaTeX Info: Redefining \emph on input line 6940.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (/home/titwik/.miktex/texmfs/install/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)) (/home/titwik/.miktex/texmfs/install/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+) (/home/titwik/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+\c@section@level=\count287
+)
+\tocentryskip=\skip133
+\tocbaseline=\skip134
+\cftparskip=\skip135
+\cftbeforebookskip=\skip136
+\cftbookindent=\dimen174
+\cftbooknumwidth=\dimen175
+\cftbeforepartskip=\skip137
+\cftpartindent=\skip138
+\cftpartnumwidth=\skip139
+\cftbeforechapterskip=\skip140
+\cftchapterindent=\skip141
+\cftchapternumwidth=\skip142
+\cftbeforesectionskip=\skip143
+\cftsectionindent=\skip144
+\cftsectionnumwidth=\skip145
+\cftbeforesubsectionskip=\skip146
+\cftsubsectionindent=\skip147
+\cftsubsectionnumwidth=\skip148
+\cftbeforesubsubsectionskip=\skip149
+\cftsubsubsectionindent=\skip150
+\cftsubsubsectionnumwidth=\skip151
+\cftbeforeparagraphskip=\skip152
+\cftparagraphindent=\skip153
+\cftparagraphnumwidth=\skip154
+\cftbeforesubparagraphskip=\skip155
+\cftsubparagraphindent=\skip156
+\cftsubparagraphnumwidth=\skip157
+\prechapterprecisshift=\dimen176
+\c@maxsecnumdepth=\count288
+\bibindent=\dimen177
+\bibitemsep=\skip158
+\indexcolsep=\skip159
+\indexrule=\skip160
+\indexmarkstyle=\toks22
+\@indexbox=\insert252
+LaTeX Info: Redefining \raggedbottom on input line 7935.
+LaTeX Info: Redefining \flushbottom on input line 7939.
+\glossarycolsep=\dimen178
+\glossaryrule=\dimen179
+\sideparvshift=\skip161
+\sideins=\insert251
+\sidebartopsep=\skip162
+\sidebarhsep=\skip163
+\sidebarvsep=\skip164
+\sidebarwidth=\skip165
+\footmarkwidth=\skip166
+\footmarksep=\skip167
+\footparindent=\skip168
+\footinsdim=\skip169
+\footinsv@r=\insert250
+\@mpfootinsv@r=\insert249
+\m@m@k=\count289
+\m@m@h=\dimen180
+\m@mipn@skip=\skip170
+\sidefootins=\insert248
+\sidefootadjust=\skip171
+\sidefootheight=\skip172
+\sidefoothsep=\skip173
+\sidefootvsep=\skip174
+\sidefootwidth=\skip175
+\m@mdownsf=\skip176
+\c@sidefootnote=\count290
+\sidefootmarkwidth=\skip177
+\sidefootmarksep=\skip178
+\sidefootparindent=\skip179
+\c@pagenote=\count291
+\c@pagenoteshadow=\count292
+\mem@pn@lastkern=\skip180
+ (/home/titwik/.miktex/texmfs/install/tex/latex/tools/verbatim.sty
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks23
+\verbatim@line=\toks24
+\verbatim@in@stream=\read2
+)
+\verbatimindent=\skip181
+\verbatim@out=\write3
+ (/home/titwik/.miktex/texmfs/install/tex/latex/base/shortvrb.sty
+Package: shortvrb 2022/11/13 v3.0m Standard LaTeX documentation package V3 (FMi)
+)
+\bvboxsep=\skip182
+\c@memfbvline=\count293
+\c@bvlinectr=\count294
+\bvnumlength=\skip183
+\fb@frw=\dimen181
+\fb@frh=\dimen182
+\FrameRule=\dimen183
+\FrameSep=\dimen184
+\c@cp@cntr=\count295
+\c@ism@mctr=\count296
+\c@xsm@mctr=\count297
+\c@csm@mctr=\count298
+\c@ksm@mctr=\count299
+\c@xksm@mctr=\count300
+\c@cksm@mctr=\count301
+\c@msm@mctr=\count302
+\c@xmsm@mctr=\count303
+\c@cmsm@mctr=\count304
+\c@bsm@mctr=\count305
+\c@workm@mctr=\count306
+\c@sheetsequence=\count307
+\c@lastsheet=\count308
+\c@lastpage=\count309
+ (/home/titwik/.miktex/texmfs/install/tex/latex/textcase/textcase.sty
+Package: textcase 2023/07/27 v1.04 Text only upper/lower case changing (DPC)
+Package textcase Info: Defining Legacy names on input line 20.
+)
+\c@figure=\count310
+\c@lofdepth=\count311
+\cftbeforefigureskip=\skip184
+\cftfigureindent=\skip185
+\cftfigurenumwidth=\skip186
+\c@table=\count312
+\c@lotdepth=\count313
+\cftbeforetableskip=\skip187
+\cfttableindent=\skip188
+\cfttablenumwidth=\skip189
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+) (/home/titwik/.miktex/texmfs/install/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
+) (/home/titwik/.miktex/texmfs/install/tex/latex/gensymb/gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/psnfss/helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+) (/home/titwik/.miktex/texmfs/install/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip190
+\multirow@cntb=\count314
+\multirow@dima=\skip191
+\bigstrutjot=\dimen185
+) (/home/titwik/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip192
+
+For additional information on amsmath, use the `?' option.
+(/home/titwik/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/home/titwik/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks27
+\ex@=\dimen186
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen187
+) (/home/titwik/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count315
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count316
+\leftroot@=\count317
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count318
+\DOTSCASE@=\count319
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen188
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count320
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count321
+\dotsspace@=\muskip16
+\c@parentequation=\count322
+\dspbrk@lvl=\count323
+\tag@help=\toks28
+\row@=\count324
+\column@=\count325
+\maxfields@=\count326
+\andhelp@=\toks29
+\eqnshift@=\dimen189
+\alignsep@=\dimen190
+\tagshift@=\dimen191
+\tagwidth@=\dimen192
+\totwidth@=\dimen193
+\lineht@=\dimen194
+\@envbody=\toks30
+\multlinegap=\skip193
+\multlinetaggap=\skip194
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/home/titwik/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/home/titwik/.miktex/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+ (/home/titwik/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen195
+\Hy@linkcounter=\count327
+\Hy@pagecounter=\count328
+ (/home/titwik/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/home/titwik/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count329
+ (/home/titwik/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 4062.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4062.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4062.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count330
+ (/home/titwik/.miktex/texmfs/install/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen196
+ (/home/titwik/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count331
+\Field@Width=\dimen197
+\Fld@charsize=\dimen198
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring ON on input line 6081.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count332
+\c@Item=\count333
+\c@Hfootnote=\count334
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+ (/home/titwik/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count335
+\c@bookmark@seq@number=\count336
+ (/home/titwik/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip195
+) (/home/titwik/.miktex/texmfs/install/tex/latex/memoir/memhfixc.sty
+Package: memhfixc 2023/09/10 v1.22 hyperref package fixes for memoir class
+\c@memhycontfloat=\count337
+\c@Hpagenote=\count338
+) (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count339
+ (/home/titwik/.miktex/texmfs/install/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count340
+\c@listtotal=\count341
+\c@listcount=\count342
+\c@liststart=\count343
+\c@liststop=\count344
+\c@citecount=\count345
+\c@citetotal=\count346
+\c@multicitecount=\count347
+\c@multicitetotal=\count348
+\c@instcount=\count349
+\c@maxnames=\count350
+\c@minnames=\count351
+\c@maxitems=\count352
+\c@minitems=\count353
+\c@citecounter=\count354
+\c@maxcitecounter=\count355
+\c@savedcitecounter=\count356
+\c@uniquelist=\count357
+\c@uniquename=\count358
+\c@refsection=\count359
+\c@refsegment=\count360
+\c@maxextratitle=\count361
+\c@maxextratitleyear=\count362
+\c@maxextraname=\count363
+\c@maxextradate=\count364
+\c@maxextraalpha=\count365
+\c@abbrvpenalty=\count366
+\c@highnamepenalty=\count367
+\c@lownamepenalty=\count368
+\c@maxparens=\count369
+\c@parenlevel=\count370
+\blx@tempcnta=\count371
+\blx@tempcntb=\count372
+\blx@tempcntc=\count373
+\c@blx@maxsection=\count374
+\blx@maxsegment@0=\count375
+\blx@notetype=\count376
+\blx@parenlevel@text=\count377
+\blx@parenlevel@foot=\count378
+\blx@sectionciteorder@0=\count379
+\blx@sectionciteorderinternal@0=\count380
+\blx@entrysetcounter=\count381
+\blx@biblioinstance=\count382
+\labelnumberwidth=\skip196
+\labelalphawidth=\skip197
+\biblabelsep=\skip198
+\bibnamesep=\skip199
+\bibinitsep=\skip256
+\bibparsep=\skip257
+\bibhang=\skip258
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language1
+\c@mincomprange=\count383
+\c@maxcomprange=\count384
+\c@mincompwidth=\count385
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'numeric.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count386
+\c@savedafterword=\count387
+\c@annotator=\count388
+\c@savedannotator=\count389
+\c@author=\count390
+\c@savedauthor=\count391
+\c@bookauthor=\count392
+\c@savedbookauthor=\count393
+\c@commentator=\count394
+\c@savedcommentator=\count395
+\c@editor=\count396
+\c@savededitor=\count397
+\c@editora=\count398
+\c@savededitora=\count399
+\c@editorb=\count400
+\c@savededitorb=\count401
+\c@editorc=\count402
+\c@savededitorc=\count403
+\c@foreword=\count404
+\c@savedforeword=\count405
+\c@holder=\count406
+\c@savedholder=\count407
+\c@introduction=\count408
+\c@savedintroduction=\count409
+\c@namea=\count410
+\c@savednamea=\count411
+\c@nameb=\count412
+\c@savednameb=\count413
+\c@namec=\count414
+\c@savednamec=\count415
+\c@translator=\count416
+\c@savedtranslator=\count417
+\c@shortauthor=\count418
+\c@savedshortauthor=\count419
+\c@shorteditor=\count420
+\c@savedshorteditor=\count421
+\c@labelname=\count422
+\c@savedlabelname=\count423
+\c@institution=\count424
+\c@savedinstitution=\count425
+\c@lista=\count426
+\c@savedlista=\count427
+\c@listb=\count428
+\c@savedlistb=\count429
+\c@listc=\count430
+\c@savedlistc=\count431
+\c@listd=\count432
+\c@savedlistd=\count433
+\c@liste=\count434
+\c@savedliste=\count435
+\c@listf=\count436
+\c@savedlistf=\count437
+\c@location=\count438
+\c@savedlocation=\count439
+\c@organization=\count440
+\c@savedorganization=\count441
+\c@origlocation=\count442
+\c@savedoriglocation=\count443
+\c@origpublisher=\count444
+\c@savedorigpublisher=\count445
+\c@publisher=\count446
+\c@savedpublisher=\count447
+\c@language=\count448
+\c@savedlanguage=\count449
+\c@origlanguage=\count450
+\c@savedoriglanguage=\count451
+\c@pageref=\count452
+\c@savedpageref=\count453
+\shorthandwidth=\skip259
+\shortjournalwidth=\skip260
+\shortserieswidth=\skip261
+\shorttitlewidth=\skip262
+\shortauthorwidth=\skip263
+\shorteditorwidth=\skip264
+\locallabelnumberwidth=\skip265
+\locallabelalphawidth=\skip266
+\localshorthandwidth=\skip267
+\localshortjournalwidth=\skip268
+\localshortserieswidth=\skip269
+\localshorttitlewidth=\skip270
+\localshortauthorwidth=\skip271
+\localshorteditorwidth=\skip272
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
+\c@textcitecount=\count454
+\c@textcitetotal=\count455
+\c@textcitemaxnames=\count456
+\c@biburlbigbreakpenalty=\count457
+\c@biburlbreakpenalty=\count458
+\c@biburlnumpenalty=\count459
+\c@biburlucpenalty=\count460
+\c@biburllcpenalty=\count461
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count462
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count463
+\c@bbx:relatedtotal=\count464
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2024-02-20 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/standalone/standalone.sty
+Package: standalone 2022/10/10 v1.3b Package to include TeX sub-files with preambles
+ (/home/titwik/.miktex/texmfs/install/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+) (/home/titwik/.miktex/texmfs/install/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/xkeyval/xkeyval.tex (/home/titwik/.miktex/texmfs/install/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks32
+\XKV@tempa@toks=\toks33
+)
+\XKV@depth=\count465
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/currfile/currfile.sty
+Package: currfile 2020/09/29 v0.7d Provides the file path elements of the current input file
+ (/home/titwik/.miktex/texmfs/install/tex/latex/filehook/filehook.sty
+Package: filehook 2022/10/25 v0.8b Hooks for input files
+ (/home/titwik/.miktex/texmfs/install/tex/latex/filehook/filehook-2020.sty
+Package: filehook-2020 2022/10/25 v0.8b Hooks for input files
+))
+\c@currfiledepth=\count466
+) (/home/titwik/.miktex/texmfs/install/tex/latex/gincltex/gincltex.sty (/home/titwik/.miktex/texmfs/install/tex/latex/svn-prov/svn-prov.sty
+Package: svn-prov 2010/04/24 v3.1862 Package Date/Version from SVN Keywords
+)
+Package: gincltex 2011/09/04 v0.3 Include external LaTeX files like graphics
+ (/home/titwik/.miktex/texmfs/install/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen199
+\Gin@req@width=\dimen256
+) (/home/titwik/.miktex/texmfs/install/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box59
+)
+\tc@llx=\dimen257
+\tc@lly=\dimen258
+\tc@urx=\dimen259
+\tc@ury=\dimen260
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen261
+\adjbox@Height=\dimen262
+\adjbox@Depth=\dimen263
+\adjbox@Totalheight=\dimen264
+\adjbox@pwidth=\dimen265
+\adjbox@pheight=\dimen266
+\adjbox@pdepth=\dimen267
+\adjbox@ptotalheight=\dimen268
+ (/home/titwik/.miktex/texmfs/install/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count467
+LaTeX Info: Redefining \checkoddpage on input line 45.
+) (/home/titwik/.miktex/texmfs/install/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box60
+\sift@deathcycles=\count468
+\@vwid@loff=\dimen269
+\@vwid@roff=\dimen270
+))
+\gincltex@box=\box61
+) (/home/titwik/.miktex/texmfs/install/tex/latex/filemod/filemod-expmin.sty
+Package: filemod-expmin 2011/09/19 v1.2 Get and compare file modification times (expandable; minimal)
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/home/titwik/.miktex/texmfs/install/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count469
+\Gm@cntv=\count470
+\c@Gm@tempcnt=\count471
+\Gm@bindingoffset=\dimen271
+\Gm@wd@mp=\dimen272
+\Gm@odd@mp=\dimen273
+\Gm@even@mp=\dimen274
+\Gm@layoutwidth=\dimen275
+\Gm@layoutheight=\dimen276
+\Gm@layouthoffset=\dimen277
+\Gm@layoutvoffset=\dimen278
+\Gm@dimlist=\toks34
+ (/home/titwik/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg)) (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/frontendlayer/tikz.sty (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgf.sty (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfrcs.sty (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks35
+\pgfutil@tempdima=\dimen279
+\pgfutil@tempdimb=\dimen280
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box62
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfrcs.code.tex (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/basiclayer/pgfcore.sty (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/systemlayer/pgfsys.sty (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks36
+\pgfkeys@temptoks=\toks37
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks38
+))
+\pgf@x=\dimen281
+\pgf@y=\dimen282
+\pgf@xa=\dimen283
+\pgf@ya=\dimen284
+\pgf@xb=\dimen285
+\pgf@yb=\dimen286
+\pgf@xc=\dimen287
+\pgf@yc=\dimen288
+\pgf@xd=\dimen289
+\pgf@yd=\dimen290
+\w@pgf@writea=\write5
+\r@pgf@reada=\read4
+\c@pgf@counta=\count472
+\c@pgf@countb=\count473
+\c@pgf@countc=\count474
+\c@pgf@countd=\count475
+\t@pgf@toka=\toks39
+\t@pgf@tokb=\toks40
+\t@pgf@tokc=\toks41
+\pgf@sys@id@count=\count476
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count477
+\pgfsyssoftpath@bigbuffer@items=\count478
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathutil.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen291
+\pgfmath@count=\count479
+\pgfmath@box=\box63
+\pgfmath@toks=\toks42
+\pgfmath@stack@operand=\toks43
+\pgfmath@stack@operation=\toks44
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathcalc.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count480
+)) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfint.code.tex) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen292
+\pgf@picmaxx=\dimen293
+\pgf@picminy=\dimen294
+\pgf@picmaxy=\dimen295
+\pgf@pathminx=\dimen296
+\pgf@pathmaxx=\dimen297
+\pgf@pathminy=\dimen298
+\pgf@pathmaxy=\dimen299
+\pgf@xx=\dimen300
+\pgf@xy=\dimen301
+\pgf@yx=\dimen302
+\pgf@yy=\dimen303
+\pgf@zx=\dimen304
+\pgf@zy=\dimen305
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen306
+\pgf@path@lasty=\dimen307
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen308
+\pgf@shorten@start@additional=\dimen309
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count481
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen310
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen311
+\pgf@pt@y=\dimen312
+\pgf@pt@temp=\dimen313
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen314
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen315
+\pgf@sys@shading@range@num=\count482
+\pgf@shadingcount=\count483
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box67
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box68
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen316
+\pgf@nodesepend=\dimen317
+) (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/utilities/pgffor.sty (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/utilities/pgfkeys.sty (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/home/titwik/.miktex/texmfs/install/tex/latex/pgf/math/pgfmath.sty (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/math/pgfmath.code.tex)) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen318
+\pgffor@skip=\dimen319
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
+)) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count484
+\pgfplotmarksize=\dimen320
+)
+\tikz@lastx=\dimen321
+\tikz@lasty=\dimen322
+\tikz@lastxsaved=\dimen323
+\tikz@lastysaved=\dimen324
+\tikz@lastmovetox=\dimen325
+\tikz@lastmovetoy=\dimen326
+\tikzleveldistance=\dimen327
+\tikzsiblingdistance=\dimen328
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count485
+\tikznumberofchildren=\count486
+\tikznumberofcurrentchild=\count487
+\tikz@fig@count=\count488
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count489
+\pgfmatrixcurrentcolumn=\count490
+\pgf@matrix@numberofcolumns=\count491
+)
+\tikz@expandcount=\count492
+
+(/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/home/titwik/.miktex/texmfs/install/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks47
+\thm@bodyfont=\toks48
+\thm@headfont=\toks49
+\thm@notefont=\toks50
+\thm@headpunct=\toks51
+\thm@preskip=\skip273
+\thm@postskip=\skip274
+\thm@headsep=\skip275
+\dth@everypar=\toks52
+)
+\c@theorem=\count493
+ (/home/titwik/.miktex/texmfs/install/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/home/titwik/.miktex/texmfs/install/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen329
+\captionmargin=\dimen330
+\caption@leftmargin=\dimen331
+\caption@rightmargin=\dimen332
+\caption@width=\dimen333
+\caption@indent=\dimen334
+\caption@parindent=\dimen335
+\caption@hangindent=\dimen336
+Package caption Info: memoir document class detected.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/caption/caption-memoir.sto
+File: caption-memoir.sto 2023/09/08 v2.2c Adaption of the caption package to the memoir document class (AR)
+))
+\c@caption@flags=\count494
+\c@continuedfloat=\count495
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen337
+\caption@adjustwidth@linewidth=\dimen338
+Package caption Info: hyperref package is loaded.
+) (/home/titwik/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count496
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count497
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen339
+)) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box73
+\pgf@layerboxsaved@background=\box74
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypetri.code.tex
+File: tikzlibrarypetri.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip276
+\f@nch@O@elh=\skip277
+\f@nch@O@erh=\skip278
+\f@nch@O@olh=\skip279
+\f@nch@O@orh=\skip280
+\f@nch@O@elf=\skip281
+\f@nch@O@erf=\skip282
+\f@nch@O@olf=\skip283
+\f@nch@O@orf=\skip284
+) (/home/titwik/.miktex/texmfs/install/tex/latex/listings/listings.sty
+\lst@mode=\count498
+\lst@gtempboxa=\box75
+\lst@token=\toks53
+\lst@length=\count499
+\lst@currlwidth=\dimen340
+\lst@column=\count500
+\lst@pos=\count501
+\lst@lostspace=\dimen341
+\lst@width=\dimen342
+\lst@newlines=\count502
+\lst@lineno=\count503
+\lst@maxwidth=\dimen343
+ (/home/titwik/.miktex/texmfs/install/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
+) (/home/titwik/.miktex/texmfs/install/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
+\c@lstnumber=\count504
+\lst@skipnumbers=\count505
+\lst@framebox=\box76
+) (/home/titwik/.miktex/texmfs/install/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/02/21 1.10 listings configuration
+))
+Package: listings 2024/02/21 1.10 (Carsten Heinz)
+\@quotelevel=\count506
+\@quotereset=\count507
+ (Dissertation.aux)
+\openout1 = `Dissertation.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Info: Redefining \celsius on input line 113.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 113.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 113.
+Package gensymb Info: Using \Omega for \ohm on input line 113.
+
+Package gensymb Warning: Not defining \micro.
+
+Package hyperref Info: Link coloring ON on input line 113.
+(Dissertation.out) (Dissertation.out)
+\@outlinefile=\write6
+\openout6 = `Dissertation.out'.
+
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `Dissertation.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Dissertation.bbl' found.
+ (Dissertation.bbl)
+Package biblatex Info: Reference section=0 on input line 113.
+Package biblatex Info: Reference segment=0 on input line 113.
+ (/home/titwik/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count508
+\scratchdimen=\dimen344
+\scratchbox=\box77
+\nofMPsegments=\count509
+\nofMParguments=\count510
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count511
+\MPscratchDim=\dimen345
+\MPnumerator=\count512
+\makeMPintoPDFobject=\count513
+\everyMPtoPDFconversion=\toks55
+) (/home/titwik/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=702.78308pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-34.61191pt
+* \headheight=13.6pt
+* \headsep=19.8738pt
+* \topskip=11.0pt
+* \footskip=27.46295pt
+* \marginparwidth=49.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=12.0pt plus 4.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count514
+(Title Page.tex [1
+
+{/home/titwik/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}] [2
+
+] (Dissertation.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
+ (/home/titwik/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)) [3
+
+]) (Chapter 1/1. Chapter1.tex
+<Chapter 1/2. Cubic packing.png, id=155, 110.3322pt x 104.3097pt>
+File: Chapter 1/2. Cubic packing.png Graphic file (type png)
+<use Chapter 1/2. Cubic packing.png>
+Package pdftex.def Info: Chapter 1/2. Cubic packing.png  used on input line 14.
+(pdftex.def)             Requested size: 169.29684pt x 160.06123pt.
+<Chapter 1/oranges.png, id=157, 245.9589pt x 301.6068pt>
+File: Chapter 1/oranges.png Graphic file (type png)
+<use Chapter 1/oranges.png>
+Package pdftex.def Info: Chapter 1/oranges.png  used on input line 14.
+(pdftex.def)             Requested size: 133.01367pt x 163.10915pt.
+ [4
+
+
+ <./Chapter 1/2. Cubic packing.png> <./Chapter 1/oranges.png>]
+<Chapter 1/packing.png, id=173, 185.0112pt x 185.0112pt>
+File: Chapter 1/packing.png Graphic file (type png)
+<use Chapter 1/packing.png>
+Package pdftex.def Info: Chapter 1/packing.png  used on input line 34.
+(pdftex.def)             Requested size: 193.47578pt x 193.4855pt.
+<Chapter 1/packing_contact.png, id=174, 185.0112pt x 185.0112pt>
+File: Chapter 1/packing_contact.png Graphic file (type png)
+<use Chapter 1/packing_contact.png>
+Package pdftex.def Info: Chapter 1/packing_contact.png  used on input line 34.
+(pdftex.def)             Requested size: 193.47578pt x 193.4855pt.
+ [5 <./Chapter 1/packing.png> <./Chapter 1/packing_contact.png>]) [6] (Chapter 2/1. Chapter2.tex (Chapter 2/2. graph.tex) [7
+
+
+] (Chapter 2/3. isomorphic graphs.tex) (Chapter 2/15. subgraph.tex) [8] (Chapter 2/6. graph vs framework.tex) [9] [10] (Chapter 2/4. simple motion.tex) (Chapter 2/5. rigid motion.tex) [11]
+<Chapter 2/7. rigid_graphs.png, id=251, 56.97035pt x 20.94072pt>
+File: Chapter 2/7. rigid_graphs.png Graphic file (type png)
+<use Chapter 2/7. rigid_graphs.png>
+Package pdftex.def Info: Chapter 2/7. rigid_graphs.png  used on input line 327.
+(pdftex.def)             Requested size: 275.71075pt x 101.346pt.
+<Chapter 2/8. not_rigid.png, id=252, 34.45274pt x 18.76381pt>
+File: Chapter 2/8. not_rigid.png Graphic file (type png)
+<use Chapter 2/8. not_rigid.png>
+Package pdftex.def Info: Chapter 2/8. not_rigid.png  used on input line 337.
+(pdftex.def)             Requested size: 193.47578pt x 105.4178pt.
+ [12 <./Chapter 2/7. rigid_graphs.png> <./Chapter 2/8. not_rigid.png>]
+<Chapter 2/14. epsilon.png, id=267, 31.19919pt x 32.38708pt>
+File: Chapter 2/14. epsilon.png Graphic file (type png)
+<use Chapter 2/14. epsilon.png>
+Package pdftex.def Info: Chapter 2/14. epsilon.png  used on input line 377.
+(pdftex.def)             Requested size: 169.29684pt x 175.80775pt.
+<Chapter 2/9. not_inf_rigid.png, id=269, 24.26376pt x 22.67989pt>
+File: Chapter 2/9. not_inf_rigid.png Graphic file (type png)
+<use Chapter 2/9. not_inf_rigid.png>
+Package pdftex.def Info: Chapter 2/9. not_inf_rigid.png  used on input line 398.
+(pdftex.def)             Requested size: 154.78653pt x 144.76373pt.
+ [13 <./Chapter 2/14. epsilon.png>]
+<Chapter 2/12. path.png, id=282, 62.45103pt x 26.04874pt>
+File: Chapter 2/12. path.png Graphic file (type png)
+<use Chapter 2/12. path.png>
+Package pdftex.def Info: Chapter 2/12. path.png  used on input line 416.
+(pdftex.def)             Requested size: 241.84843pt x 100.89801pt.
+<Chapter 2/13. inf_rigid_proof.png, id=283, 71.5019pt x 44.36719pt>
+File: Chapter 2/13. inf_rigid_proof.png Graphic file (type png)
+<use Chapter 2/13. inf_rigid_proof.png>
+Package pdftex.def Info: Chapter 2/13. inf_rigid_proof.png  used on input line 431.
+(pdftex.def)             Requested size: 314.40001pt x 195.09093pt.
+ [14 <./Chapter 2/9. not_inf_rigid.png> <./Chapter 2/12. path.png>] [15 <./Chapter 2/13. inf_rigid_proof.png>]
+<Chapter 2/10. not_inf_rigid_2.0.png, id=303, 62.60954pt x 24.42392pt>
+File: Chapter 2/10. not_inf_rigid_2.0.png Graphic file (type png)
+<use Chapter 2/10. not_inf_rigid_2.0.png>
+Package pdftex.def Info: Chapter 2/10. not_inf_rigid_2.0.png  used on input line 532.
+(pdftex.def)             Requested size: 338.58632pt x 132.1148pt.
+<Chapter 2/11. inf_rigid.png, id=305, 40.0674pt x 40.02406pt>
+File: Chapter 2/11. inf_rigid.png Graphic file (type png)
+<use Chapter 2/11. inf_rigid.png>
+Package pdftex.def Info: Chapter 2/11. inf_rigid.png  used on input line 542.
+(pdftex.def)             Requested size: 169.29684pt x 169.13382pt.
+ [16 <./Chapter 2/10. not_inf_rigid_2.0.png>] [17 <./Chapter 2/11. inf_rigid.png>]) [18] (Chapter 3/1. Chapter3.tex [19
+
+
+]
+<Chapter 3/5. degree_of_freedom.png, id=341, 18.58475pt x 21.27177pt>
+File: Chapter 3/5. degree_of_freedom.png Graphic file (type png)
+<use Chapter 3/5. degree_of_freedom.png>
+Package pdftex.def Info: Chapter 3/5. degree_of_freedom.png  used on input line 32.
+(pdftex.def)             Requested size: 120.92421pt x 138.45633pt.
+ [20 <./Chapter 3/5. degree_of_freedom.png>]
+<Chapter 3/4. rigidity_matrix.png, id=354, 18.58475pt x 21.27177pt>
+File: Chapter 3/4. rigidity_matrix.png Graphic file (type png)
+<use Chapter 3/4. rigidity_matrix.png>
+Package pdftex.def Info: Chapter 3/4. rigidity_matrix.png  used on input line 77.
+(pdftex.def)             Requested size: 120.92421pt x 138.45633pt.
+ [21 <./Chapter 3/4. rigidity_matrix.png>] [22]
+<Chapter 3/2. henneberg_1.png, id=383, 108.19368pt x 16.96573pt>
+File: Chapter 3/2. henneberg_1.png Graphic file (type png)
+<use Chapter 3/2. henneberg_1.png>
+Package pdftex.def Info: Chapter 3/2. henneberg_1.png  used on input line 219.
+(pdftex.def)             Requested size: 435.32422pt x 68.26625pt.
+<Chapter 3/3. henneberg_2.png, id=384, 108.19368pt x 20.00662pt>
+File: Chapter 3/3. henneberg_2.png Graphic file (type png)
+<use Chapter 3/3. henneberg_2.png>
+Package pdftex.def Info: Chapter 3/3. henneberg_2.png  used on input line 226.
+(pdftex.def)             Requested size: 435.32422pt x 80.50217pt.
+ [23 <./Chapter 3/2. henneberg_1.png> <./Chapter 3/3. henneberg_2.png>]
+<Chapter 3/6. rigid but not inf rigid.png, id=399, 46.77907pt x 44.47385pt>
+File: Chapter 3/6. rigid but not inf rigid.png Graphic file (type png)
+<use Chapter 3/6. rigid but not inf rigid.png>
+Package pdftex.def Info: Chapter 3/6. rigid but not inf rigid.png  used on input line 251.
+(pdftex.def)             Requested size: 217.66211pt x 206.99458pt.
+ [24 <./Chapter 3/6. rigid but not inf rigid.png>]
+<Chapter 3/7. Plain packing.png, id=409, 578.16pt x 578.16pt>
+File: Chapter 3/7. Plain packing.png Graphic file (type png)
+<use Chapter 3/7. Plain packing.png>
+Package pdftex.def Info: Chapter 3/7. Plain packing.png  used on input line 300.
+(pdftex.def)             Requested size: 203.1518pt x 203.14418pt.
+ [25 <./Chapter 3/7. Plain packing.png>]
+<Chapter 3/8. Packing with contact.png, id=421, 578.16pt x 578.16pt>
+File: Chapter 3/8. Packing with contact.png Graphic file (type png)
+<use Chapter 3/8. Packing with contact.png>
+Package pdftex.def Info: Chapter 3/8. Packing with contact.png  used on input line 335.
+(pdftex.def)             Requested size: 203.1518pt x 203.14418pt.
+ [26 <./Chapter 3/8. Packing with contact.png>]
+<Chapter 3/9. Starting graph.png, id=441, 138.7584pt x 112.7412pt>
+File: Chapter 3/9. Starting graph.png Graphic file (type png)
+<use Chapter 3/9. Starting graph.png>
+Package pdftex.def Info: Chapter 3/9. Starting graph.png  used on input line 392.
+(pdftex.def)             Requested size: 145.11053pt x 117.90865pt.
+<Chapter 3/10. Isomorphic packing.png, id=442, 185.0112pt x 185.0112pt>
+File: Chapter 3/10. Isomorphic packing.png Graphic file (type png)
+<use Chapter 3/10. Isomorphic packing.png>
+Package pdftex.def Info: Chapter 3/10. Isomorphic packing.png  used on input line 392.
+(pdftex.def)             Requested size: 145.11053pt x 145.11836pt.
+<Chapter 3/11. Non-isomorphic packing.png, id=443, 185.0112pt x 185.0112pt>
+File: Chapter 3/11. Non-isomorphic packing.png Graphic file (type png)
+<use Chapter 3/11. Non-isomorphic packing.png>
+Package pdftex.def Info: Chapter 3/11. Non-isomorphic packing.png  used on input line 392.
+(pdftex.def)             Requested size: 145.11053pt x 145.11836pt.
+<Chapter 3/12. Isomorphic contact.png, id=444, 185.0112pt x 185.0112pt>
+File: Chapter 3/12. Isomorphic contact.png Graphic file (type png)
+<use Chapter 3/12. Isomorphic contact.png>
+Package pdftex.def Info: Chapter 3/12. Isomorphic contact.png  used on input line 392.
+(pdftex.def)             Requested size: 145.11053pt x 145.11836pt.
+<Chapter 3/13. Non-isomorphic contact.png, id=445, 185.0112pt x 185.0112pt>
+File: Chapter 3/13. Non-isomorphic contact.png Graphic file (type png)
+<use Chapter 3/13. Non-isomorphic contact.png>
+Package pdftex.def Info: Chapter 3/13. Non-isomorphic contact.png  used on input line 392.
+(pdftex.def)             Requested size: 145.11053pt x 145.11836pt.
+) [27] [28 <./Chapter 3/9. Starting graph.png> <./Chapter 3/10. Isomorphic packing.png> <./Chapter 3/11. Non-isomorphic packing.png> <./Chapter 3/12. Isomorphic contact.png> <./Chapter 3/13. Non-isomorphic contact.png>] (Chapter 4/1. Chapter4.tex
+<Chapter 4/2. Isomorphic but not inf rigid.png, id=462, 81.32361pt x 34.46878pt>
+File: Chapter 4/2. Isomorphic but not inf rigid.png Graphic file (type png)
+<use Chapter 4/2. Isomorphic but not inf rigid.png>
+Package pdftex.def Info: Chapter 4/2. Isomorphic but not inf rigid.png  used on input line 25.
+(pdftex.def)             Requested size: 386.95897pt x 164.03342pt.
+ [29
+
+
+]
+<Chapter 4/3. n=4.png, id=471, 106.32828pt x 75.90202pt>
+File: Chapter 4/3. n=4.png Graphic file (type png)
+<use Chapter 4/3. n=4.png>
+Package pdftex.def Info: Chapter 4/3. n=4.png  used on input line 63.
+(pdftex.def)             Requested size: 266.03474pt x 189.93523pt.
+<Chapter 4/4. n=5.png, id=472, 185.9409pt x 177.89539pt>
+File: Chapter 4/4. n=5.png Graphic file (type png)
+<use Chapter 4/4. n=5.png>
+Package pdftex.def Info: Chapter 4/4. n=5.png  used on input line 70.
+(pdftex.def)             Requested size: 459.51054pt x 439.63417pt.
+ [30 <./Chapter 4/2. Isomorphic but not inf rigid.png>] [31 <./Chapter 4/3. n=4.png> <./Chapter 4/4. n=5.png>]
+<Chapter 4/5. configuration space.png, id=490, 123.9606pt x 56.02156pt>
+File: Chapter 4/5. configuration space.png Graphic file (type png)
+<use Chapter 4/5. configuration space.png>
+Package pdftex.def Info: Chapter 4/5. configuration space.png  used on input line 93.
+(pdftex.def)             Requested size: 362.77264pt x 163.97733pt.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 114.
+ [32
+
+ <./Chapter 4/5. configuration space.png>] [33] [34]
+<Chapter 4/6. not_rigid.png, id=542, 24.09784pt x 23.91098pt>
+File: Chapter 4/6. not_rigid.png Graphic file (type png)
+<use Chapter 4/6. not_rigid.png>
+Package pdftex.def Info: Chapter 4/6. not_rigid.png  used on input line 249.
+(pdftex.def)             Requested size: 120.92421pt x 120.0062pt.
+<Chapter 4/7. not_inf_rigid_2.0.png, id=543, 25.71385pt x 28.1172pt>
+File: Chapter 4/7. not_inf_rigid_2.0.png Graphic file (type png)
+<use Chapter 4/7. not_inf_rigid_2.0.png>
+Package pdftex.def Info: Chapter 4/7. not_inf_rigid_2.0.png  used on input line 250.
+(pdftex.def)             Requested size: 120.92421pt x 132.24092pt.
+<Chapter 4/8. inf_rigid.png, id=544, 40.19798pt x 53.93913pt>
+File: Chapter 4/8. inf_rigid.png Graphic file (type png)
+<use Chapter 4/8. inf_rigid.png>
+Package pdftex.def Info: Chapter 4/8. inf_rigid.png  used on input line 251.
+(pdftex.def)             Requested size: 96.73788pt x 129.81453pt.
+ [35] [36 <./Chapter 4/6. not_rigid.png> <./Chapter 4/7. not_inf_rigid_2.0.png> <./Chapter 4/8. inf_rigid.png>]) [37]
+Overfull \hbox (0.56744pt too wide) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10.95 Thomas C Hales. ``A proof of the Kepler conjecture''. In: \OT1/cmr/m/it/10.95 Annals of mathematics \OT1/cmr/m/n/10.95 (2005), pp. 1065{
+ []
+
+
+Overfull \hbox (0.32831pt too wide) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10.95 Sanjeev Khanna. \OT1/cmr/m/it/10.95 Proceedings of the 2013 Annual ACM-SIAM Symposium on Discrete Algorithms
+ []
+
+
+Overfull \hbox (16.19766pt too wide) in paragraph at lines 144--144
+\OT1/cmr/m/it/10.95 (SODA)\OT1/cmr/m/n/10.95 . Ed. by Sanjeev Khanna. Philadelphia, PA: Society for Industrial and Applied Mathematics,
+ []
+
+
+Overfull \hbox (9.60068pt too wide) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10.95 Christopher M Linton. \OT1/cmr/m/it/10.95 From Eudoxus to Einstein: a history of mathematical astronomy\OT1/cmr/m/n/10.95 . Cambridge
+ []
+
+
+Overfull \hbox (2.0865pt too wide) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10.95 Hilda Pollaczek-Geiringer. ``[]Uber die gliederung ebener fachwerke''. In: \OT1/cmr/m/it/10.95 ZAMM-Journal of Applied
+ []
+
+[38
+
+
+] [39]
+\tf@toc=\write7
+\openout7 = `Dissertation.toc'.
+
+ (Dissertation.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+Package rerunfilecheck Info: File `Dissertation.out' has not changed.
+(rerunfilecheck)             Checksum: 6FA2345AA233FEFF7143F4B6EC577E27;4042.
+Package logreq Info: Writing requests to 'Dissertation.run.xml'.
+\openout1 = `Dissertation.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 38195 strings out of 476371
+ 710786 string characters out of 5793610
+ 1971187 words of memory out of 5000000
+ 59455 multiletter control sequences out of 15000+600000
+ 573375 words of font info for 93 fonts, out of 8000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 125i,15n,121p,1191b,1574s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/titwik/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk> </home/titwik/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb></home/titwik/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Dissertation.pdf (39 pages, 4650230 bytes).
+PDF statistics:
+ 779 PDF objects out of 1000 (max. 8388607)
+ 218 named destinations out of 1000 (max. 500000)
+ 368 words of extra memory for PDF output out of 10000 (max. 10000000)
+

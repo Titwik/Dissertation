@@ -1,0 +1,25 @@
+\contentsline {chapter}{\chapternumberline {1}Introduction}{4}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {2}Rigidity: An Introduction}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Graph Theory}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Frameworks}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Motions}{10}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Rigidity}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Infinitesimal Rigidity}{13}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Generic Rigidity}{17}{subsection.2.4.2}%
+\contentsline {chapter}{\chapternumberline {3}Exploring Rigidity \& Circle Packings}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Degrees of Freedom}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}The Rigidity Matrix}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Constructing Rigid Structures}{22}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Rigidity vs Infinitesimal Rigidity}{24}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Circle Packings}{25}{section.3.5}%
+\contentsline {chapter}{\chapternumberline {4}Rigidity of Minimally Rigid Circle Packings}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Goal}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}\texttt {Rigidity.py}}{32}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Creating a Configuration}{33}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Constructing the Rigidity Matrix}{33}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Rank of the Rigidity Matrix}{34}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Checking rigidity for a list of graphs}{35}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Testing the code}{35}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}\texttt {Circle\_Packing.py}}{36}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}A Simple Example}{36}{subsection.4.3.1}%
+\contentsline {chapter}{Bibliography}{38}{section*.34}%

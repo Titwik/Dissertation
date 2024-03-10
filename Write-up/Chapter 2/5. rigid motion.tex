@@ -1,0 +1,52 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{gensymb}
+\usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
+
+\begin{document}
+% Set the style for the vertices
+\tikzstyle{vertex} = [circle, draw=black, thin, inner sep=0pt,minimum size=2mm]
+
+\begin{tikzpicture}[node distance = 2cm, auto, scale = 1]
+
+    %\tikzstyle{every node}=[font=\small]
+
+    % before the motion
+    \node (11) at (-1,0) [vertex, label=above:$1$] {};
+    \node (12) at (1,0) [vertex, label=above:$2$] {};
+    \node (13) at (1,-2) [vertex, label=below:$3$] {};
+
+    % add node for the origin
+    \node (origin) at (0,-1) [vertex, fill = black, label=below:$O$] {};
+
+    % add an invisble node
+    \node[draw = none] (start) at (1.2, -1) {};
+
+    % add an invisible node for the label
+    \node[draw = none] (label) at (3.5, -1)[label=above:Multiply by $\mathbf{Q}$]{};
+
+    % after the motion
+    \node (21) at (8,-2) [vertex, label=below:$1$] {};
+    \node (22) at (6,-2) [vertex, label=below:$2$] {};
+    \node (23) at (6, 0) [vertex, label = above: $3$] {};
+
+    % add node for the origin
+    \node (origin2) at (7, -1) [vertex, label = above: $O$, fill = black] {};
+
+    % add an invisble node
+    \node[draw = none] (end) at (5.8, -1) {};
+
+    % add the edges before the motion
+    \path[] (11) edge (12);
+    \path[] (12) edge (13); % Make this edge red
+    
+    % add the edges before the motion
+    \path[] (21) edge (22);
+    \path[] (22) edge (23);  
+
+    % plot the line between the diagrams
+    \draw[->] (start) -- (end);
+    
+
+\end{tikzpicture}
+\end{document}

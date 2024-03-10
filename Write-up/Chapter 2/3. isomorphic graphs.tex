@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
+
+
+\begin{document}
+% Set the style for the vertices
+\tikzstyle{vertex} = [circle, draw=black, fill = black, thin, inner sep=0pt,minimum size=2mm]
+
+\begin{tikzpicture}
+    
+    % Define nodes for the first K4
+    \node (11) at (0,0) [vertex, label=below:$1$] {};
+    \node (12) at (0,2) [vertex, label=above:$2$] {};
+    \node (13) at (2,2) [vertex, label=above:$3$] {};
+    \node (14) at (2,0) [vertex, label=below:$4$] {};
+    \node[draw = none] (G1) at (1,-1) [label=above:$G_1$] {};
+
+    % define nodes for the second K4
+    \node (21) at (4,0) [vertex, label=below:$a$] {};
+    \node (22) at (4,2) [vertex, label=above:$b$] {};
+    \node (23) at (6,2) [vertex, label=above:$c$] {};
+    \node (24) at (6,0) [vertex, label=below:$d$] {};
+    \node[draw = none] (G1) at (5,-1) [label=above:$G_2$] {};
+
+    % add the edges
+    \path[] (11) edge (12)
+                edge (14)
+            (12) edge (13)
+            (13) edge (11); 
+
+    \path[] (21) edge (23)
+            (22) edge (23)
+                edge (24)
+            (23) edge (24);
+\end{tikzpicture}
+\end{document}

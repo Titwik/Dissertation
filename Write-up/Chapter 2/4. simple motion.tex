@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
+
+\begin{document}
+% Set the style for the vertices
+\tikzstyle{vertex} = [circle, draw=black, thin, inner sep=0pt,minimum size=2mm]
+
+\begin{tikzpicture}
+
+    % before the motion
+    \node (11) at (0,0) [vertex, label=above:$1$] {};
+    \node (12) at (2,0) [vertex, label=above:$2$] {};
+    \node (13) at (2,-2) [vertex, label=below:$3$] {};
+
+    \node[draw = none] (t1) at (-0.2, -1.5) {$t = 0$};
+    %\draw[->] (2.5,-1) -- (4.5,-1);
+    % after the motion
+    \node (21) at (5,0) [vertex, label=above:$1$] {};
+    \node (22) at (7,0) [vertex, label=above:$2$] {};
+    \node (23) at (5.6, -1.4) [vertex, label = below: $3$] {};
+
+    \node[draw = none] (t2) at (4.5, -1) {$t = 1$};
+
+    % add the edges before the motion
+    \path[] (11) edge (12);
+    \path[] (12) edge (13); % Make this edge red
+    
+    % Swing node (13) along an arc towards node (11)
+    \path[draw, ->, dashed] (13) edge [bend left = 40] (11); 
+
+    % add the edges before the motion
+    \path[] (21) edge (22);
+    \path[] (22) edge (23); % Make this edge red
+    
+    % Swing node (13) along an arc towards node (11)
+    \path[draw, ->, dashed] (23) edge [bend left = 20] (21); 
+
+\end{tikzpicture}
+\end{document}

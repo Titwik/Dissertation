@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
+
+
+\begin{document}
+% Set the style for the vertices
+\tikzstyle{vertex} = [circle, draw=black, fill = black, thin, inner sep=0pt,minimum size=2mm]
+
+\begin{tikzpicture}
+    
+    % Define nodes
+    \node (1) at (0,0) [vertex, label=left:$1$] {};
+    \node (2) at (1,1) [vertex, label=above:$2$] {};
+    \node (3) at (3,1) [vertex, label=above:$3$] {};
+    \node (4) at (3,-1) [vertex, label=below:$4$] {};
+    \node (5) at (1,-1) [vertex, label=below:$5$] {};
+    \node[draw = none] (G1) at (2,-2.25) [label=above:$G$] {};
+
+    \node (21) at (6,0) [vertex, label=left:$1$] {};
+    \node (22) at (7,1) [vertex, label=above:$2$] {};
+    \node (25) at (7,-1) [vertex, label=below:$5$] {};
+    \node[draw = none] (H) at (7,-2.25) [label=above:$H$] {};
+    
+
+    % add edges
+    \path[] (1) edge (2)
+                edge (5)
+            (3) edge (2)
+                edge (4)
+            (4) edge (5)
+            (2) edge (5)
+            (21) edge (22)
+                edge (25)
+            (22) edge (25);
+    
+\end{tikzpicture}
+\end{document}
