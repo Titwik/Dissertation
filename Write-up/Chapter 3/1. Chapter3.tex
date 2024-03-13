@@ -67,7 +67,9 @@ The \textit{rigidity matrix} $\mathbf{R}(G,\mathbf{p})$ of a $d$-dimensional fra
 If there is an edge between nodes $\mathbf{p}_i$ and $\mathbf{p}_j$ when $d=2$, then the non-zero entries in the corresponding row of the matrix lie in columns corresponding to coordinates of each node. That is;
 \begin{itemize}
     \item Columns $2i-1$ and $2i$ corresponding to the coordinates of node $p_i$.
+    \vspace{-3mm}
     \item Columns $2j-1$ and $2j$ corresponding to the coordinates of node $p_j$.
+    \vspace{-3mm}
     \item $0$ everywhere else.
 \end{itemize}
 \end{definition}
@@ -80,11 +82,7 @@ If there is an edge between nodes $\mathbf{p}_i$ and $\mathbf{p}_j$ when $d=2$, 
 \end{figure}
 \vspace{-3 mm}
 \begin{flushleft}
-For example, consider the framework $(G,\mathbf{p})$ in Figure \ref{fig: rigidity_matrix}. 
-\end{flushleft}
-%\vspace{20 mm} % allows for the text to flow smoother
-\begin{flushleft}
-As we are working in $\mathbb{R}^2$, we know that $\mathbf{p}_i = (x_{i}, y_{i})$, for each $i = 1,2,3,4$. Therefore, we can construct $\mathbf{R}(G,\mathbf{p})$ as
+For example, consider the framework $(G,\mathbf{p})$ in Figure \ref{fig: rigidity_matrix}. As we are working in $\mathbb{R}^2$, we know that $\mathbf{p}_i = (x_{i}, y_{i})$, for each $i = 1,2,3,4$. Therefore, we can construct $\mathbf{R}(G,\mathbf{p})$ as
 \end{flushleft}
 \vspace{-6 mm}
 \begin{center}
@@ -307,6 +305,7 @@ Circle packings are configurations of circles satisfying preassigned patterns of
 \end{flushleft}
 
 \begin{definition}
+\label{def: circle packing}
 A \textit{circle packing} is a configuration of circles $P = (C_i)$, where $i \in \mathbb{Z}^+$, in the plane $\mathbb{R}^2$ such that any
 two distinct circles in P have disjoint interiors. 
 
@@ -319,6 +318,7 @@ Given a circle packing, we must now find a way to analyze its properties. Thankf
 \end{flushleft}
 
 \begin{definition}
+\label{def: contact graph}
 Let $P = (C_i)$ be a circle packing, where $i \in \mathbb{Z}^+$. Then, the \textit{contact graph} $G(P)$ of the packing $P$ is a graph where the vertex set is the set of circles in $P$, and an edge joins two vertices $u, v \in G(P)$ if an only if the circles corresponding to the vertices are tangential in $P$.
 \end{definition}
 
@@ -346,6 +346,7 @@ In Connelly, Gortler, and Theran's paper \cite{sticky}, the following theorem is
 \end{flushleft}
 
 \begin{theorem}
+\label{thm: louis thm}
 Let $P = (C_i)$ be a circle packing, where $i = 1,2,\hdots, n$. Then if P has $2n-3$ contacts, it is rigid and infinitesimally rigid. If the number of contacts is fewer, then P is flexible and infinitesimally flexible.
 \end{theorem}
 
@@ -362,7 +363,7 @@ Finally, we need some notion of isomorphism between circle packings and graphs. 
 \end{flushleft}
 
 \begin{flushleft}
-Inspecting the graphs in Figure \ref{fig: isomorphic vs non-isomorphic packings}, we note that the original graph (a) has 3 cycles of length three. Now, comparing the contact graphs (d) and (e) to graph (a), we note that the contact graph in (d) has 3 cycles of length three, while the contact graph in (e) has only 2 cycles of length three. As the number of cycles of length three in (e) don't match those in (a), (a) and (e) must be non-isomorphic.
+Inspecting the graphs in Figure \ref{fig: isomorphic vs non-isomorphic packings}, we note that the original graph (a) has three cycles of length 3. Now, comparing the contact graphs (d) and (e) to graph (a), we note that the contact graph in (d) has three cycles of length 3, while the contact graph in (e) has only two cycles of length 3. As the number of cycles of length 3 in (e) don't match those in (a), (a) and (e) must be non-isomorphic.
 \end{flushleft}
 
 \begin{flushleft}
@@ -376,7 +377,7 @@ Every finite planar graph $G$, where $G$ does not have multiple edges or loops b
 \end{theorem}
 
 \begin{flushleft}
-With that, we have everything we need to set up and investigate the problem this project focuses on! By delving deep and exploring the various avenues available to us in order to check the rigidity of a given framework, we've obtained a comprehensive list of techniques at our disposal. Now, equipped with an array of theorems, we can finally get to the heart of the problem at hand!
+With that, we have everything we need to set up and investigate the problem introduced in Chapter 1! By delving deep and exploring the various avenues available to us in order to check the rigidity of a given framework, we've obtained a comprehensive list of techniques at our disposal. Now equipped with an array of theorems, we are finally in a good place to visit the conjecture that brought this project about. 
 \end{flushleft}
 
 \begin{figure}[htbp]

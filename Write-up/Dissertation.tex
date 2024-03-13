@@ -101,34 +101,37 @@ bookmarks=true,bookmarksopenlevel=2]{hyperref}
 \usepackage{listings,color}
 \definecolor{verbgray}{gray}{0.9}
 \lstnewenvironment{code}{%
-  \lstset{backgroundcolor=\color{verbgray},
-  frame=single,
-  framerule=0pt,
-  basicstyle=\ttfamily,
-  columns=fullflexible}}{}
+  \lstset{
+    backgroundcolor=\color{verbgray},
+    frame=single,
+    framerule=0pt,
+    basicstyle=\small\ttfamily, % Adjust the font size here
+    columns=fullflexible
+  }
+}{}
 
 
 
 
 \begin{document}
 
-\input{Title Page}
+%\input{Title Page}
 
 %----------------------------------------------------------------------
 
-\input{Chapter 1/1. Chapter1}
+%\input{Chapter 1/1. Chapter1}
 
 \clearpage
 
 %----------------------------------------------------------------------
 
-\input{Chapter 2/1. Chapter2}
+%\input{Chapter 2/1. Chapter2}
 
 \clearpage
 
 %----------------------------------------------------------------------
 
-\input{Chapter 3/1. Chapter3}
+%\input{Chapter 3/1. Chapter3}
 
 \clearpage
 
@@ -140,5 +143,5 @@ bookmarks=true,bookmarksopenlevel=2]{hyperref}
 
 %----------------------------------------------------------------------
 
-\printbibliography
+%\printbibliography
 \end{document}

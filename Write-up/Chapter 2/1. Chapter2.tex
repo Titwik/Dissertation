@@ -243,7 +243,7 @@ From this definition, we can see that there are only two ways in which a motion 
     \item \textit{Translating} the entire framework across $\mathbb{R}^d$ preserves the distances between each node, and so it is a rigid motion.
     \vspace{-3mm}
     \item \textit{Rotating} the entire framework about a point also preserves the distances between each node. Thus, it is a rigid motion as well.
-    \vspace{-3mm}
+    
 \end{itemize}
 
 \begin{flushleft}
@@ -253,12 +253,13 @@ In order to formalize this, we let the matrix $\mathbf{Q}(t)$ describe a rotatio
 \mathbf{p}_i(t) = \mathbf{Q}(t)\mathbf{p}_i + \mathbf{w}(t)
 \]
 
-Thus, rotating and translating a framework in any order is always a rigid motion.
+\vspace{2mm}
+Thus, rotating and translating a framework in any combination is always a rigid motion.
 \end{flushleft}
 
 \begin{example}
 \label{eg: simple motion}
-Consider the framework with 3 nodes, labelled $1,2,3$, and two edges, $12$, and $23$. Apply the motion 
+Consider the framework with three nodes, labelled $1,2,3$, and two edges, $12$, and $23$. Apply the motion 
 
 \[ p_i(t) = 
 \begin{cases}
@@ -589,9 +590,47 @@ A configuration $\mathbf{p}$ is \textit{generic} if the only polynomial with coe
 \end{definition}
 
 \begin{flushleft}
-A couple of examples of point-sets that are not generic by this definition include four points on a circle and a pair of points on a line that has a rational slope \cite{textbook}.
+A couple of examples of point-sets that are not generic by this definition include four points on a circle and a pair of points on a line that has a rational slope \cite{textbook}. Our definitions of infinitesimal rigidity only apply to configurations that are generic, as we will see when considering the framework $(G,\mathbf{p})$ in Figure \ref{fig: non-generic}.
+\end{flushleft}
 
-Finally, we conclude with what it means to be generically rigid.    
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.4\textwidth]{Chapter 2/16. generically_rigid.png}
+    \caption{A non-generic framework in $\mathbb{R}^2$ with a non-zero instantaneous velocity applied to $\mathbf{p}_3$.}
+    \label{fig: non-generic}
+\end{figure}
+
+\vspace{-2mm}
+\begin{flushleft}
+Here, the three nodes lie on a straight line and so they are not in general position which means they are not generic as genericity is a stronger condition than general position. Suppose we apply instantaneous velocities $\mathbf{p}'_1$, $\mathbf{p}'_2$ of magnitude 0 to the nodes $\mathbf{p}_1$ and $\mathbf{p}_2$, and apply the instantaneous velocity $\mathbf{p}'_3 = (0,k)$ to the node $\mathbf{p}_3$.
+\end{flushleft}
+
+\begin{flushleft}
+By observation, we can tell that this framework is not infinitesimally rigid. By fixing nodes $\mathbf{p}_1$ and $\mathbf{p}_2$ in space, we may rotate the edge $\mathbf{p}_2\mathbf{p}_3$ about $\mathbf{p}_2$, thereby changing the distance between the nodes $\mathbf{p}_1$ and $\mathbf{p}_3$. 
+\end{flushleft}
+
+\begin{flushleft}
+By computing the scalar products stated in Definition \ref{def: inf motion}, we see that 
+\end{flushleft}
+\vspace{-0.5mm}
+\[
+(\mathbf{p}_1 - \mathbf{p_2}) \cdot (\mathbf{p}'_1 - \mathbf{p}'_2) = (\mathbf{p}_2 - \mathbf{p_3}) \cdot (\mathbf{p}'_2 - \mathbf{p}'_3) = 0
+\]
+
+\begin{flushleft}
+for both edges $\mathbf{p}_1\mathbf{p}_2$ and $\mathbf{p}_2\mathbf{p}_3$. However, 
+\end{flushleft}
+\vspace{-0.5mm}
+\[
+(\mathbf{p}_1 - \mathbf{p_3}) \cdot (\mathbf{p}'_1 - \mathbf{p}'_3) = 0
+\]
+
+\begin{flushleft}
+as $\mathbf{p}'_3$ is perpendicular to the line passing through $\mathbf{p}_1\mathbf{p}_3$, stating that this framework is infinitesimally rigid. 
+\end{flushleft}
+
+\begin{flushleft}
+For this reason, the frameworks we concern ourselves with will be defined on generic coordinates. Finally, we conclude with what it means to be generically rigid.    
 \end{flushleft}
 
 \begin{theorem}
@@ -612,5 +651,5 @@ With that, we conclude this introductory exploration into the definitions of rig
 \end{flushleft}
 
 \begin{flushleft}
-Our current objective is unravelling the multitude of theorems that surround the study of rigid graphs. The goal is to collect as many tools revolving around rigidity and circle packings as possible. By learning and invoking these ideas, we will be ever closer to understanding the structure of the special case of packings this project focuses on.
+Our current objective is unravelling the multitude of theorems that surround the study of rigid graphs. Through collecting as many tools revolving around rigidity and circle packings as possible and by invoking these ideas, we will be ever closer to understanding the structure of the special case of packings this project focuses on.
 \end{flushleft}

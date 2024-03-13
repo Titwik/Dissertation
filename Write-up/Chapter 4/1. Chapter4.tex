@@ -1,4 +1,4 @@
-\chapter{Rigidity of Minimally Rigid Circle Packings} % need to change title as it isn't quite right
+\chapter{Minimally Rigid Graphs \& their Circle Packings} % Rigidity of Minimally Rigid Circle Packings
 \label{ch: 4}
 
 \begin{flushleft}
@@ -28,7 +28,7 @@ If we were to be pedantic, we would need to talk about the framework itself with
 \end{figure}
 \vspace{-3mm}
 \begin{flushleft}
-We try to unpack this question computationally. By finding known, non-trivial examples for which the conjecture holds, we can be fairly confident that it is true. Thus, the two key players here are going to be modules written in Python called \texttt{Rigidity.py} and \texttt{Circle\_Packing.py}. 
+We try to unpack (\textit{no pun intended}) this question computationally. By finding known, non-trivial examples for which the conjecture holds, we can contemplate proving the conjecture for general cases. Thus, the two key players here are going to be modules written in Python called \texttt{Rigidity.py} and \texttt{Circle\_Packing.py}. 
 \end{flushleft}
 
 \begin{flushleft}
@@ -91,7 +91,7 @@ Visually, we can represent what we're trying to do in Figure \ref{fig4: config s
 \begin{figure}[htbp]
     \centering
     \includegraphics[width = 0.75\textwidth]{Chapter 4/5. configuration space.png}
-    \caption{The space containing all frameworks on a graph $G$ drawn as a black outline of the space, the frameworks on $G$ that are infinitesimally rigid drawn as blue lines, the circle packings obtained from $G$ drawn as green lines, and the rigid circle packings obtained from $G$ drawn as red lines.}
+    \caption{The space containing all frameworks on a graph $G$ drawn as a black outline, the frameworks on $G$ that are infinitesimally rigid drawn as blue lines, the circle packings obtained from $G$ drawn as green lines, and the rigid circle packings obtained from $G$ drawn as red lines.}
     \label{fig4: config space}
 \end{figure}
 
@@ -108,7 +108,7 @@ Thus, the task is to find where the blue and the red lines overlap! That is, we 
 \end{flushleft}
 
 \begin{flushleft}
-Now that we have an understanding of what it is we're trying to do, let us dive into how we go about doing it! By exploring each module individually, we gain an understanding of what is being done. After that, we can go ahead and use the modules in order to find the packings of interest.
+Now that we have an understanding of what it is we're trying to do, let us dive into how we go about doing it! By exploring each module individually, we gain an understanding of what is being done. After that, we can go ahead and use the modules in order to find the packings of interest. All the code described in this chapter can be viewed on Github at \href{https://github.com/Titwik/Dissertation}{Titwik/Dissertation}.
 \end{flushleft}
 
 \section{\texttt{Rigidity.py}}
@@ -132,7 +132,8 @@ As touched upon before, a graph is an abstract mathematical object that can be d
 \end{flushleft}
 
 \begin{flushleft}
-The function \texttt{G\_configuration} takes in a single argument \texttt{G}, a \texttt{networkx} graph, and begins by learning the number of vertices the graph has. For each vertex then, it randomly assigns an integer for $x$-coordinate and the $y$-coordinate from the interval $[-2^{40}, 2^{40}]$. \textbf{Sampling for coordinates from such a large range of numbers decreases the risk of bias, and increases the variation of points used}\footnote{need a better explanation for why the range is so big}. Finally, it returns two lists, one containing the randomly assigned $x$-coordinates and the other containing the randomly assigned $y$-coordinates.
+The function \texttt{G\_configuration} takes in a single argument \texttt{G}, a \texttt{networkx} graph, and begins by learning the number of vertices the graph has. For each vertex then, it randomly assigns an integer for $x$-coordinate and the $y$-coordinate from the interval $[-2^{40}, 2^{40}]$. 
+Sampling for coordinates from such a large range of numbers ensures that the points are in a generic configuration, ensuring that we avoid the situation described in Figure \ref{fig: non-generic}. Finally, it returns two lists, one containing the randomly assigned $x$-coordinates and the other containing the randomly assigned $y$-coordinates.
 \end{flushleft}
 
 \begin{flushleft}
@@ -168,13 +169,13 @@ By defining the graph \texttt{G} appropriately, and by tweaking the function \te
 \end{flushleft}
 
 \begin{code}
-In: print(rigidity_matrix(G))
+    In: print(rigidity_matrix(G))
 
-Out: [[ 1.  2. -1. -2.  0.  0.  0.  0.]    # edge (1,2)
-      [ 0.  1.  0.  0.  0.  0.  0. -1.]    # edge (1,4)
-      [-1.  2.  0.  0.  1. -2.  0.  0.]    # edge (1,3)
-      [ 0.  0. -1. -1.  0.  0.  1.  1.]    # edge (2,4)
-      [ 0.  0. -2.  0.  2.  0.  0.  0.]]   # edge (2,3)
+    Out: [[ 1.  2. -1. -2.  0.  0.  0.  0.]    # edge (1,2)
+          [ 0.  1.  0.  0.  0.  0.  0. -1.]    # edge (1,4)
+          [-1.  2.  0.  0.  1. -2.  0.  0.]    # edge (1,3)
+          [ 0.  0. -1. -1.  0.  0.  1.  1.]    # edge (2,4)
+          [ 0.  0. -2.  0.  2.  0.  0.  0.]]   # edge (2,3)
 \end{code}    
 
 \begin{flushleft}
@@ -196,9 +197,9 @@ Considering the framework in Example \ref{eg: rigidity matrix}, we know it is in
 \end{flushleft}
 
 \begin{code}
-In: print(np.linalg.matrix_rank(rigidity_matrix(G)))
+    In: print(np.linalg.matrix_rank(rigidity_matrix(G)))
 
-Out: 5
+    Out: 5
 \end{code}
 
 \begin{flushleft}
@@ -206,9 +207,9 @@ As $(2 \times 4) - 3 = 5$, we confirm that this framework is indeed infinitesima
 \end{flushleft}
 
 \begin{code}
-In: print(check_rigidity(G))
+    In: print(check_rigidity(G))
 
-Out: True
+    Out: True
 \end{code}
 
 \begin{flushleft}
@@ -218,11 +219,11 @@ Thus, we have written a function that now tells us whether a graph is infinitesi
 \subsection{Checking rigidity for a list of graphs}
 
 \begin{flushleft}
-Using nauty to generate the graphs we need gives us a list containing all the non-isomorphic planar graphs on a specified number of vertices and edges. Therefore, the last function this module contains is one that filters this list for all the minimally rigid graphs that we want to analyze. In addition to this, we also filter out graphs that have a vertex of degree one or two. 
+By using nauty, we create a list containing all the non-isomorphic planar graphs on a specified number of vertices and edges. Therefore, the last function this module contains is one that filters this list for all the minimally rigid graphs that we want to analyze. In addition to this, we also filter out graphs that have a vertex of degree one or two. 
 \end{flushleft}
 
 \begin{flushleft}
-If a graph has a vertex with degree one, then it is not rigid and will be discarded when the \texttt{check\_rigidity} function is called. On the other hand, a vertex of degree two can be constructed using a Henneberg Type I construction, we can pack this vertex trivially. Such graphs are not very interesting to look at.
+If a graph has a vertex with degree one, then it is not rigid and will be discarded when the \texttt{check\_rigidity} function is called. On the other hand, a vertex of degree two can be constructed using a Henneberg Type I construction, and we can pack this vertex by simply creating a circle tangent to two other circles. It is a trivial process and for this reason, such graphs are not very interesting to look at.
 \end{flushleft}
 
 \begin{flushleft}
@@ -234,16 +235,16 @@ Now, in order to filter out the graphs containing a vertex of degree of two, we 
 \end{flushleft}
 
 \begin{flushleft}
-From here, we loop through all the graphs in \texttt{graphs\_without\_degree\_2}, check its rigidity using \texttt{check\_rigidity}, and add it to a new list called \texttt{rigid\_graphs}. The function finally returns \texttt{rigid\_graphs}, a list containing all planar minimally rigid graphs of minimum degree atleast three.
+From here, we loop through all the graphs in \texttt{graphs\_without\_degree\_2}, check its rigidity using \texttt{check\_rigidity}, and add it to a new list called \texttt{rigid\_graphs}. Finally, the function \texttt{find\_rigid\_graphs} returns \texttt{rigid\_graphs}, a list containing all planar minimally rigid graphs of minimum degree at least three.
 \end{flushleft}
 
 \subsection{Testing the code}
 
 \begin{flushleft}
-The last thing to do is to ensure that the code works for known examples before we start investigating graphs we know nothing about. Graphs that are not infinitesimally rigid can be seen in Figures \ref{eg: not_rigid} and \ref{eg: not inf rigid 2.0}. For one more graph that is known to be infinitesimally rigid, we consider the Framework in Figure \ref{eg: inf rigid}. We label these graphs \texttt{G1}, \texttt{G2} and \texttt{G3} respectively, and construct them using \texttt{networkx}.
+The last thing to do is to ensure that the code works for known examples before we start investigating graphs we know nothing about. Graphs that are not infinitesimally rigid can be seen in Figures \ref{eg: not_rigid} and \ref{eg: not inf rigid 2.0}. For an additional graph that is known to be infinitesimally rigid, we consider the Framework in Figure \ref{eg: inf rigid}. We label these graphs \texttt{G1}, \texttt{G2} and \texttt{G3} respectively, and construct them using \texttt{networkx}.
 \end{flushleft}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \begin{tabular}{c c c}
         \includegraphics[width = 0.25\textwidth]{Chapter 4/6. not_rigid.png} 
@@ -254,79 +255,397 @@ The last thing to do is to ensure that the code works for known examples before 
 \end{figure}
 
 \begin{code}
-In [1]: print(check_rigidity(G1))
-Out: False 
-
-In [2]: print(check_rigidity(G2))
-Out: False
-
-In [3]: print(check_rigidity(G3))
-Out: True
+    In [1]: print(check_rigidity(G1))
+    Out: False 
+    
+    In [2]: print(check_rigidity(G2))
+    Out: False
+    
+    In [3]: print(check_rigidity(G3))
+    Out: True
 \end{code}
 
 \begin{flushleft}
-This is reassuring to see! We've successfully verified that the functions work well with each other, and that their outputs are as expected. So, with the confidence we have now when it comes to identifying infinitesimally rigid graphs, we can now move onto creating circle packings for a given planar graph. 
+This is reassuring to see! We've successfully verified that the functions work well with each other, and that their outputs are as expected. So, we can confidently identify infinitesimally rigid graphs, and can move onto creating circle packings for a given planar graph. 
 \end{flushleft}
 
 \section{\texttt{Circle\_Packing.py}}
 
 \begin{flushleft}
-The process of finding circle packings for a graph involves a process called \textit{numerical minimization}. It is a method in which we try to minimize the parameters involved in a given problem with clearly defined rules or \textit{constraints}. In order to find circle packings, we first have to define the problem carefully, and impose certain constraints so that we end up with exactly what we want. Let us briefly run through exactly what this module covers. 
+The process of finding circle packings for a graph involves a process called \textit{numerical minimization}. It is a method in which we try to minimize the variables involved in a given problem subject to clearly defined rules or \textit{constraints}. In order to find circle packings, we first have to define the problem carefully through an \textit{objective function}, impose certain constraints, generate a `guess' of what the solution might be, and then feed this information into a minimizer. Let us briefly run through exactly what this module covers. 
 \end{flushleft}
 
 \begin{flushleft}
 It is made up of four functions, each performing a specific task, similar to how the functions were defined in \texttt{Rigidity.py}. 
 \begin{enumerate}
-    \item The first of these functions defines the \textit{objective function} that we want to minimize.
+    \item The first of these functions defines the objective function that we want to minimize.
     \vspace{-3mm}
     \item The second function imposes the constraints that the minimization process should obey. 
     \vspace{-3mm}
-    \item The third function generates a list of initial conditions that the minimizer will start minimizing.
+    \item The third function generates a random list of initial conditions for the coordinates of every node in the framework, as well as randomly generated radii for the circles they inhabit.
     \vspace{-3mm}
     \item The very last function is one that uses the three previous functions in order to generate a circle packing for a graph.
 \end{enumerate}
 \end{flushleft}
 
 \begin{flushleft}
-The minimizer that we will be using comes from the \texttt{scipy} \cite{scipy} library in Python called \texttt{scipy.optimize.minimize}. To illustrate how the minimizer works, we describe a simple scenario in which one may use the minimizer in order to minimize a function that is subject to some constraints.
+The minimizer that we will be using comes from the \texttt{scipy} \cite{scipy} library in Python called \texttt{scipy.optimize.minimize}. To illustrate how this minimizer works, we describe a simple scenario in which one may use the minimizer in order to minimize a function that is subject to some constraints.
 \end{flushleft}
 
 \subsection{A Simple Example}
 
 \begin{flushleft}
-\footnote{Should I include this example or not? Maybe consider coding it up}Suppose we have a rectangle of length $x$ and width $y$, and we wish to maximize its area $xy$, subject to the constraint that its perimeter is 20 units. Translating this into something that we can use in the minimizer, the objective function would be $-xy$ as we are trying to maximize the area with the minimize function. The constraint can be modelled as $2x+2y = 20$ and our initial guesses for the values of $x$ and $y$ could be 6 and 4 respectively. We would input this into the \texttt{scipy.optimize.minimize} function, and obtain the optimal values of $x$ and $y$ satisfying these constraints such that the area of the rectangle is minimzed. The code for this example is shown below.
+Suppose we have a rectangle of length $x$ and width $y$, and we wish to maximize its area $xy$, subject to the constraint that its perimeter is 20 units. Translating this into something that we can use in the minimizer, the objective function would be $-xy$ as we are trying to maximize the area with the minimize function. The constraint can be modelled as $2x+2y = 20$ and our initial guesses for the values of $x$ and $y$ could be 6 and 4 respectively. 
+\end{flushleft}
+
+\begin{flushleft}
+We would input this into the \texttt{scipy.optimize.minimize} function, and obtain the optimal values of $x$ and $y$ satisfying these constraints such that the area of the rectangle is maximized. The code for this example is shown below.
 \end{flushleft} 
 
 \begin{code}
-# define the objective function
-def area_rectangle(xy):
-    x = xy[0]
-    y = xy[1]
-    area = xy[0] * xy[1]
-    return -area
-
-# define the constraint
-cons = ({'type':'eq', 'fun': lambda xy: 2*xy[0] + 2*xy[1] - 20})
-
-# define the initial condition
-initial_guess = [6,4]
-
-# use the minimizer
-result = scipy.optimize.minimize(area_rectangle, initial_guess, constraints = cons)
-
-print(f"x = {result.x[0]} and y = {result.x[1]}")
+    # define the objective function
+    def area_rectangle(xy):
+        x = xy[0]
+        y = xy[1]
+        area = xy[0] * xy[1]
+        return -area
+    
+    # define the constraint
+    cons = ({`type':`eq', `fun': lambda xy: 2*xy[0] + 2*xy[1] - 20})
+    
+    # define the initial condition, where 6 is our initial x value and 
+    # 4 is our initial y value
+    initial_guess = [6,4]
+    
+    # use the minimizer
+    result = scipy.optimize.minimize(area_rectangle, initial_guess, constraints = cons)
 \end{code}
 
 \begin{code}
-Out: x = 5.0 and y = 5.0    
+    In: print(f"x = {result.x[0]} and y = {result.x[1]}")
+    Out: x = 5.0 and y = 5.0    
 \end{code}
 
 \begin{flushleft}
-Therefore, the values of $x$ and $y$ that maximize the area of a rectangle with a perimeter of 20 units are 5 and 5 respectively. Hopefully this provides some insight into how the minimizer works. The details of how \texttt{scipy.optimize.minimize} works are not very important for our purposes, but knowing how to use it properly is imperative. 
+Therefore, the values of $x$ and $y$ that maximize the area of a rectangle with a perimeter of 20 units are 5 and 5 respectively. Hopefully this example provides some insight into how we can leverage the minimizer. We will not be delving too deep into how the \texttt{scipy.optimize.minimize} works at this stage, but understanding how to use it properly is imperative for when we attempt to find a circle packing for a graph.
 \end{flushleft}
 
 \begin{flushleft}
 With that in mind, let us dive into the first function in the \texttt{Circle\_Packing.py} module!
 \end{flushleft}
 
+\subsection{Creating the objective function}
 
+\begin{flushleft}
+Let $(G, \mathbf{p})$ be a framework, $x_i$ and $y_i$ be the $x$-coordinate and $y$-coordinate of node $i$, and $r_i$ be the radius of the circle this node inhabits. We consider the node to be the center of this circle.
+\end{flushleft}
+
+\subsubsection{Defining the objective function}
+
+\begin{flushleft}
+To begin constructing the function that we wish to minimize, we first consider the distance between two nodes and set it equal to the sum of the radii of the circles they inhabit. That is;
+
+\begin{equation*}
+    (x_i - x_j)^2 + (y_i-y_j)^2 = (r_i + r_j)^2 \hspace{16mm} \forall i,j \in V(G)    
+\end{equation*}
+
+\vspace{2mm}
+When using the minimizer however, we must input this equation such that the right hand side must be equal to 0. Therefore, we write this as 
+
+\begin{equation*}
+    (x_i - x_j)^2 + (y_i-y_j)^2 - (r_i + r_j)^2 = 0 \hspace{10mm} \forall i,j \in V(G)
+\end{equation*}
+
+\vspace{2mm}
+As we saw in the example above, by trying to minimize a negative objective function, we end up maximizing it instead. To avoid such complications arising in this scenario, we square the entire function so that the values we work with are strictly positive.
+
+\begin{equation*}
+    ((x_i - x_j)^2 + (y_i-y_j)^2 - (r_i + r_j)^2)^2 = 0 \hspace{11mm} \forall i,j \in V(G)
+\end{equation*}
+
+\vspace{2mm}
+At this stage, we will have several equations, one for each pair of nodes. The final step to obtain the objective function will be to consider the sum of all these equations. Therefore, the function that we treat as our objective function will be 
+
+\begin{equation}\label{eq:circle_constraint}
+    \sum_{\substack{i,j=1 \\ i \neq j}}^{n} \left( (x_i - x_j)^2 + (y_i - y_j)^2 - (r_i + r_j)^2 \right)^2
+  \end{equation}
+\end{flushleft}
+
+\subsubsection{Writing the code}
+
+\begin{flushleft}
+To input Equation \ref{eq:circle_constraint} as the objective function into the minimizer, we first define a function \texttt{mk\_obj} that takes in a graph \texttt{G}, and construct another function named \texttt{objective\_function} within this function like so;
+\end{flushleft}
+
+\begin{code}
+    # function that returns the objective function
+    def mk_obj(G):
+        
+        # create a function that computes the objective function of a graph G
+        def objective_function(vars):
+        ...
+\end{code}
+
+\begin{flushleft}
+The argument \texttt{vars} represents a list of the variables \texttt{[x1,y1,r1, ... , xn,yn,rn]}. These are the variables that will be minimized when we use the minimizer, where \texttt{xi} and \texttt{yi} represent the $x$-coordinate and $y$-coordinate respectively of node $i$, and \texttt{ri} is the radius of the circle this node centers.
+\end{flushleft}
+
+\begin{flushleft}
+Inside \texttt{objective\_function}, we define three new functions, \texttt{x(i)}, \texttt{y(i)} and \texttt{r(i)}:
+
+\begin{enumerate}
+    \item The function \texttt{x(i)} returns \texttt{vars[3*i]}.
+    \vspace{-3mm}
+    \item The function \texttt{y(i)} returns \texttt{vars[3*i+1]}.
+    \vspace{-3mm}
+    \item The function \texttt{r(i)} returns \texttt{vars[3*i+2]}.
+\end{enumerate}
+
+For example, the $x$-coordinate of every node occurs in every third position in \texttt{vars}, and so the function \texttt{x(i)} returns every third element in \texttt{vars}. The remaining two functions are definined similarly.
+\end{flushleft}
+
+\begin{flushleft}
+Lastly, we initialise a variable \texttt{total} to store the sum of the objective functions, and set it to 0. Looping through all the edges $(i,j) \in E(G)$, we compute the sum given in Equation \ref{eq:circle_constraint}, and return this sum as follows;
+\end{flushleft}
+
+\begin{code}
+    # initialise a sum
+    total = 0
+    
+    # compute the sum 
+    for (i,j) in G.edges():
+        total += ((x(i) - x(j)) ** 2 + (y(i) - y(j)) ** 2 - (r(i) + r(j)) ** 2) ** 2
+    
+    # return the sum
+    return total
+\end{code}
+
+\begin{flushleft}
+All that's left to do is to return the output of the \texttt{objective\_function} as the output of \texttt{mk\_obj}.
+\end{flushleft}
+
+\begin{code}
+    def mk_obj(G):
+        def objective_function(vars):
+            ...
+            return total
+        return objective_function
+\end{code}
+
+\begin{flushleft}
+This completes the function \texttt{mk\_obj}, a function that takes in a graph, and returns its objective function! By feeding this into the minimizer, we are essentially telling the computer to make each variable in the list \texttt{vars} as small as they can be. The next step we will need to take is informing the minimizer of the constraints that should be obeyed.
+\end{flushleft}
+
+\subsection{Defining the constraints}
+
+\begin{flushleft}
+The constraints can be thought of rules that the minimizer must follow. In our case, to generate a circle packing such as the one in Figure \ref{fig: circle packing example}, the constraints we impose are:
+
+\begin{enumerate}
+    \item Each circle must have a positive radius.
+    \vspace{-3mm}
+    \item Each circle must have a maximum radius.
+    \vspace{-3mm}
+    \item The circles must not overlap or contain each other.
+\end{enumerate}
+
+To present these constraints to the minimizer, we code each one carefully, add it to a list named \texttt{constraints}, and then feed this list to the minimizer. By adhering to these rules, the minimizer will produce a configuration of circles, each equipped with a radius, such that the conditions required for a circle packing are satisfied. We begin by creating a function \texttt{cons}, which takes a graph \texttt{G} as its argument, and tackle each constraint mentioned in the list above individually.
+\end{flushleft}
+
+\subsubsection{1. Each circle must have a positive radius.}
+
+\begin{flushleft}
+To ensure that the radius is positive, we set a tolerance value \texttt{epsilon} such that the radius must be at least \texttt{epsilon}. Setting this tolerance as 0 is not possible as it leads to a host of problems due to the nature of floating point arithmetic (which we will not discuss any further). 
+\end{flushleft}
+
+\begin{flushleft}
+Choosing an appropriate tolerance can be challenging as if it were too big, then we disallow circles of very small radii to be formed, which may not converge to a circle packing. On the other hand, picking a value too small can lead to numerical instability due to the nature of optimization, as well as increase the time it takes for the minimizer to converge to a solution.
+\end{flushleft}
+
+\begin{flushleft}
+After some trial and error, letting \texttt{epsilon = 0.04} strikes the balance of achieving accurate circle packings in a reasonable duration of time. To enter the constraint in a format the minimizer will accept, we first loop through every vertex in \texttt{G}, indexed by \texttt{i}, and write the constraint as 
+\end{flushleft}
+
+\begin{code}
+    # radius must be greater than epsilon constraint
+    {`type': `ineq', `fun': lambda vars, i=i: vars[3*i + 2] - epsilon}
+\end{code}
+
+\begin{flushleft}
+Let us consider each term in this entry individually:
+
+\begin{itemize}
+    \item (\texttt{`type': `ineq'}) means that the constraint that we are entering is an inequality.
+    \vspace{-3mm}
+    \item (\texttt{`fun': lambda vars, i=i}) means that the function we are using is one named \texttt{lambda}, and this function takes in arguments \texttt{vars} and \texttt{i}.
+    \vspace{-3mm}
+    \item (\texttt{vars[3*i + 2] - epsilon}) is the inequality $r_i > \epsilon$ that we use to define positive radii. As the right hand side must be 0, we consider the inequality $r_i - \epsilon > 0$.
+\end{itemize}
+
+We then add this to the list \texttt{constraints}, and move onto the next constraint we wish to impose. 
+\end{flushleft}
+
+\subsubsection{2. Each circle must have a maximum radius.}
+
+\begin{flushleft}
+We set a maximum radius to ensure computational efficiency, and also prevent the creation of excessively large circles that could obscure the other circles present in the packing. This guarantees that all circles are visible and the arrangement remains visually appealing. 
+\end{flushleft}
+
+\begin{flushleft}
+Here, the maximum radius chosen will be 10 units, and is implemented as a constraint by looping through every vertex in \texttt{G}, indexed by \texttt{i}. Adding
+\end{flushleft}
+
+\begin{code}
+    {`type': `ineq', `fun': lambda vars, i=i: 10 - vars[3*i + 2]}
+\end{code}
+
+\begin{flushleft}
+to the list \texttt{constraints}, we continue to write the final constraint we need to implement.
+\end{flushleft}
+
+\subsubsection{3. The circles must not overlap or contain each other.}
+
+\begin{flushleft}
+By implementing the two constraints above, we have guaranteed the existence of circles in our packing. However, there is nothing stopping a circle from extending over into another circle's interior. This also includes the scenario where one circle lies completely within another circle. From Definition \ref{def: circle packing}, we know that each circle must either be tangential with another, or have nothing to do with each other.
+\end{flushleft}
+
+\begin{flushleft}
+In order to achieve this, we set a final constraint such that the distance between any two nodes in $G$ must be at least the sum of the radii of the circles they center. This can be written as
+
+\[
+(x_i - x_j)^2 + (y_i - y_j)^2 \geq (r_i + r_j)^2
+\]
+
+\vspace{2mm}
+for all $i,j \in V(G)$ such that $i \neq j$. Then when we have equality, the circles with centers $(x_i, y_i)$ and $(x_j, y_j)$ are tangential. Otherwise, the circles do not interact.
+\end{flushleft}
+
+\begin{flushleft}
+We do this by first looping through all the vertices in \texttt{G}, indexed by \texttt{i}, and nesting another loop through the vertices of \texttt{G}, this time indexed by \texttt{j}. As we only want to consider pairs of vertices $(i,j)$ where $i \neq j$, we set an \texttt{if} condition to achieve this. Thus, we add this constraint to our list \texttt{constraints} as;
+\end{flushleft}
+
+\begin{code}
+    {`type': `ineq', `fun': lambda vars, i=i, j=j: 
+    (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - 
+    (vars[3*i + 2] + vars[3*j + 2])**2}
+\end{code}
+
+\begin{flushleft}
+which allows us to secure a packing where the circles are tangential and their interiors are disjoint! The \texttt{cons} function now returns the list \texttt{constraints} containing the three rules we want our packing to obey. 
+\end{flushleft}
+
+\begin{flushleft}
+So far, we have our objective function and a list of constraints that the circle packing should stick to. The very last thing that we need before we can invoke the minimizer is a list of initial conditions for the coordinates of each node in the graph, as well as for each radius in the circle packing.
+\end{flushleft}
+
+\subsection{Generating initial conditions}
+
+\begin{flushleft}
+The initial conditions will be generated using a function we define as \texttt{initial\_conditions}, which takes a graph \texttt{G} as an argument. To do this, we make use of the \texttt{random} \cite{random} module in Python. By using a random configuration each time the \texttt{initial\_conditions} function is called, we ensure that the minimizer gets a new place to start from. Doing it this way bypasses the situation where we get stuck trying to pack a configuration known to fail repeatedly.
+\end{flushleft}
+
+\begin{flushleft}
+We allow the initial $x$ and $y$ coordinates to be obtained from the continuous range $[0,10]$, and the radius $r$ will have initial radii generated from the range $[0,1]$. By choosing a small interval for the initial coordinates of each node, if the initial configuration of points closely matches a circle packing, then we can expect the minimizer to arrive there quickly.
+\end{flushleft}
+
+\begin{flushleft}
+To start generating the coordinates and radii, we begin by creating a list \texttt{IC}, and then loop through all the nodes in \texttt{G}. For each node, we generate an $x$ and $y$ coordinate using the function \texttt{random.uniform(0,10)} to draw a random number between 0 and 10 uniformly. For each radius $r$, we use \texttt{random.uniform(0,1)} to draw a random number between 0 and 1 uniformly.
+\end{flushleft}
+
+\begin{flushleft}
+We insert each randomly generated number into \texttt{IC} in the order [$x,y,r$], to match with the variable \texttt{vars} from before. The function \texttt{initial\_variables} finally returns \texttt{IC}, a list containing $n$ initial $x$-coordinates, $n$ initial $y$-coordinates, and $n$ initial radii, totalling $3n$ elements in the list.
+\end{flushleft}
+
+\begin{flushleft}
+Summarizing everything we have so far, for a given graph \texttt{G}, we have defined functions that take in \texttt{G} and return the objective function that is to be minimized, a list of constraints to adhere to in order to form a circle packing, and a list of initial conditions for the coordinates of each circle's center, as well as their radii. The last step to take is to use the minimizer in order to obtain the circle packing for a planar graph.
+\end{flushleft}
+
+\begin{flushleft}
+Before we do this though, let's take a quick detour and go through some fundamental ideas of numerical optimization, the issues that arise during minimization, and what we can do to overcome these issues. 
+\end{flushleft}
+
+\subsection{Detour: Understanding Optimization}
+
+\begin{flushleft}
+The aim of this section is to learn a little bit about what happens behind the scenes when we use the \texttt{scipy.optimize.minimize} function. In particular, how the initial conditions chosen play a big role in the convergence to a solution. To see this, let us go through how the initial conditions affect the root-finding abilities of the Newton-Raphson method.
+\end{flushleft}
+
+\subsubsection{Example: Newton-Raphson Method}
+
+\begin{flushleft}
+The Newton-Raphson method is an algorithm used to find the roots $x_r$ of a given function $f(x)$. It is used as follows:
+\begin{enumerate}
+    \item Pick an initial $x = x_0$, and compute its corresponding $f(x_0)$.
+    \vspace{-3mm}
+    \item Draw the tangent of $f(x)$ at the point $x = x_0$, and mark the tangent's intersection with the $x$-axis as $x_1$.
+    \vspace{-3mm}
+    \item Repeat steps 1 and 2 by setting $x_0 = x_1$ until the algorithm converges to $x_r$.
+\end{enumerate}
+
+This is shown in Figure \ref{fig: newton}. Clearly, with an increasing number of iterations, our values for $x = x_i$ converge towards the root $x_r$. However, this is dependent on the function $f(x)$, as well as the initial position $x=x_0$ chosen, see Figure \ref{fig: bad newton}. 
+\end{flushleft}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 1\textwidth]{Chapter 4/9. newton raphson.png}
+    \caption{(a) First iteration of the Newton-Raphson Method. (b) Second iteration of the Newton-Raphson Method.}
+    \label{fig: newton}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Chapter 4/10. bad newton raphson.png}
+    \caption{A poorly chosen initial $x=x_0$. The tangent (blue line) will not intersect the $x$-axis anywhere near the root $x_r$.}
+    \label{fig: bad newton}
+\end{figure}
+
+\vspace{-4mm}
+\begin{flushleft}
+These two examples showcase how the convergence to a solution can be extremely sensitive to the initial conditions chosen. Choose well, and we can expect to obtain the solution we are after quickly, but if our initial condition is chosen poorly, then it may take a really long time before we converge to a solution, if at all.
+\end{flushleft}
+
+\subsubsection{Global vs Local Minimum}
+
+\begin{flushleft}
+There is one more factor that may prevent us from obtaining a correct circle packing, and that is if the minimizer reaches a \textit{local} minimum, and not the \textit{global} minimum. A circle packing is achieved if only if the minimizer converges to the global minimum. 
+\end{flushleft}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Chapter 4/11. energy.png}
+    \caption{A visualization of the local minimums and the global minimum the minimizer can achieve. To achieve the global minimum, the initial condition must be along the slopes leading down to the global minimum.}
+    \label{fig4: minimum}
+\end{figure}
+
+\vspace{-4mm}
+\begin{flushleft}
+Initial conditions play a part in achieving a global minimum as well. Considering Figure \ref{fig4: minimum}, if the minimizer were to start on one of the slopes that goes down to a local minimum, then it would be stuck there, convinced that this is the solution. Therefore, the ideal initial condition must be on the the slope going down to the global minimum (given as blue in the figure).
+\end{flushleft}
+
+\subsubsection{Overcoming pitfalls}
+
+\begin{flushleft}
+A question that comes up at this stage is wondering whether we can always pick suitable initial conditions such that we arrive at a global minimum. Moreover, how can we verify that we are indeed at a global minimum? Such questions can be hard to answer in general, but thankfully in our case, we can use some of the tools picked up along the way to aid us!
+\end{flushleft}
+
+\begin{flushleft}
+The first thing we do is verify whether the minimizer hits a global or local minimum. We know that a correct circle packing is generated when the minimizer achieves a global minimum. Additionally, we know from Definition \ref{def: contact graph} that since our graph $G$ has $2n-3$ edges, the circle packing obtained must also have $2n-3$ contacts. 
+\end{flushleft}
+
+\begin{flushleft}
+Therefore, we can verify that the minimizer attains a global minimum if and only if the resulting circle packing has $2n-3$ contacts! 
+\end{flushleft}
+
+\begin{flushleft}
+If the minimizer produces a circle packing that doesn't have $2n-3$ contacts, then this means the initial conditions were unfavorable and it converged to a local minimum. In this case, we call the function \texttt{initial\_conditions}, generating a new random configuration of points and radii, and attempt to pack the graph once more. 
+\end{flushleft}
+
+\begin{flushleft}
+Armed with the knowledge to combat situations in which the minimizer arrives to an incorrect solution, we embark on the final stretch to finish this module. 
+\end{flushleft}
+
+\subsection{Finding circle packings}
+
+\begin{flushleft}
+
+\end{flushleft}
