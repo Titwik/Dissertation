@@ -1,16 +1,11 @@
 # Code to test the rigidity of a graph
-# plan is to create a networkx graph and then, for each node, randomly assign 
-# a point onto the x-y plane so that it can be analysed
-# use seed to ensure reproducibility 
-
 # import relevant modules
-import math
 import random
 import numpy as np
 
 ####################################################################################################
 # create a function that plots the graph on the x-y plane
-def G_coordinates(G):
+def G_configuration(G):
     
     # set the seed for reproducibility
     #random.seed(132)
@@ -62,7 +57,7 @@ def G_coordinates(G):
 def rigidity_matrix(G):
     
     # extract the coordinates of the graph
-    x_nodes, y_nodes = G_coordinates(G)
+    x_nodes, y_nodes = G_configuration(G)
     
     n = len(G.nodes())
     m = len(G.edges())
@@ -94,9 +89,6 @@ def check_rigidity(G):
     # number of nodes
     n = len(G.nodes())
     
-    # working in dimension 2 so
-    d = 2
-    
     # find the rigidity matrix of G
     R = rigidity_matrix(G)
     
@@ -104,20 +96,11 @@ def check_rigidity(G):
     R_rank = np.linalg.matrix_rank(R)
     
     # check whether the rank satsifies Infinitesimal rigidity condition
-    if n >= d + 2:
-        if R_rank == d * n - math.comb(d+1, 2):
-            return True
-        else:
-            return False
-            
-    elif n  <= d + 1:
-        if R_rank == math.comb(n, 2):
-            return True
-        else:
-            return False
+    if R_rank == 2*n - 3:
+        return True
     else:
         return False
-
+    
 ####################################################################################################
 
 # find rigid graphs given planar graphs satisfying 2n - 3 edges
@@ -127,7 +110,7 @@ def find_rigid_graphs(Graphs):
     
     # all graphs have the same number of vertices
     # we consider any one of these graphs and count how many there are    
-    v = len(Graphs[0].nodes())
+    n = len(Graphs[0].nodes())
     
     # filter out the graphs that have degree 2 vertices
     graphs_without_degree_2 = []
@@ -137,7 +120,7 @@ def find_rigid_graphs(Graphs):
         G = Graphs[i]
         has_low_degree = False
         
-        for j in range(v):
+        for j in range(n):
             if len(list(G[j])) <= 2:
                 has_low_degree = True
                 break
@@ -157,3 +140,5 @@ def find_rigid_graphs(Graphs):
     return rigid_graphs
 
 ####################################################################################################
+
+
