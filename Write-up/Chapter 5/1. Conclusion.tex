@@ -1,0 +1,29 @@
+\chapter{Conclusion}
+
+\begin{flushleft}
+We began this project to explore whether a seemingly trivial conjecture was true or not. Why would it be the case that a minimally rigid graph would not give rise to a rigid circle packing? The technqiues involved to prove (or disprove) this question was a lot more work than one could have anticipated however.
+\end{flushleft}
+
+\begin{flushleft}
+Recapping the journey we have undertaken, first we learned about what frameworks are and how it differs from a graph. Graphs are abstract mathematical structures, whereas each node in a framework is equipped with its own position vector in $\mathbb{R}^d$. We then defined rigidity, and what it meant for a framework to be rigid in space. This is where we noted that for a framework to be rigid, the only way it is permitted to move is either by rotating it, or translating it through space. A stronger property of rigidity, infinitesimal rigidity, was brought up, stating that the the framework should not deform when velocity vectors are applied to any node in the framework.
+\end{flushleft}
+
+\begin{flushleft}
+Furthering our study of rigidity, we built up a collection of theorems in order to deduce whether a given framework is rigid or not, including a way to encode a framework into a matrix. Realizing any rigid framework must have 3 degrees of freedom, as well as noticing that the kernel of the rigidity matrix was simply the space of infinitesimal rigid motions allowed us to quickly deduce that the rank of the rigidity matrix must be $2n-3$ with the use of the Rank-Nullity Theorem. 
+\end{flushleft}
+
+\begin{flushleft}
+Next, we introduced the concept of circle packings, and defined a circle packing's contact graph. Studying the contact graph allowed us to use results developed earlier for graphs and frameworks to study circle packings. The Circle Packing Theorem was seen here, and played a major role when finding the circle packings of interest. 
+\end{flushleft}
+
+\begin{flushleft}
+Finally, we built two modules in Python named \texttt{Rigidity.py} and \texttt{Circlee\_Packing.py}. Leveraging them to test a number of planar graphs for rigidity, and then attempt to find circle packings for each of them, we saw that each graphs on $n \in [3, \hdots, 9]$ satisfied the conjecture by this numerical method. However, the code developed here was limited in the scenarios it could tackle, and so graphs on $n = 10$ nodes could not be studied in a time and energy efficient manner. 
+\end{flushleft}
+
+\begin{flushleft}
+In the end, we were unable to prove (or disprove) the conjecture defined at the start of this project, but that was never the goal. What we wanted to gain from this journey was some insight into the truth of the conjecture, which we now have! Knowing that its true for all minimally rigid graphs upto 9 nodes was an exciting adventure in and of itself. Perhaps with some modifications to the existing code, and some degree of parallelization (running the code in multiple environments), we can explore a higher number of nodes at some point. This however is beyond the scope of this project.
+\end{flushleft}
+
+\begin{flushleft}
+As mentioned at the start of Chapter 4, this last part of the project was similar to the final boss fight in a video game. While we never managed to defeat this enemy, we certainly did enough damage to leave a mark. With the development of new, creative ways to deal with the limitations to the code presented earlier, our next battle might very well be the winning attempt! Until then, this is a good point to save our progress, quit the game and get some well-deserved sleep. 
+\end{flushleft}

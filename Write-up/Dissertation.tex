@@ -4,6 +4,8 @@
 \usepackage{helvet}
 \usepackage{multirow}
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{amssymb}
 \usepackage{verbatim}
 \usepackage[
@@ -67,9 +69,9 @@ bookmarks=true,bookmarksopenlevel=2]{hyperref}
 
 %% tikz packages
 \usepackage{pgfmath, pgffor}
-\usepackage[skip = 2pt]{caption}
-\DeclareCaptionFormat{myformat}{\fontsize{10pt}{20pt}\selectfont#1#2#3}
-\captionsetup{format=myformat}
+\usepackage{caption}
+\DeclareCaptionFormat{myformat}{\fontsize{10pt}{10pt}\selectfont\setlength{\baselineskip}{16pt}#1#2#3} % Adjust the font size and line spacing here
+\captionsetup{format=myformat, skip=2pt} % Adjust the skip value here
 \usepackage{subcaption}
 \usepackage{tikz}
 \usetikzlibrary{arrows,backgrounds,positioning,petri, calc}
@@ -115,23 +117,23 @@ bookmarks=true,bookmarksopenlevel=2]{hyperref}
 
 \begin{document}
 
-%\input{Title Page}
+\input{Title Page}
 
 %----------------------------------------------------------------------
 
-%\input{Chapter 1/1. Chapter1}
+\input{Chapter 1/1. Chapter1}
 
 \clearpage
 
 %----------------------------------------------------------------------
 
-%\input{Chapter 2/1. Chapter2}
+\input{Chapter 2/1. Chapter2}
 
 \clearpage
 
 %----------------------------------------------------------------------
 
-%\input{Chapter 3/1. Chapter3}
+\input{Chapter 3/1. Chapter3}
 
 \clearpage
 
@@ -143,5 +145,9 @@ bookmarks=true,bookmarksopenlevel=2]{hyperref}
 
 %----------------------------------------------------------------------
 
-%\printbibliography
+\input{Chapter 5/1. Conclusion.tex}
+
+%----------------------------------------------------------------------
+
+\printbibliography
 \end{document}

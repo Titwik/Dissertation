@@ -1,7 +1,7 @@
 \chapter{Rigidity: An Introduction} % previously Definitions \& Preliminaries
 
 \begin{flushleft}
-Rigidity can be easily understood as observing a structure and questioning how 'stiff' it is. If some force is applied to it, does it bend or buckle? When we pull the structure across (Euclidean) space, do we move it entirely, or does a part of it bend and move in the direction of the pull? As stiffness can be interpreted in a multitude of ways, this section will be dedicated to formalizing the definition of rigidity that we will use for the remainder of this project. 
+Rigidity can be easily understood as observing a structure and questioning how 'stiff' it is. If some force is applied to it, does it bend or buckle? When we pull the structure across (Euclidean) space, do we move it entirely, or does a part of it bend and move in the direction of the pull? As stiffness can be interpreted in a multitude of ways, this chapter will be dedicated to formalizing the definition of rigidity that we will use for the remainder of this project. 
 \end{flushleft}
 
 \begin{flushleft}
@@ -15,7 +15,7 @@ Here, we delve into a small portion of a very large field of mathematics. The de
 \end{flushleft}
 
 \begin{definition}
-    A \textit{graph} $G = (V,E)$ consists of a set V and a set E of two-element subsets of V. The elements of V are called \textit{vertices} and the elements of E are called \textit{edges}.
+    A \textit{graph} $G = (V,E)$ consists of a set V and a set E of two-element subsets of V. The elements of V are called \textit{vertices} (or nodes) and the elements of E are called \textit{edges}.
 \end{definition}
 
 \begin{example}
@@ -120,10 +120,10 @@ The last idea we need from graph theory is the notion of \textit{planarity}. The
 
 \begin{flushleft}
     Now that we have a good idea of what graphs are, we can start working on setting up frameworks. The definitions in this section will be defined in the space $\mathbb{R}^d$, where $d \in \mathbb{N}$. Later, we will find ourselves working exclusively in $\mathbb{R}^2$. For the remainder of this chapter, we shall adhere closely to the contents in chapter 2 from the book ``Frameworks, Tensegrities, and Symmetry'' by Robert Connelly and Simon D. Guest \cite{textbook}.
-    % better way of wriitng this para?
-    
-    The first definition we need is that of a \textit{configuration}.
 \end{flushleft}
+
+\noindent
+The first definition we need is that of a \textit{configuration}.
 
 \begin{definition}
     Suppose we have a collection of $n$ labelled points in $\mathbb{R}^d$, where $d \in \mathbb{N}$. Let $\mathbf{p}_i = (p_{i1}, \hdots, p_{id})$ be the position vector of point $i$. Then a \textit{configuration} is
@@ -172,7 +172,7 @@ At this stage, you may be wondering what exactly the difference between a graph 
 \begin{itemize}
     \item A graph is an abstract mathematical object that can be visualised in a multitude of ways, as seen in \hyperref[eg: isomorphic graphs]{Example \ref*{eg: isomorphic graphs}}. Varying the edge lengths does not produce a new graph as by \hyperref[def: isomorphism]{Definition \ref*{def: isomorphism}}, they are isomorphic, and considered the `same'.
     \vspace{-3mm}
-    \item In a framework however, we are fixing points in space. If we consider a framework in $\mathbb{R}^2$ such as the one in \hyperref[g vs f]{Example \ref*{g vs f}}, each node is at a determined distance from each other. Slightly changing the position of a node results in a different framework.
+    \item In a framework however, each node has a position vector. If we consider a framework in $\mathbb{R}^2$ such as the one in \hyperref[g vs f]{Example \ref*{g vs f}}, each node is at a determined distance from each other. Slightly changing the position of a node results in a different framework.
 
 \end{itemize}
 \end{flushleft}
@@ -322,15 +322,18 @@ If a framework is not rigid, it is said to be \textit{flexible}.
 
 \begin{example}
 \label{eg: rigid graphs}    
-These two frameworks are rigid.
+The frameworks in Figure \ref{fig: rigid_graphs} are rigid. 
+
+\vspace{3mm}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.57\textwidth]{Chapter 2/7. rigid_graphs.png} 
     \caption{Two rigid frameworks in $\mathbb{R}^2$}
     \label{fig: rigid_graphs}
 \end{figure}
+
 \begin{flushleft}
-However, the following framework is not. We can apply a motion to the two nodes at the top such that the edge lengths are preserved, but the distance between the diagonal nodes change, violating the definition of rigidity.    
+However, the framework in Figure \ref{eg: not_rigid} is not. We can apply a motion to the two nodes at the top such that the edge lengths are preserved, but the distance between the diagonal nodes change, violating the definition of rigidity.    
 \end{flushleft}
 
 \begin{figure}[htbp]
@@ -342,6 +345,8 @@ However, the following framework is not. We can apply a motion to the two nodes 
 \end{example}
 \vspace{-5 mm}
 \begin{flushleft}
+
+\vspace{-3mm}
 Another equivalent definition that was proved by Asimow and Roth \cite{asimow} that uses ideas of the congruency of frameworks.
 \end{flushleft}
 
@@ -360,7 +365,6 @@ To put it another way, two frameworks $(G,\mathbf{p})$ and $(G,\mathbf{q})$ are 
 They are congruent if $(G,\mathbf{p})$ can be obtained through a series of rotations and translations of $(G,\mathbf{q})$. 
 \end{flushleft}
 
-% come up with a good diagram for the following definition. I am thinking of a framework with an epsilon circle around it, similar to hakan phd, but an equivalent framework with nodes in different places in this epsilon circle. Ask Louis?
 % https://www.youtube.com/watch?v=kQlrqrjBXtk, 3:03
 \begin{definition}
 A framework $(G,\mathbf{p})$ on $n$ nodes is \textit{rigid} if there exists an $\epsilon>0$ such that for every configuration $\mathbf{q}$, where $(G,\mathbf{q})$ is equivalent to $(G,\mathbf{p})$, satisfies 
@@ -411,6 +415,7 @@ In order to strengthen the definition of rigidity, let us first start with an ob
 
 \begin{flushleft}
 Suppose that the configuration $\mathbf{p}$ is on a smooth differentiable path parameterized by time $t$. Consider a node of the configuration $\mathbf{p}_i$. Then its position is given by $\mathbf{p}_i(t)$ and as $\mathbf{p}_i$ is on a differentiable path, its derivative is well-defined.
+\end{flushleft}
 
 \begin{figure}[htbp]
     \centering
@@ -418,14 +423,17 @@ Suppose that the configuration $\mathbf{p}$ is on a smooth differentiable path p
     \caption{Node $\mathbf{p}_i$ at various positions on path $\mathbf{p}_i(t)$ for various times $t$. The instantaneous velocities at each position $\mathbf{p}'_i(t)$ are marked in red}
     \label{fig: path}
 \end{figure}
+
+\vspace{-3mm}
+\begin{flushleft}
+    Taking the derivative of $\mathbf{p}_i(t)$ with respect to time gives us the instantaneous velocity $\mathbf{p}'_i(t)$ of the node $\mathbf{p}_i$ at time $t$.    
 \end{flushleft}
 
-\noindent
-Taking the derivative of $\mathbf{p}_i(t)$ with respect to time gives us the instantaneous velocity $\mathbf{p}'_i(t)$ of the node $\mathbf{p}_i$ at time $t$.
 %\vspace{-5.5 mm}
 
 \begin{flushleft}
 The velocities $\mathbf{p}'_i(t)$ become vital when studying infinitesimal rigidity. To motivate this, let us consider a framework in $\mathbb{R}^2$.
+\end{flushleft}
 
 \begin{figure}[htbp]
     \centering
@@ -434,12 +442,14 @@ The velocities $\mathbf{p}'_i(t)$ become vital when studying infinitesimal rigid
     \label{fig: inf_velocity}
 \end{figure}
 
+\vspace{-3mm}
+\begin{flushleft}
 In Figure \ref{fig: inf_velocity}, we have a framework with three nodes, each defined by coordinates $(x_i(t), y_i(t))$ as well as their corresponding velocities given by $(x'_i(t), y'_i(t))$ for $i = 1,2,3$. As each point is fixed in the plane, the distances between each pair of nodes are constants, given as $l_i$ for $i = 1,2,3$.
 \end{flushleft}
 
 \begin{flushleft}
 Therefore, we know that 
-\vspace{-1 mm}
+%\vspace{-1 mm}
 \[
 \begin{split}
 (x_1(t) - x_2(t))^2 + (y_1(t) - y_2(t))^2 = {l_3}^2 \\
@@ -449,7 +459,7 @@ Therefore, we know that
 \]
 
 Now, if we differentiate each equation with respect to $t$, we get 
-\vspace{-1 mm}
+%\vspace{-1 mm}
 \[
 \begin{split}
 2(x_1 - x_2)(x'_1 - x'_2) + 2(y_1 - y_2)(y'_1 - y'_2) = 0 \\
@@ -458,8 +468,8 @@ Now, if we differentiate each equation with respect to $t$, we get
 \end{split}
 \]
 
-where we drop the dependence on $t$ for notational convenience. By factoring out the $2$, this set of equations can be written as
-\vspace{-1 mm}
+where we drop the dependence on $t$ for notational convenience. By factoring out the $2$, these equations can be written as
+%\vspace{-1 mm}
 \[
 \begin{split}
 (x_1 - x_2, y_1 - y_2) \cdot (x'_1 - x'_2, y'_1 - y'_2) = 0 \\
@@ -474,7 +484,7 @@ Or more simply
 (x_i - x_j, y_i - y_j) \cdot (x'_i - x'_j, y'_i - y'_j) = 0
 \]
 
-for all $i,j = 1,2,3$
+for all $i,j = 1,2,3$ where $i \neq j$.
 \end{flushleft}
 
 \begin{flushleft}
@@ -581,7 +591,7 @@ Don't worry about what an affine space is as it is beyond the scope of this proj
 And the pattern continues. This gives us a set of points that are spread out, making them more interesting to study.
 \end{flushleft}
 
-\begin{flushleft}
+\begin{flushleft} % example of how 3 points satisfy a straight line equation. 
 Genericity is a stronger condition than that of general position. The definition is as follows.
 \end{flushleft}
 
@@ -590,7 +600,7 @@ A configuration $\mathbf{p}$ is \textit{generic} if the only polynomial with coe
 \end{definition}
 
 \begin{flushleft}
-A couple of examples of point-sets that are not generic by this definition include four points on a circle and a pair of points on a line that has a rational slope \cite{textbook}. Our definitions of infinitesimal rigidity only apply to configurations that are generic, as we will see when considering the framework $(G,\mathbf{p})$ in Figure \ref{fig: non-generic}.
+A couple examples of point-sets that are not generic by this definition include four points on a circle and a pair of points on a line that has a rational slope \cite{textbook}. Our definitions of infinitesimal rigidity only apply to configurations that are generic, as we will see when considering the framework $(G,\mathbf{p})$ in Figure \ref{fig: non-generic}.
 \end{flushleft}
 
 \begin{figure}[htbp]
@@ -602,7 +612,7 @@ A couple of examples of point-sets that are not generic by this definition inclu
 
 \vspace{-2mm}
 \begin{flushleft}
-Here, the three nodes lie on a straight line and so they are not in general position which means they are not generic as genericity is a stronger condition than general position. Suppose we apply instantaneous velocities $\mathbf{p}'_1$, $\mathbf{p}'_2$ of magnitude 0 to the nodes $\mathbf{p}_1$ and $\mathbf{p}_2$, and apply the instantaneous velocity $\mathbf{p}'_3 = (0,k)$ to the node $\mathbf{p}_3$.
+Here, the three nodes lie on a straight line and so they are not in general position which means they are not generic. Suppose we apply instantaneous velocities $\mathbf{p}'_1$, $\mathbf{p}'_2$ of magnitude 0 to the nodes $\mathbf{p}_1$ and $\mathbf{p}_2$, and apply the instantaneous velocity $\mathbf{p}'_3 = (0,k)$ to the node $\mathbf{p}_3$.
 \end{flushleft}
 
 \begin{flushleft}
