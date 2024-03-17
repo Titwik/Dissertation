@@ -21,32 +21,7 @@ def G_configuration(G):
         y = random.randint(-2 * 10 ** 40, 2 * 10 ** 40)
         x_nodes.append(x)
         y_nodes.append(y)
-    
-    # JUST SAYING
-    # THE STUFF BELOW THIS ISN'T REALLY NECESSARY
-    # IT'S JUST TO HELP VISUALIZE
-    
-    ############################
-    # Plot the graph
-    #plt.figure()
-    
-    # Plot the nodes onto the graph
-    #plt.plot(x_nodes, y_nodes, 'bo', markersize=15)
-    
-    # Add labels to the points
-    #for i, (x, y) in enumerate(zip(x_nodes, y_nodes)):
-    #    plt.text(x, y, str(i), fontsize=12, ha='center', va='center', color='white')
-    
-    # Add the edges between the corresponding nodes
-    #edges = list(G.edges)
-    #for i in range(len(edges)):
-    #    point_1 = [x_nodes[edges[i][0]], x_nodes[edges[i][1]]]
-    #    point_2 = [y_nodes[edges[i][0]], y_nodes[edges[i][1]]]
-    #    plt.plot(point_1, point_2, 'k-')
-    
-    #plt.show()
-    ############################
-    
+        
     return x_nodes, y_nodes
 
 ####################################################################################################
