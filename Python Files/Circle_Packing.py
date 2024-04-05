@@ -115,7 +115,7 @@ def cons(G):
         constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: vars[3*i + 2] - epsilon}) 
             
         # radius at most 10
-        constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 1 - vars[3*i + 2]}) 
+        constraints.append({'type': 'ineq', 'fun': lambda vars, i=i: 10 - vars[3*i + 2]}) 
 
         # constraint to prevent overlapping
         for j in range(len(G)):
@@ -138,10 +138,10 @@ def initial_conditions(G):
     
     # generate random numbers for x,y and r
     for i in range(n):
-        x = random.uniform(0,6)
+        x = random.uniform(0,10)
         IC.append(x)
         
-        y = random.uniform(0,6)
+        y = random.uniform(0,10)
         IC.append(y)
         
         r = random.uniform(0,1)
@@ -179,7 +179,7 @@ def circle_packing(G):
         # This counter counts how many circles are tangent to each other in the packing        
         # we expect 2n-3 tangential circles
         # Reset the counter for each iteration       
-        counter = 0
+        contacts = 0
         
         # set a tolerance for 0
         tolerance = 0.001
@@ -194,12 +194,12 @@ def circle_packing(G):
                 
                 # check if the distance between the centers is equal to the sum of radii
                 if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r_list[i] + r_list[j])) < tolerance:
-                    counter += 1
+                    contacts += 1
         
 ###################################################################################################################
 
         # code is successful if we get 2n-3 tangent circles
-        if counter == (2*n - 3):
+        if contacts == (2*n - 3):
             
             # generate the contact graph in networkx
             contact_graph = nx.Graph()
@@ -213,9 +213,6 @@ def circle_packing(G):
                     
                     if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - (r1 + r2)) < tolerance:
                         contact_graph.add_edge(i, j)  # Add an edge between tangential circles
-                
-            # Check if the contact graph has vertices of degree 1 or 2
-            bad_degree = any(contact_graph.degree(v) <= 2 for v in contact_graph.nodes())
                 
             # find x_min, x_max, y_min and y_max
             x_min_values = []
@@ -357,4 +354,5 @@ def circle_packing(G):
                 
             return G, contact_graph, fig1, fig2, fig3
 
-###################################################################################################################
+###########################################################################
+

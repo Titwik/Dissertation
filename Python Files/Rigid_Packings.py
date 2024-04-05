@@ -11,7 +11,7 @@ def rigid_graphs(n):
     return rg.find_rigid_graphs(Graphs)
 
 # define a function to check whether the starting rigid graph is isomorphic to the packing
-# and also whether the resulting packing has a rigid contact graph
+# and also whether the resulting packing has an infinitesimally rigid contact graph
 def isomorphism_and_rigidity(n):
     
     print(f'Number of nodes is {n}')
@@ -20,6 +20,9 @@ def isomorphism_and_rigidity(n):
     attempt = 0     
     position = 0
     max_attempt = 500
+    
+    # set the save path
+    save_path = '/home/titwik/Diss Work/Misc/Packings'
     
     while True:
         
@@ -34,16 +37,16 @@ def isomorphism_and_rigidity(n):
         # initialise the graphs we are analysing
         G, contact_graph, fig, fig2, fig3 = cp.circle_packing(rigid_graphs(n)[position])
         
-        if not os.path.exists(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}'):
-            os.makedirs(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}')
+        if not os.path.exists(f'{save_path}/{n}/Graph {position+1}'):
+            os.makedirs(f'{save_path}/{n}/Graph {position+1}')
         
         # save the graph
         nx.draw(G, node_color='black', node_size=300, edge_color='black', linewidths=2)
-        plt.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/1. Starting graph.png', dpi = 300)
+        plt.savefig(f'{save_path}/{n}/Graph {position+1}/1. Starting graph.png', dpi = 300)
         plt.close()
         
         nx.draw_planar(G, node_color='black', node_size=300, edge_color='black', linewidths=2)
-        plt.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/2. Planar starting graph.png', dpi = 300)
+        plt.savefig(f'{save_path}/{n}/Graph {position+1}/2. Planar starting graph.png', dpi = 300)
         plt.close()
         
         # set conditions 
@@ -55,9 +58,9 @@ def isomorphism_and_rigidity(n):
             print('')
 
             # save the figures           
-            fig.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/3. Plain packing.png', dpi = 300)
-            fig2.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/4. Packing with contact.png', dpi = 300)
-            fig3.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/5. Contact.png', dpi = 300)
+            fig.savefig(f'{save_path}/{n}/Graph {position+1}/3. Plain packing.png', dpi = 300)
+            fig2.savefig(f'{save_path}/{n}/Graph {position+1}/4. Packing with contact.png', dpi = 300)
+            fig3.savefig(f'{save_path}/{n}/Graph {position+1}/5. Contact.png', dpi = 300)
 
             # adjust the position and attempt number
             position += 1
@@ -70,9 +73,9 @@ def isomorphism_and_rigidity(n):
             print('')
 
             # save the figures
-            fig.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/3. Plain packing.png', dpi = 300)
-            fig2.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/4. Packing with contact.png', dpi = 300)
-            fig3.savefig(f'/home/titwik/Diss Work/Misc/Packings/{n}/Graph {position+1}/5. Contact.png', dpi = 300)
+            fig.savefig(f'{save_path}/{n}/Graph {position+1}/3. Plain packing.png', dpi = 300)
+            fig2.savefig(f'{save_path}/{n}/Graph {position+1}/4. Packing with contact.png', dpi = 300)
+            fig3.savefig(f'{save_path}/{n}/Graph {position+1}/5. Contact.png', dpi = 300)
             
             break
         
@@ -81,7 +84,25 @@ def isomorphism_and_rigidity(n):
             
             break
 
-# testing
-isomorphism_and_rigidity(8)
+# function to count how many packings are achieved
+def packing_counter(n):
+    count = 0
+    position = 1
+    max_position = 1037+1
+    save_path = '/home/titwik/Diss Work/Misc/Packings'
+    
+    for position in range(max_position):
+        dir_path = f'{save_path}/{n}/Graph {position}/3. Plain packing.png'
+        if os.path.exists(dir_path):
+            count += 1
+    
+    return count
 
+# find the required circle packings
+# change the argument to n = 6,7,8,9,10 as required
+n = 7
+print(isomorphism_and_rigidity(n))
+
+# count the number of circle packings found for graphs with n vertices
+print(f'The number of packings found for n = {n} is {packing_counter(n)}')
 
