@@ -19,43 +19,78 @@
 Minimally Rigid Graphs and their Circle Packings: A Rigid Investigation
 }
 
-\vspace{2.5cm}
+{\small
+Senior Honours MT5599 Project
+}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{St Andrews Logo.png}
+\end{figure}
+
+\vspace{0.5mm}
 
 {\LARGE
 Ritwik Rajaram Anand
 }
 
-\vspace{3.5cm}
+{\small
+Supervisor: Dr Louis Theran
+}
 
-
-School of Mathematics and Statistics\\
-University of St Andrews
-
-\vspace{3.5cm}
+{\large 2023-2024}
 
 \vspace{\fill}
 
-\date{April 2024}
+
+
+
 
 %%%
 }%%%
 
+\newgeometry{left=4cm,right=4cm,top=3cm,bottom=3cm}
 \cleardoublepage
 
 %----------------------------------------------------------------------
-% figure out how to center abstract
-\section*{Abstract}    
-TBD
+~\vspace{\fill}
 
-\section*{Declaration}
-\textit{I certify that this project report has been written by me, is a record of work
-carried out by me, and is essentially different from work undertaken for any
-other purpose or assessment}.
+\thispagestyle{empty}
+\begin{center}
+    \textbf{Abstract}\\
 
+    %\vspace{5mm}
+
+    \justifying
+    \noindent
+    The Circle Packing Theorem, also known as the Koebe–Andreev–Thurston theorem, states that any planar graph with no loops or multiple edges has a circle packing. However, it has been conjectured that the existence of an infinitesimally rigid circle packing for every minimally rigid graph is unknown. This project aims to explore the infinitesimal rigidity of circle packings obtained from minimally rigid graphs computationally in Python by writing two modules, \texttt{Rigidity.py} and \texttt{Circle\_Packing.py}. The module \texttt{Rigidity.py} verifies the rigidity of a given planar graph, and the module \texttt{Circle\_Packing.py} attempts to find a circle packing for a given planar graph using numerical minimization methods. By attempting to construct the circle packing for each minimally rigid graph on $n \in [3,10]$ vertices, we explore this conjecture and test the limits of the code developed.
+
+
+\end{center}    
+
+\vspace{2cm}
+
+\begin{center}
+    
+    \textbf{Declaration} \\
+    \justifying
+    \noindent
+    {I certify that this project report has been written by me, is a record of work carried out by me, and is essentially different from work undertaken for any other purpose or assessment}
+\end{center}
+\vspace{-8mm}
+\begin{figure}[htbp]
+    \begin{flushright}
+        \includegraphics[width = 0.2\textwidth]{Signature.png}    
+    \end{flushright}
+    
+\end{figure}
+
+\vspace{\fill}
+\restoregeometry
 \clearpage
 
 %----------------------------------------------------------------------
-
+\pagenumbering{arabic}
 \tableofcontents*
 
 \clearpage

@@ -1,79 +1,71 @@
-\chapter{Exploring Rigidity \& Circle Packings}  % Is it Rigid?
+\chapter{Exploring Rigidity \& Circle Packings}
 
 \begin{flushleft}
-So far, we have seen the various definitions of rigidity that we can use to identify whether a given framework is rigid. However, we have no methods or techniques to \textit{test} for the rigidity of a framework. 
+So far, we have seen various definitions of rigidity, but we have no methods or techniques to \textit{test} for the rigidity of a framework. 
 \end{flushleft}
 
 \begin{flushleft}
-Here, we address how infinitesimal rigidity relates to rigidity, and design a method in order to test a framework for infinitesimal rigidity. We will also introduce circle packings, and discuss how they come about. As rigidity can't be tested merely by observation, testing the rigidity of a circle packing arises from using a few techniques seen earlier. For the remainder of this project, we will be working exclusively in $\mathbb{R}^2$ unless specified otherwise.
+In this chapter, we will address how infinitesimal rigidity relates to rigidity, and design a method in order to test a framework for infinitesimal rigidity. We will also introduce circle packings, discuss how we can obtain circle packings from graphs, and learn how to test the rigidity of a circle packing. For the remainder of this project, we will be working exclusively in $\mathbb{R}^2$ unless specified otherwise.
 \end{flushleft}
 
 \section{Degrees of Freedom}
 
 \noindent
-This section has been adapted from Graver's book \cite{counting_frameworks}.
+This section will describe what the degrees of freedom for a system of nodes and edges are, and can be viewed in more detail in Graver's book \cite{counting_frameworks}.
 
 \begin{flushleft}
-To understand what it means for a framework to have $x$ number of \textit{degrees of freedom}, let us first go through some simple examples to gain an understanding of what a degree of freedom is.
-
-\begin{itemize}
-    \item Consider a point in $\mathbb{R}^2$. It can move right or left along the $x$-axis, and up or down along the $y$-axis. As it can travel along either axis, we say that this point has two \textit{degrees of freedom}. 
-    %\vspace{-3mm}
-    \item Now, if we consider a line segment $l$ in the plane with two endpoints, we know that each endpoint has two degrees of freedom, giving us four degrees of freedom, but the line between them prevents the endpoints from moving independently of each other. So, $l$ can move either along the $x$ or $y$ axes, giving us two degrees of freedom. However, it can also rotate about some point in $\mathbb{R}^2$. Therefore, the line segment has three degrees of freedom.
-    %\vspace{-3mm}
-    \item If we were to consider a point in $\mathbb{R}^3$, then as the point can travel along the $x$, $y$ or $z$-axes, it has three degrees of freedom. 
-\end{itemize}
+To understand what a degree of freedom is, let us consider Figure \ref{fig: degree of freedom example}, displaying three simple systems of nodes. We will go through each system and gain an understanding of what a degree of freedom is. 
 \end{flushleft}
 
-\begin{flushleft}
-At this point, we should be able to see what a degree of freedom means. It is essentially a count of how many ways a structure (frameworks in our case) can move around in space. Additionally, we can note that adding an edge between two points reduces the total degrees of freedom in the system from four to three due to the constraint that the points can't move independently of each other. 
-\end{flushleft}
-\vspace{-3 mm}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.25\textwidth]{Chapter 3/5. degree_of_freedom.png}
-    \caption{A framework on three nodes and three edges}
-    \label{fig: degree_of_freedom}
+    \includegraphics[width = 0.5\textwidth]{Chapter 3/14. degree_of_freedom 2.0.png}
+    \caption{Three systems of nodes. The arrows display the ways in which the nodes can be translated along the $x$ and $y$ axes, and a line segment in (c) can be rotated about its center, shown by a curly arrow.}
+    \label{fig: degree of freedom example}
 \end{figure}
-
-\begin{example}
-In order to find how many degrees of freedom the framework in Figure \ref{fig: degree_of_freedom} has, we start with just three nodes $\mathbf{p}_1$, $\mathbf{p}_2$, $\mathbf{p}_3$, and then build up to the framework given:
+\vspace{-3mm}
+\begin{flushleft}
 \begin{itemize}
-    \item With only three nodes in the plane, and each node having two degrees of freedom, the total degrees of freedom the system has is $3 \times 2 = 6$.
+    \item In Figure \ref{fig: degree of freedom example}(a), we have a node that can move along either the $x$ or the $y$ axis. Therefore, the node has \textbf{two} degrees of freedom.
     
-    \item If we add an edge between $\mathbf{p}_1$ and $\mathbf{p}_2$ now, we lose a degree of freedom, giving us $3$ degrees of freedom for the segment $\mathbf{p}_1\mathbf{p}_2$ and $2$ for the node $\mathbf{p}_3$, totalling $5$ degrees of freedom in the system.
+    \item In Figure \ref{fig: degree of freedom example}(b), we have two nodes in the system, and each of them can move independently along the $x$ or $y$ axis. So this system has \textbf{four} degrees of freedom.
     
-    \item Adding the edge between $\mathbf{p}_1$ and $\mathbf{p}_3$, we further reduce the number of ways the framework can move: $3$ degrees of freedom for $\mathbf{p}_1\mathbf{p}_2$, and $1$ degree of freedom for rotation of the second segment $\mathbf{p}_1\mathbf{p}_3$ about their common endpoint $\mathbf{p}_2$. At this stage, the structure has $4$ degrees of freedom.
-    
-    \item Adding the last edge between $\mathbf{p}_2$ and $\mathbf{p}_3$ gives us the framework in question. We reduce the degrees of freedom by one yet again, giving us $3$ degrees of freedom in total now.
+    \item In Figure \ref{fig: degree of freedom example}(c), we have two nodes joined by an edge. The nodes are no longer allowed to move independently. A combination of horizontal and vertical translations and
+    a rotation about its center can place this segment in any position in the plane, and so the segment has \textbf{three} degrees of freedom.
 \end{itemize}
-\end{example}
+\end{flushleft}
 
 \begin{flushleft}
-Using Definition \ref{def: rigid}, we know that for any (infinitesimally) rigid body in the plane, we must only be allowed to translate it along the two axes, as well as only rotate it about some point.
+At this point, we should be able to see what a degree of freedom means. It is essentially a count of the number of ways a structure (frameworks in our case) can move around in space. Additionally, we can note that adding an edge between two points reduces the total degrees of freedom in the system by one due to the constraint that the points can't move independently of each other. 
+\end{flushleft}
+
+\begin{flushleft}
+Using Theorem \ref{thm: rigid motion theorem}, we know that for any (infinitesimally) rigid framework in the plane, we must only be allowed to translate it along the two axes, as well as only rotate it about some point.
 \end{flushleft}
 
 \begin{theorem}
 \label{thm: degrees of rigid body}
-In $\mathbb{R}^2$, any rigid body must have $3$ degrees of freedom. 
+\cite{counting_frameworks} Any infinitesimally rigid framework must have $3$ degrees of freedom in $\mathbb{R}^2$. 
 \end{theorem}
 
 \section{The Rigidity Matrix}
 
 \begin{flushleft}
-When given a framework, it can be quite difficult to tell whether it is rigid or not. This is where the \textit{rigidity matrix} comes in. By finding a way to encode a framework into a matrix, we can then use tools from linear algebra to study and draw conclusions about the framework itself!
+When given a framework, it can be quite difficult to tell whether it is rigid or not. This is where the \textit{rigidity matrix} comes in. By encoding a framework into a matrix, we can use tools from linear algebra to study and draw conclusions about the framework itself! To do this, we study the system of equations obtained when we consider the infinitesimal motions of a framework.
 \end{flushleft}
 
 \begin{definition}
 \label{def: rigidity matrix}
-The \textit{rigidity matrix} $\mathbf{R}(G,\mathbf{p})$ of a $d$-dimensional framework $(G,\mathbf{p})$ is a matrix that contains the system of equations described in Definition \ref{def: inf motion}. It is a $|E(G)| \times d|V(G)|$ matrix, where the rows are indexed by the edges of $G$, and sets of $d$ consecutive columns correspond to a single node of $(G,\mathbf{p})$. 
+The \textit{rigidity matrix} $\mathbf{R}(G,\mathbf{p})$ of a $d$-dimensional framework $(G,\mathbf{p})$ is a matrix that contains the coefficients of the system of equations described in Definition \ref{def: inf motion}. It is a $|E(G)| \times d|V(G)|$ matrix, where the rows are indexed by the edges of $G$, and sets of $d$ consecutive columns correspond to the coordinates of a single node of $(G,\mathbf{p})$. 
 
-\noindent
-If there is an edge between nodes $\mathbf{p}_i$ and $\mathbf{p}_j$ when $d=2$, then the non-zero entries in the corresponding row of the matrix lie in columns corresponding to coordinates of each node. That is;
+\begin{flushleft}
+If there is an edge between nodes $\mathbf{p}_i$ and $\mathbf{p}_j$ when $d=2$, then the non-zero entries in the corresponding row of the matrix lie in columns corresponding to coordinates of each node. That is;    
+\end{flushleft}
+
 \begin{itemize}
-    \item Columns $2i-1$ and $2i$ corresponding to the coordinates of node $p_i$.
+    \item Columns $2i-1$ and $2i$ corresponding to the coordinates of node $\textbf{p}_i$.
     \vspace{-3mm}
-    \item Columns $2j-1$ and $2j$ corresponding to the coordinates of node $p_j$.
+    \item Columns $2j-1$ and $2j$ corresponding to the coordinates of node $\textbf{p}_j$.
     \vspace{-3mm}
     \item $0$ everywhere else.
 \end{itemize}
@@ -110,12 +102,12 @@ For example, consider the framework $(G,\mathbf{p})$ in Figure \ref{fig: rigidit
 \end{center}
 \vspace{0.5 mm}
 \begin{flushleft}
-The rows of $\mathbf{R}(G,\mathbf{p})$ correspond to the edges in $(G,\mathbf{p})$, and each consecutive set of two columns correspond to the $x$ and $y$ coordinates of each node in $\mathbf{p}$, leading to the creation of $2 \times 4 = 8$ columns and $5$ rows in $\mathbf{R}(G,\mathbf{p})$.
+The rows of $\mathbf{R}(G,\mathbf{p})$ correspond to the edges in $(G,\mathbf{p})$, and each consecutive pair of columns correspond to the $x$ and $y$ coordinates of each node in $\mathbf{p}$, leading to the creation of $2 \times 4 = 8$ columns and $5$ rows in $\mathbf{R}(G,\mathbf{p})$.
 \end{flushleft}
 
 \begin{example}
 \label{eg: rigidity matrix}
-Let the framework $(G,\mathbf{p})$ be the one in Figure \ref{fig: rigidity_matrix}. If we give the nodes of $(G,\mathbf{p})$ positions in $\mathbb{R}^2$, we can compute its numeric rigidity matrix $\mathbf{R}(G,\mathbf{p})$. 
+Let the framework $(G,\mathbf{p})$ be the one in Figure \ref{fig: rigidity_matrix}. If we give the nodes of $(G,\mathbf{p})$ position vectors in $\mathbb{R}^2$, we can compute its numeric rigidity matrix $\mathbf{R}(G,\mathbf{p})$. 
 
 \noindent
 Suppose that $\mathbf{p}_1 = (1,2)$, $\mathbf{p}_2 = (0,0)$, $\mathbf{p}_3 = (2,0)$, $\mathbf{p}_4 = (1,1)$. Then, the rigidity matrix $\mathbf{R}(G,\mathbf{p})$ is
@@ -133,31 +125,30 @@ Suppose that $\mathbf{p}_1 = (1,2)$, $\mathbf{p}_2 = (0,0)$, $\mathbf{p}_3 = (2,
 \end{example}
 
 \begin{flushleft}
-Now that we have the rigidity matrix, we can use it to determine whether a given d-dimensional framework is infinitesimally rigid or not. Recalling Definition \ref{def: inf motion}, we can see that the space of infinitesimal motions of a framework $(G,\mathbf{p})$ is equal to the kernel of $R(G,\mathbf{p})$, denoted Ker($\mathbf{R}$).
+Now that we have the rigidity matrix, we can use it to determine whether a given $d$-dimensional framework is infinitesimally rigid or not. Recalling Definition \ref{def: inf motion}, we can see that the space of infinitesimal motions of a framework $(G,\mathbf{p})$ is equal to the kernel of $R(G,\mathbf{p})$, denoted Ker($\mathbf{R}$).
 
 By using a result from Linear Algebra known as the \textbf{Rank-Nullity Theorem}, we see that
 \vspace{-1 mm}
 \[
 \text{rank}(\mathbf{R}) + \text{dim}(\text{Ker}(\mathbf{R})) = d|V|
 \]
-
 \end{flushleft}
 
 \begin{flushleft}
-As the space of infinitesimal rigid motions govern the number of ways a framework can move in space, we can deduce that a useful result.
+As the space of infinitesimal rigid motions govern the number of ways a framework can move in $\mathbb{R}^2$, we can deduce a useful result.
 \end{flushleft}
 
 \begin{lemma}
-Let $(G,\mathbf{p})$ be a framework, and $\mathbf{R}(G,\mathbf{p})$ be its rigidity matrix. Then $(G,\mathbf{p})$ has $dim(\text{Ker}(\mathbf{R}))$ degrees of freedom. 
+\cite{counting_frameworks} Let $(G,\mathbf{p})$ be a framework, and $\mathbf{R}(G,\mathbf{p})$ be its rigidity matrix. Then $(G,\mathbf{p})$ has $dim(\text{Ker}(\mathbf{R}))$ infinitesimal degrees of freedom. 
 \end{lemma}
 
 \begin{flushleft}
-As we're concerned with frameworks in $\mathbb{R}^2$, using Theorem \ref{thm: degrees of rigid body}, we know that rigid frameworks must have $3$ degrees of freedom. From Definition \ref{def: inf rigid}, we deduce the following theorem.
+Using Theorem \ref{thm: degrees of rigid body}, we know that rigid frameworks must have $3$ degrees of freedom. From Definition \ref{def: inf rigid}, we deduce the following theorem.
 \end{flushleft}
 
 \begin{theorem}
 \label{thm: rank-rigid}
-Let $(G,\mathbf{p})$ be a framework and $\mathbf{R}(G,\mathbf{p})$ be its rigidity matrix. Then, $(G,\mathbf{p})$ is infinitesimally rigid in $\mathbb{R}^2$ if and only if 
+\cite{counting_frameworks} Let $(G,\mathbf{p})$ be a framework and $\mathbf{R}(G,\mathbf{p})$ be its rigidity matrix. Then, $(G,\mathbf{p})$ is infinitesimally rigid in $\mathbb{R}^2$ if and only if 
 \[
 \text{rank}(\mathbf{R}) = 2|V| - 3
 \]
@@ -168,35 +159,34 @@ We have now successfully used techniques from linear algebra in order to test fo
 \end{flushleft}
 
 \section{Constructing Rigid Structures}
-Through an algorithmic process of adding nodes and deleting edges, we can create frameworks such that they are rigid in nature. This is done using the Henneberg construction \cite{henneberg}. However, in order to end up with a rigid framework, we must start with a graph known as a \textit{Laman Graph}.
+Through an algorithmic process of adding nodes and edges, we can create frameworks such that they are infinitesimally rigid in nature. This is done using the Henneberg construction \cite{henneberg}. However, in order to end up with a rigid framework, we must start with a graph known as a \textit{Laman Graph}.
+
+\begin{flushleft}
+Strictly speaking, we would need to consider graphs when discussing the isomorphism between two graphs, and refer to its corresponding framework when investigating its rigidity. To avoid the confusion (and tediousness) this will cause, we treat all graphs as frameworks (where appropriate) for the remainder of this project, and we shall use the words `graph' and `framework' interchangeably.
+\end{flushleft}
 
 \begin{definition}
 \label{def: laman graph}
 Let $G = (V,E)$ be a connected graph, and let $H$ be a subgraph of $G$. Then $G$ is known as a \textit{Laman graph} if
 \begin{itemize}
-    \item The edge set of $G$ has size $|E(G)| = 2|V(G)| - 3$.
+    \item The edge set $E(G)$ of $G$ has size $2|V(G)| - 3$.
     \item For any subgraph $H$ defined on $k \leq |V(G)|$ vertices, $|E(H)| \leq 2k-3$.
 \end{itemize}
-as defined in \cite{laman_graph}.
 \end{definition}
 
 \begin{flushleft}
-Such graphs are named after Gerard Laman, who studied the rigidity of graphs in the 1970s. 
+Such graphs are named after Gerard Laman, who studied the rigidity of graphs in the 1970s \cite{minimally_rigid}. 
 
-Now, a question we can ask at this stage is if we can find graphs that are rigid on the smallest number of edges possible. That is, are there rigid graphs such that if we take away an edge, it causes the structure to lose its rigidity? Such graphs are known to be \textit{minimally rigid}.
-\end{flushleft}
-
-\begin{flushleft}
-As this project revolves around minimally rigid graphs, it is important to learn what graphs are minimally rigid, and if there's a way to identify which graphs are classed as minimally rigid. 
+Now, a question we can ask at this stage is if we can find graphs that are infinitesimally rigid on the smallest number of edges possible. That is, are there rigid graphs such that if we take away an edge, it causes the structure to lose its rigidity? Such graphs are known to be \textit{minimally rigid}.
 \end{flushleft}
 
 \begin{theorem}
 \label{thm: laman = minimally rigid}
-A graph $G$ is minimally rigid in $\mathbb{R}^2$ if and only if $G$ is a Laman graph \cite{minimally_rigid}.
+\cite{minimally_rigid} A graph $G$ is minimally rigid in $\mathbb{R}^2$ if and only if $G$ is a Laman graph. 
 \end{theorem}
 
 \begin{flushleft}
-Therefore, a graph $G$ is minimally rigid if and only if $G$ has $2n-3$ edges, where $n = |V(G)|$. This is known as the Geiringer–Laman theorem, as it was first proved by Hilda Pollaczek-Geiringer in 1927 \cite{laman_theorem}, and then independently by Laman in 1970 \cite{minimally_rigid}.
+Therefore, a graph $G$ is minimally rigid if and only if $G$ satisfies Definition \ref{def: laman graph}. This is known as the Geiringer–Laman theorem, as it was first proved by Hilda Pollaczek-Geiringer in 1927 \cite{laman_theorem}, and then independently by Laman in 1970 \cite{minimally_rigid}.
 \end{flushleft}
 
 \begin{flushleft}
@@ -208,7 +198,7 @@ Given such a characterization, we can now talk about ways to construct minimally
 The \textit{Henneberg construction} in $\mathbb{R}^2$ involves two processes in order to generate minimally rigid graphs.
 \begin{itemize}
     \item Type I: To an existing Laman graph $G$, insert a new vertex $u$ and attach it to $G$ by adding two edges between $u$ and two distinct vertices in $G$.
-    \item Type II: To an existing Laman graph $G$, delete an edge between two vertices $v_1,v_2 \in V(G)$, insert a new vertex $u$, and attach it to $G$ by adding edges between $u$ and $v_1$, $v_2$ and one other vertex in $G$. 
+    \item Type II: To an existing Laman graph $G$, delete an edge between two distinct vertices $v_1,v_2 \in V(G)$, insert a new vertex $u$, and attach it to $G$ by adding edges between $u$ and $v_1$, $v_2$ and one other vertex in $G$. 
 \end{itemize}
 \noindent
 The resulting graph will be have $2|V(G)|-3$ edges, and is therefore minimally rigid by Theorem \ref{thm: laman = minimally rigid}.
@@ -235,7 +225,7 @@ By checking directly, we can verify that the graphs at each stage are indeed Lam
 \end{example}
 
 \begin{flushleft}
-With the use of the rigidity matrix, or simply by observation, we can see that frameworks at each stage of the Henneberg constructions are infinitesimally rigid. 
+With the use of the rigidity matrix, or simply by observation, we can confirm that frameworks at each stage of the Henneberg constructions are infinitesimally rigid. 
 \end{flushleft}
 
 \begin{corollary}
@@ -251,24 +241,24 @@ At this stage, we have a good understanding of what rigidity and infinitesimal r
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.45\textwidth]{Chapter 3/6. rigid but not inf rigid.png}
-    \caption{A rigid framework with an instantaneous velocity applied to $\mathbf{p}_5$ shown in red.}
+    \includegraphics[width = 0.4\textwidth]{Chapter 3/6. rigid but not inf rigid.png}
+    \caption{A rigid framework with an instantaneous velocity applied to $\mathbf{p}_2$ shown in red.}
     \label{fig: rigid but not inf rigid}
 \end{figure}
 \vspace{-4 mm}
 \begin{flushleft}
-To motivate this, let us consider the framework $(G,\mathbf{p})$ in Figure \ref{fig: rigid but not inf rigid}. As this framework is formed by joining two triangles together, we know it must be rigid as triangles are themselves rigid. The question is whether it is infinitesimally rigid. 
+To motivate this, let us consider the framework $(G,\mathbf{p})$ in Figure \ref{fig: rigid but not inf rigid}. This framework is rigid as we are not able to deform the triangles, and trying to deform the line on which the nodes $\mathbf{p}_1, \mathbf{p}_2$, and $\mathbf{p}_3$ sit will require the deformation of the other three triangles. However, is it infinitesimally rigid?
 \end{flushleft}
 
 \begin{flushleft}
-Suppose we apply infinitesimal velocities of magnitude $0$ to nodes $\mathbf{p}_1$, $\mathbf{p}_2$, $\mathbf{p}_3$, $\mathbf{p}_4$, and we apply the infinitesimal velocity $\mathbf{p}'_5 \neq 0$ to node $\mathbf{p}_5$ as shown in the figure. We first verify whether these instantaneous velocities make an infinitesimal motion by checking $(\mathbf{p}_i - \mathbf{p}_j) \cdot (\mathbf{p}'_i - \mathbf{p}'_j) = 0$ for all $ij \in E(G)$. As each velocity vector is $0$ except for $\mathbf{p}'_5$, it follows that this is true for all the edges in $(G,\mathbf{p})$.
+Suppose we apply infinitesimal velocities of magnitude $0$ to nodes $\mathbf{p}_1$, $\mathbf{p}_3$, $\mathbf{p}_4$, $\mathbf{p}_5$, $\mathbf{p}_6$ and we apply the infinitesimal velocity $\mathbf{p}'_2 = (0,-k)$, where $0 \neq k \in \mathbb{R}$ to node $\mathbf{p}_2$ as shown in the figure. We first verify whether these instantaneous velocities make an infinitesimal motion by checking $(\mathbf{p}_i - \mathbf{p}_j) \cdot (\mathbf{p}'_i - \mathbf{p}'_j) = 0$ for all $ij \in E(G)$. As each velocity vector is $0$ except for $\mathbf{p}'_2$, it follows that this is true for all the edges in $(G,\mathbf{p})$.
 \end{flushleft}
 
 \begin{flushleft}
-Now, consider $(\mathbf{p}_5 - \mathbf{p}_2) \cdot (\mathbf{p}'_5 - \mathbf{p}'_2)$.The vector $(\mathbf{p}_5 - \mathbf{p}_2)$ is the line through the two nodes, which is non-zero, and $(\mathbf{p}'_5 - \mathbf{p}'_2) = \mathbf{p}'_5$ as $\mathbf{p}'_5$ is non-zero by assumption. As the vectors $(\mathbf{p}_5 - \mathbf{p}_2)$ and $\mathbf{p}'_5$ are not perpendicular to each other, it follows that,
+Now, consider $(\mathbf{p}_2 - \mathbf{p}_6) \cdot (\mathbf{p}'_2 - \mathbf{p}'_6)$.The vector $(\mathbf{p}_2 - \mathbf{p}_6)$ is the line through the nodes $\textbf{p}_2$ and $\textbf{p}_6$, which is non-zero, and $(\mathbf{p}'_2 - \mathbf{p}'_6) = \mathbf{p}'_2$ as $\mathbf{p}'_2$ is non-zero by assumption. As the vectors $(\mathbf{p}_2 - \mathbf{p}_6)$ and $\mathbf{p}'_2$ are not perpendicular to each other, it follows that,
 
 \[
-(\mathbf{p}_5 - \mathbf{p}_2) \cdot (\mathbf{p}'_5 - \mathbf{p}'_2) \neq 0
+(\mathbf{p}_2 - \mathbf{p}_6) \cdot (\mathbf{p}'_2 - \mathbf{p}'_6) \neq 0
 \]
 \end{flushleft}
 
@@ -277,7 +267,7 @@ Therefore, this framework is not infinitesimally rigid.
 \end{flushleft}
 
 \begin{flushleft}
-This shows us that even though a framework might be rigid, it may not be infinitesimally rigid. Applying instantaneous velocities at a carefully selected node can very well deform a rigid structure. The converse however is true.
+This shows us that even though a framework might be rigid, it may not be infinitesimally rigid. Applying an instantaneous velocity at a carefully selected node can very well deform a rigid structure. The converse however is true.
 \end{flushleft}
 
 \begin{theorem}
@@ -304,7 +294,7 @@ The proof of this theorem relies on a lot of heavy mathematics which is beyond t
 \end{figure}
 \vspace{-4 mm}
 \begin{flushleft}
-Circle packings are configurations of circles satisfying preassigned patterns of tangency. They are designed such that each pair of circles may either touch tangentially, or not at all. Circles are not allowed to overlap or be contained in one another as well. An example of a circle packing is shown in Figure \ref{fig: circle packing example}. As we can see, not all of the circles have the same radius. This is necessary as the circles must be able to adjust their radii in order to fit tightly and satisfy any constraints imposed on them.
+Circle packings are configurations of circles satisfying preassigned patterns of tangency. They are designed such that each pair of circles may either touch tangentially, or not at all. Circles are not allowed to overlap or be contained in one another as well. An example of a circle packing is shown in Figure \ref{fig: circle packing example}. As we can see, not all of the circles have the same radius. This is necessary as the circles must be able to adjust their radii in order to fit tightly and satisfy the constraints imposed on them.
 \end{flushleft}
 
 \begin{definition}
@@ -322,7 +312,7 @@ Given a circle packing, we must now find a way to analyze its properties. Thankf
 
 \begin{definition}
 \label{def: contact graph}
-Let $P = (C_i)$ be a circle packing, where $i \in \mathbb{Z}^+$. Then, the \textit{contact graph} $G(P)$ of the packing $P$ is a graph where the vertex set is the set of circles in $P$, and an edge joins two vertices $u, v \in G(P)$ if an only if the circles corresponding to the vertices are tangential in $P$.
+Let $P = (C_i)$ be a circle packing, where $i \in \mathbb{Z}^+$. Then, the \textit{contact graph} $G(P)$ of the packing $P$ is a graph where the vertex set is the set of centers of the circles in $P$, and an edge joins two vertices $u, v \in G(P)$ if an only if the circles corresponding to the vertices are tangential in $P$.
 \end{definition}
 
 \begin{flushleft}
@@ -350,7 +340,7 @@ In Connelly, Gortler, and Theran's paper \cite{sticky}, the following theorem is
 
 \begin{theorem}
 \label{thm: louis thm}
-Let $P = (C_i)$ be a circle packing, where $i = 1,2,\hdots, n$. Then if P has $2n-3$ contacts, it is rigid and infinitesimally rigid. If the number of contacts is fewer, then P is flexible and infinitesimally flexible.
+Let $P = (C_i)$ be a circle packing, where $i = 1,2,\hdots, n$ with generic radii. Then if P has $2n-3$ contacts, it is rigid and infinitesimally rigid. If the number of contacts is fewer, then P is flexible and infinitesimally flexible.
 \end{theorem}
 
 \begin{flushleft}
@@ -362,16 +352,16 @@ By Definition \ref{def: laman graph}, we know that $G(P)$ is a Laman graph, and 
 \end{flushleft}
 
 \begin{flushleft}
-Finally, we need some notion of isomorphism between circle packings and graphs. Packings themselves are not unique, as there are various ways to create a circle packing originating from same graph, illustrated in Figure \ref{fig: isomorphic vs non-isomorphic packings}. To see this, we can investigate the cycle structure in the contact graphs of each packing. 
+Finally, we need some notion of isomorphism between circle packings and graphs. Packings themselves are not unique, as there are various ways to create a circle packing originating from same graph, illustrated in Figure \ref{fig: isomorphic vs non-isomorphic packings}. To see this, we can investigate the lengths of the faces in the contact graphs of each packing. 
 \end{flushleft}
 
 \begin{flushleft}
-Inspecting the graphs in Figure \ref{fig: isomorphic vs non-isomorphic packings}, we note that the original graph (a) has three cycles of length 3. Now, comparing the contact graphs (d) and (e) to graph (a), we note that the contact graph in (d) has three cycles of length 3, while the contact graph in (e) has only two cycles of length 3. As the number of cycles of length 3 in (e) don't match those in (a), (a) and (e) must be non-isomorphic.
+Inspecting the graphs in Figure \ref{fig: isomorphic vs non-isomorphic packings}, we note that the original graph (a) has three faces of length 3. Now, comparing the contact graphs (d) and (e) to graph (a), we note that the contact graph in (d) has three faces of length 3, while the contact graph in (e) has only two faces of length 3. As the number of faces of length 3 in (e) don't match those in (a), (a) and (e) must be non-isomorphic.
 \end{flushleft}
 
 \begin{flushleft}
-To this end, we use a theorem that was proved by Paul Koebe in 1936, now known as the \textit{Circle Packing Theorem} \cite{circle_packing_theorem}.
-\end{flushleft}
+To this end, we use a theorem that was proved by Paul Koebe in 1936, now known as the \textit{Circle Packing Theorem} \cite{circle_packing_theorem}, also known as the Koebe-Andreev-Thurston theorem. While there are many known proofs of this theorem today, Koebe's original proof relied on ideas involving complex analysis, specifically those using conformal maps. 
+\end{flushleft} 
 
 %\vspace{-3.6 mm}
 \begin{theorem}

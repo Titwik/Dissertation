@@ -1,45 +1,65 @@
-\chapter{Minimally Rigid Graphs \& their Circle Packings} % Rigidity of Minimally Rigid Circle Packings
+\chapter{Minimally Rigid Graphs \& their Circle Packings} 
 \label{ch: 4}
 
 \begin{flushleft}
-If we were to relate this thesis to a video game, the previous chapters would be like the levels where we, the player, would need to get through in order to `level up' and gain skills or powers. These levels would contain small challenges that we'd easily beat and gain a set of valuable tools in order to progress the game.    
+If we were to relate this thesis to a video game, the previous chapters would be like the levels where we, the player, would need to get through in order to `level up' and gain skills or powers. These levels contain small challenges that we would easily beat to gain a set of valuable tools so that we can progress the game.    
 \end{flushleft}
 
 \begin{flushleft}
-This chapter then, would be the showdown between the player and the final boss of the game! We'll need to call upon all of the experience gained, use every ounce of the strength developed and employ each weapon attained over the course of this journey in order to win this fight.
+This chapter then, would be the showdown between the player and the final boss of the game! We will be calling upon all of the knowledge and experience gained throughout the course of this journey to forge a powerful weapon that will enable us to do battle with this formidable enemy!
 \end{flushleft}
 
 \section{The Goal}
 
 \begin{flushleft}
-As it's been stated a few times leading up to this point, the project focuses on figuring out whether every minimally rigid graph has a circle packing that is infinitesimally rigid itself. It is a question for which we (currently) have no answer to, and it is an interesting one in nature because although we know that a packing such that the contact graph is isomorphic to the original graph exists by Theorem \ref{thm: circle packing theorem}, the contact graph isn't necessarily infinitesimally rigid, see Figure \ref{fig4: iso but not rig}. Our task in this chapter is to understand whether this is true or not. 
-\end{flushleft}
+While there are several mathematicians that have studied the rigidity of circle packings, such as Robert Connelly \cite{connely}, and Oded Schramm \cite{schramm}, the study of the rigidity of circle packings arising from minimally rigid graphs has not been investigated as of yet. To remind ourselves of the question we are researching, we present it here once more. 
 
-\begin{flushleft} % argue this better
-If we were to be pedantic, we would need to talk about the framework itself with respect to rigidity, and the graph which gives rise to this framework when talking about isomorphism. To avoid the confusion (and tediousness) this will cause, we shall use the words `graph' and `framework' interchangeably from now on. 
-%As this chapter focuses on non-isomorphic infinitesimally rigid frameworks, we can talk about the framework itself with respect to rigidity, or the graph which gives rise to this framework when talking about isomorphism. At this stage, it does not matter which one we refer to, and therefore, we shall use the words `graph' and `framework' interchangeably. 
+\begin{center}
+    \textit{``For every planar and minimally rigid graph, does there exist a circle packing that is also infinitesimally rigid?''}
+\end{center}
+
+The project focuses on learning whether every minimally rigid graph has a circle packing that is infinitesimally rigid itself. The question above is a conjecture for which, at the time of writing, we have no answer to, and it is an interesting question because although we know that a packing such that the contact graph is isomorphic to the original graph exists by Theorem \ref{thm: circle packing theorem}, the contact graph is not necessarily infinitesimally rigid, see Figure \ref{fig4: iso but not rig}. Our task in this chapter is to understand whether this is true or not. 
 \end{flushleft}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = 0.8\textwidth]{Chapter 4/2. Isomorphic but not inf rigid.png}
-    \caption{Two isomorphic frameworks. (a) Can be deformed by applying instantaneous velocities (marked in red) on the inner nodes. (b) An infinitesimally rigid framework isomorphic to the one in (a).}
+    \includegraphics[width = 0.85\textwidth]{Chapter 4/2. Isomorphic but not inf rigid.png}
+    \caption{Circle packings with isomorphic contact graphs. (a) The contact graph is shown to be an infinitesimally flexible framework in Figure \ref{fig: rigid but not inf rigid}. (b) A visualization of the displacement that occurs when a velocity vector is applied as in (a) given in red. (c) An infinitesimally rigid circle packing.}
     \label{fig4: iso but not rig}
 \end{figure}
 \vspace{-3mm}
 \begin{flushleft}
-We try to unpack this question computationally. By finding known, non-trivial examples for which the conjecture holds, we can contemplate proving the conjecture for general cases. Thus, the two key players here are going to be modules written in Python called \texttt{Rigidity.py} and \texttt{Circle\_Packing.py}. 
+Visually, we can represent what we're trying to do in Figure \ref{fig4: config space}. For a given planar graph $G$ with $n$ vertices and $2n - 3$ edges, there can be a multitude of ways to draw frameworks for it. Referring to Figure \ref{fig4: config space}, we can visualize this as the \textit{space} of frameworks on $G$. Within this space, we have all the frameworks on $G$, some of which are infinitesimally rigid, given as blue lines.  
+\end{flushleft}
+    
+\begin{flushleft}
+Now, for any circle packing obtained from $G$, its underlying contact graph could either be infinitesimally rigid or not, and so we have green lines to represent any circle packing we can get from $G$. Red lines are used to denote what we are after, the infinitesimally rigid circle packings. 
+\end{flushleft}
+    
+\begin{flushleft}
+Thus, the task is to find where the blue and the red lines overlap! That is, we want to find an infinitesimally rigid planar graph such that it produces a circle packing whose contact graph is also infinitesimally rigid (as this implies rigidity). Such an overlap is marked and has been made bold in the figure. 
+\end{flushleft}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{Chapter 4/5. configuration space.png}
+    \caption{The space containing all frameworks on a graph $G$ drawn as a black outline, the frameworks on $G$ that are infinitesimally rigid drawn as blue lines, the circle packings obtained from $G$ drawn as green lines, and the rigid circle packings obtained from $G$ drawn as red lines.}
+    \label{fig4: config space} 
+\end{figure}
+\vspace{-4mm}
+\begin{flushleft}
+Here, we try to unpack this question computationally. By finding known, non-trivial examples for which the conjecture holds, we may be able to gain a deeper understanding of the rigidity of circle packings obtained from minimally rigid graphs for general cases. To this end, the two key players here are going to be modules written in Python named \texttt{Rigidity.py} and \texttt{Circle\_Packing.py}. 
 \end{flushleft}
 
 \begin{flushleft}
-Titled aptly, the module \texttt{Rigidity} takes in a graph and verifies whether it is infinitesimally rigid, and \texttt{Circle\_Packing} takes a planar graph and attempts to find its circle packing using optimization methods. The graphs we'll be analyzing are all Laman graphs on $n \in [3, \hdots, 10]$ vertices.  
+Titled aptly, the module \texttt{Rigidity.py} takes in a graph and verifies whether it is infinitesimally rigid, and \texttt{Circle\_Packing.py} takes a planar graph and attempts to find its circle packing using optimization methods. The graphs we will be analyzing are all Laman graphs on $n \in [3, \hdots, 10]$ vertices, as these graphs are minimally rigid by Theorem \ref{thm: laman = minimally rigid}.  
 \end{flushleft}
 
-\begin{flushleft}
-The generation of minimally rigid graphs on $n = 3,4,5$ vertices can be easily done by hand using the Henneberg Constructions from Theorem \ref{def: henneberg}, henceforth abbreviated to $H_1$ and $H_2$ for Type I and Type II respectively. Starting with a Laman graph on 3 vertices (a triangle):
+\begin{flushleft}   
+The generation of minimally rigid graphs on $n = 3,4,5$ vertices can be easily done by hand using the Henneberg Constructions from Theorem \ref{def: henneberg}, henceforth abbreviated to $H_1$ and $H_2$ for Type I and Type II respectively. Starting with a minimally rigid graph on 3 vertices (a triangle):
 \begin{itemize}
-    \item To obtain the Laman graphs on 4 vertices, we can note that applying $H_1$ yields a graph isomorphic to the one we get when applying $H_2$. so there is only one Laman graph on $4$ vertices. 
-    \item To obtain the Laman graphs on 5 vertices, we apply $H_1$ to obtain three non-isomorphic graphs with 7 edges. They can be shown to be non-isomorphic by comparing the degrees of each vertex, and the cycle structure within the graph.
+    \item To obtain the minimally rigid graphs on 4 vertices, we can note that applying $H_1$ yields a graph isomorphic to the one we get when applying $H_2$. so there is only one minimally graph on $4$ vertices. 
+    \item To obtain the minimally rigid graphs on 5 vertices, we apply $H_1$ to obtain three non-isomorphic graphs with 7 edges. They can be shown to be non-isomorphic by comparing the degrees of each vertex.
 \end{itemize}
 
 \noindent
@@ -49,19 +69,19 @@ This is illustrated in Figures \ref{fig4: n = 4 Laman} and \ref{fig4: n = 5 Lama
 \begin{figure}[htbp]
     \centering
     \includegraphics[width = 0.55\textwidth]{Chapter 4/3. n=4.png}
-    \caption{Two isomorphic Laman graphs on 4 vertices}
+    \caption{Two isomorphic minimally rigid graphs on 4 vertices}
     \label{fig4: n = 4 Laman}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width = 0.95\textwidth]{Chapter 4/4. n=5.png}
-    \caption{The three non-isomorphic Laman graphs on 5 vertices}
+    \caption{The three non-isomorphic minimally rigid graphs on 5 vertices}
     \label{fig4: n = 5 Laman}
 \end{figure}
 
 \begin{flushleft}
-Planar graphs on vertices $n > 5$ are generated using \texttt{nauty} \cite{nauty}, which allows for the generation of non-isomorphic graphs with a specified number of vertices and edges and saves them as a \texttt{.g6} file. So for example, if we wanted to generate all planar graphs on 8 vertices with 13 edges, we would input
+Planar graphs on vertices $n > 5$ are generated using \texttt{nauty} \cite{nauty}, which allows for the generation of non-isomorphic graphs with a specified number of vertices and edges and saves them as a \texttt{.g6} file. For example, if we wanted to generate all planar graphs on 8 vertices with 13 edges, we would input
 \end{flushleft}
 
 \begin{center}
@@ -69,44 +89,25 @@ Planar graphs on vertices $n > 5$ are generated using \texttt{nauty} \cite{nauty
 \end{center}
 
 \begin{flushleft}
-into the terminal. This produces a file named \texttt{planar-8-13.g6}, which contains a list of non-isomorphic planar graphs with the required vertices and edges. At this point, we would invoke the two modules \texttt{Rigidity.py} and \texttt{Circle\_Packing.py} to find the minimally rigid graphs and attempt to pack them.     
+into the terminal. This produces a file named \texttt{planar-8-13.g6}, which contains a list of non-isomorphic planar graphs with the required number of vertices and edges. At this point, we would invoke the two modules \texttt{Rigidity.py} and \texttt{Circle\_Packing.py} to find the minimally rigid graphs and attempt to pack them.     
 \end{flushleft}
 
 \begin{flushleft}
-    Visually, we can represent what we're trying to do in Figure \ref{fig4: config space}. For a given planar graph $G$ with $n$ vertices and $2n - 3$ edges, there can be a multitude of ways to draw frameworks for it. Referring to Figure \ref{fig4: config space}, we can visualize this as the \textit{space} of frameworks on $G$. Within this space, we have all the frameworks on $G$, some of which are infinitesimally rigid, given as blue lines.  
-\end{flushleft}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width = 0.75\textwidth]{Chapter 4/5. configuration space.png}
-    \caption{The space containing all frameworks on a graph $G$ drawn as a black outline, the frameworks on $G$ that are infinitesimally rigid drawn as blue lines, the circle packings obtained from $G$ drawn as green lines, and the rigid circle packings obtained from $G$ drawn as red lines.}
-    \label{fig4: config space}
-\end{figure}
-\vspace{-4mm}
-\begin{flushleft}
-Now, for any circle packing obtained from $G$, its underlying contact graph could either be rigid or not, and so we have green lines to represent any circle packing we can get from $G$. Red lines are used to denote what we are after, the rigid circle packings. 
-\end{flushleft}
-
-\begin{flushleft}
-Thus, the task is to find where the blue and the red lines overlap! That is, we want to find an infinitesimally rigid planar graph such that it produces a circle packing whose contact graph is also infinitesimally rigid (as this implies rigidity). Such an overlap has been made bold in the Figure. 
-\end{flushleft}
-
-\begin{flushleft}
-Now that we have an understanding of what it is we're trying to do, let us dive into how we go about doing it! By exploring each module individually, we gain an understanding of what is being done. After that, we can go ahead and use the modules in order to find the packings of interest. All the code described in this chapter can be viewed on Github at \href{https://github.com/Titwik/Dissertation}{Titwik/Dissertation}.
-\end{flushleft}
+    Now that we have an understanding of what it is we're trying to do, let us dive into how we go about doing it! By exploring each module individually, we gain an understanding of what is being done. After that, we can go ahead and use the modules in order to find the packings of interest. All the code described in this chapter can be viewed on Github at \href{https://github.com/Titwik/Dissertation}{Titwik/Dissertation}.
+\end{flushleft}    
 
 \section{\texttt{Rigidity.py}}
 
 \begin{flushleft}
-The first module we visit is the one we will be using to check for the rigidity of a given graph. To do this, we will need to compute the rigidity matrix from Definition \ref{def: rigidity matrix}, and then check whether its rank satisfies Theorem \ref{thm: rank-rigid}. From this point onwards, $n$ shall denote the number of vertices/nodes in a graph/framework, and $m$ shall denote the number of edges in the graph. 
+The first module we visit is the one we will be using to check for the rigidity of a given graph $G$. To do this, we must first assign coordinates to each vertex in $G$. Then, we will need to compute the rigidity matrix from Definition \ref{def: rigidity matrix}, and check whether its rank satisfies Theorem \ref{thm: rank-rigid}. From this point onwards, $n$ shall denote the number of nodes in a framework $(G,\textbf{p})$, and $m$ shall denote the number of edges in $G$. 
 \end{flushleft}
 
 \begin{flushleft}
-The graphs we will be considering are constructed using an existing module in Python known as \texttt{networkx} \cite{networkx}, allowing for the study and visualization of graphs in Python. Along with this, to create the rigidity matrix, we use a module called \texttt{numpy} \cite{numpy}. By using built-in structures and functions, such as arrays and functions related to analyzing arrays, we create the rigidity matrix as a \texttt{numpy} array and then use a function to compute its rank.
+The graphs we will be considering are constructed using an existing module in Python known as \texttt{networkx} \cite{networkx}, allowing for the study and visualization of graphs in Python. Along with this, to create and investigate the rigidity matrix, we use a module called \texttt{numpy} \cite{numpy}. By using built-in structures and functions, such as arrays and functions related to analyzing arrays, we create the rigidity matrix as a \texttt{numpy} array and then use a function to compute its rank.
 \end{flushleft}
 
 \begin{flushleft}
-This module contains several functions designed to do a particular task, so we visit each of them in turn.
+This module contains several functions, each one designed to do a particular task, and so we visit each of them in turn.
 \end{flushleft}
 
 \subsection{Creating a Configuration}
@@ -117,7 +118,7 @@ As touched upon before, a graph is an abstract mathematical object that can be d
 
 \begin{flushleft}
 The function \texttt{G\_configuration} takes in a single argument \texttt{G}, a \texttt{networkx} graph, and begins by learning the number of vertices the graph has. For each vertex then, it randomly assigns an integer for $x$-coordinate and the $y$-coordinate from the interval $[-2^{40}, 2^{40}]$. 
-Sampling for coordinates from such a large range of numbers ensures that the points are in a generic configuration, ensuring that we avoid the situation described in Figure \ref{fig: non-generic}. Finally, it returns two lists, one containing the randomly assigned $x$-coordinates and the other containing the randomly assigned $y$-coordinates.
+Sampling for coordinates from such a large range of numbers guarantees that the points are in a generic configuration, ensuring that we avoid the situation described in Figure \ref{fig: non-generic}. Finally, it returns two lists, one containing the randomly assigned $x$-coordinates and the other containing the randomly assigned $y$-coordinates.
 \end{flushleft}
 
 \begin{flushleft}
@@ -127,7 +128,7 @@ Now, we have a number of points, each equipped with their own pair of $(x,y)$ co
 \subsection{Constructing the Rigidity Matrix}
 
 \begin{flushleft}
-We define the function \texttt{rigidity\_matrix} which takes in a graph \texttt{G}, and computes its rigidity matrix with the aid of the function \texttt{G\_configuration}. Recalling Definition \ref{def: rigidity matrix}, the rigidity matrix in $\mathbb{R}^2$ has $m$ rows and $2n$ columns. Knowing this, we can initialise a \texttt{numpy} array on $m$ rows and $2n$ columns, and have every entry in the array be 0.
+We define the function \texttt{rigidity\_matrix} which takes in a graph \texttt{G}, and computes its rigidity matrix with the aid of the function \texttt{G\_configuration}. Recalling Definition \ref{def: rigidity matrix}, the rigidity matrix in $\mathbb{R}^2$ has $m$ rows and $2n$ columns. Knowing this, we can initialise a \texttt{numpy} array on $m$ rows and $2n$ columns, and have every entry in the array be 0 using \texttt{numpy.zeros((m,2*n))}. 
 \end{flushleft}
 
 \begin{flushleft}
@@ -141,6 +142,7 @@ The task at this stage is to fill in the appropriate entries of the matrix with 
     \vspace{-3mm}
     \item The element in row \texttt{i} and column \texttt{2v+1} is the $y_v - y_u$.
 \end{enumerate}
+
 The function then returns the rigidity matrix with the modified elements. 
 \end{flushleft}
 
@@ -163,7 +165,7 @@ By defining the graph \texttt{G} appropriately, and by tweaking the function \te
 \end{code}    
 
 \begin{flushleft}
-Comparing this to the rigidity matrix computed by hand in Example \ref{eg: rigidity matrix}, we see that while the order of the edges considered has changed, the entries along each corresponding row have not. Thus, we can safely say the function \texttt{rigidity\_matrix} computes the rigidity matrix for a given graph correctly.
+Comparing this to the rigidity matrix computed by hand in Example \ref{eg: rigidity matrix}, we see that while the order of the edges considered has changed, the entries along each corresponding row have not. By applying elementary row operations, we are able to obtain the rigidity matrix computed by hand in the example from the rigidity matrix generated computationally here, making both matrices equivalent. Thus, we can safely say the function \texttt{rigidity\_matrix} computes the rigidity matrix for a given graph correctly.
 \end{flushleft}
 
 \subsection{Rank of the Rigidity Matrix}
@@ -173,15 +175,15 @@ From Theorem \ref{thm: rank-rigid}, we know that the framework is infinitesimall
 \end{flushleft}
 
 \begin{flushleft}
-To start, we define a function \texttt{check\_rigidity} which takes a graph \texttt{G}, and calls on the \texttt{rigidity\_matrix} function to get the rigidity matrix of \texttt{G}. From here, we use \texttt{np.linalg.matrix\_rank} to compute the rank of the matrix. If the rank is equal to $2n-3$, the function returns \texttt{True}, and \texttt{False} if the condition fails.
+To start, we define a function \texttt{check\_rigidity} which takes a graph \texttt{G}, and calls on the \texttt{rigidity\_matrix} function to obtain the rigidity matrix of \texttt{G}. From here, we use \texttt{numpy.linalg.matrix\_rank} to compute the rank of the matrix. If the rank is equal to $2n-3$, the function returns \texttt{True}, and \texttt{False} if the condition fails.
 \end{flushleft}
 
 \begin{flushleft}
-Considering the framework in Example \ref{eg: rigidity matrix}, we know it is infinitesimally rigid by observation as it is a Laman graph on 4 vertices, and this is infinitesimally rigid by Corollary \ref{cor: laman => inf rigid}. By calling this framework \texttt{G}, let us print the rank of the rigidity matrix of \texttt{G}.
+Considering the framework in Example \ref{eg: rigidity matrix}, we know it is infinitesimally rigid by observation as it is a minimally rigid graph on 4 vertices, and this is infinitesimally rigid by Corollary \ref{cor: laman => inf rigid}. By calling this framework \texttt{G}, let us print the rank of the rigidity matrix of \texttt{G}.
 \end{flushleft}
 
 \begin{code}
-    In: print(np.linalg.matrix_rank(rigidity_matrix(G)))
+    In: print(numpy.linalg.matrix_rank(rigidity_matrix(G)))
 
     Out: 5
 \end{code}
@@ -211,11 +213,7 @@ If a graph has a vertex with degree one, then it is not rigid and will be discar
 \end{flushleft}
 
 \begin{flushleft}
-We start defining the function \texttt{find\_rigid\_graphs} by allowing the argument to be a list of graphs. As this list contains graphs, each with the same number of vertices, we choose the first graph in the list and let $n$ be the number of vertices in this graph. 
-\end{flushleft}
-
-\begin{flushleft}
-In order to filter out the graphs containing a vertex of degree of two, we first loop through all the graphs in the list, and then loop through each vertex in each graph. If the graph does \textbf{not} contain a vertex with degree two, then we add it to a separate list called \texttt{graphs\_without\_degree\_2}. 
+We start defining the function \texttt{find\_rigid\_graphs} by allowing the argument to be a list of graphs. In order to filter out the graphs containing a vertex of degree of two, we first loop through all the graphs in the list, and then loop through each vertex in each graph. If the graph does \textbf{not} contain a vertex with degree two, then we add it to a separate list called \texttt{graphs\_without\_degree\_2}. 
 \end{flushleft}
 
 \begin{flushleft}
@@ -256,7 +254,7 @@ This is reassuring to see! We've successfully verified that the functions work w
 \section{\texttt{Circle\_Packing.py}}
 
 \begin{flushleft}
-The process of finding circle packings for a graph involves a process called \textit{numerical minimization}. It is a method in which we try to minimize the variables involved in a given problem subject to clearly defined rules or \textit{constraints}. In order to find circle packings, we first have to define the problem carefully through an \textit{objective function}, impose certain constraints, generate a `guess' of what the solution might be, and then feed this information into a minimizer. Let us briefly run through exactly what this module covers. 
+The procedure of finding circle packings for a graph involves a process called \textit{numerical minimization}. It is a method in which we try to minimize the variables involved in a given problem subject to clearly defined rules or \textit{constraints}. In order to find circle packings, we first have to define the problem carefully by the use of an \textit{objective function}, impose certain constraints, generate a `guess' of what the solution might be, and then feed this information into a minimizer. Let us briefly run through exactly what this module covers. 
 \end{flushleft}
 
 \begin{flushleft}
@@ -273,55 +271,13 @@ It is made up of four functions, each performing a specific task, similar to how
 \end{flushleft}
 
 \begin{flushleft}
-The minimizer that we will be using comes from the \texttt{scipy} \cite{scipy} library in Python called \texttt{scipy.optimize.minimize}, which we refer to as \texttt{minimize} from now on. To illustrate how this minimizer works, let us do a simple example.
-\end{flushleft}
-
-\subsection{Using the Minimizer: A Simple Example}
-
-\begin{flushleft}
-Suppose we have a rectangle of length $x$ and width $y$, and we wish to maximize its area $xy$, subject to the constraint that its perimeter is 20 units. Translating this into something that we can use in the minimizer, the objective function would be $-xy$ as we are trying to maximize the area with the minimize function. The constraint can be modelled as $2x+2y = 20$ and our initial guesses for the values of $x$ and $y$ could be 6 and 4 respectively. 
-\end{flushleft}
-
-\begin{flushleft}
-We would input this into the \texttt{minimize} function, and obtain the optimal values of $x$ and $y$ satisfying these constraints such that the area of the rectangle is maximized. The code for this example is shown below.
-\end{flushleft} 
-
-\begin{code}
-    # define the objective function
-    def area_rectangle(xy):
-        x = xy[0]
-        y = xy[1]
-        area = xy[0] * xy[1]
-        return -area
-    
-    # define the constraint
-    cons = ({`type':`eq', `fun': lambda xy: 2*xy[0] + 2*xy[1] - 20})
-    
-    # define the initial condition, where 6 is our initial x value and 
-    # 4 is our initial y value
-    initial_guess = [6,4]
-    
-    # use the minimizer
-    result = scipy.optimize.minimize(area_rectangle, initial_guess, constraints = cons)
-\end{code}
-
-\begin{code}
-    In: print(f"x = {result.x[0]} and y = {result.x[1]}")
-    Out: x = 5.0 and y = 5.0    
-\end{code}
-
-\begin{flushleft}
-Therefore, the values of $x$ and $y$ that maximize the area of a rectangle with a perimeter of 20 units are 5 and 5 respectively. Hopefully this example provides some insight into how we can leverage the minimizer. We will not be delving too deep into how the \texttt{minimize} works at this stage, but understanding how to use it properly is imperative for when we attempt to find a circle packing for a graph.
-\end{flushleft}
-
-\begin{flushleft}
-With that in mind, let us dive into the first function in the \texttt{Circle\_Packing.py} module!
+The minimizer that we will be using comes from the \texttt{scipy} \cite{scipy} library in Python called \texttt{scipy.optimize.minimize}, which we refer to as \texttt{minimize} from now on. Now, it is time to dive into the first function in the \texttt{Circle\_Packing.py} module!
 \end{flushleft}
 
 \subsection{Creating the Objective Function}
 
 \begin{flushleft}
-Let $(G, \mathbf{p})$ be a framework, $x_i$ and $y_i$ be the $x$-coordinate and $y$-coordinate of node $i$, and $r_i$ be the radius of the circle this node inhabits. We consider the node to be the center of this circle.
+Let $(G, \mathbf{p})$ be a framework, $x_i$ and $y_i$ be the $x$-coordinate and $y$-coordinate of node $\textbf{p}_i$ respectively, and $r_i$ be the radius of the circle that node $\textbf{p}_i$ inhabits. We consider the node $\textbf{p}_i$ to be the center of this circle.
 \end{flushleft}
 
 \subsubsection{Defining the objective function}
@@ -330,21 +286,21 @@ Let $(G, \mathbf{p})$ be a framework, $x_i$ and $y_i$ be the $x$-coordinate and 
 To begin constructing the function that we wish to minimize, we first consider the distance between two nodes and set it equal to the sum of the radii of the circles they inhabit. That is;
 
 \begin{equation*}
-    (x_i - x_j)^2 + (y_i-y_j)^2 = (r_i + r_j)^2 \hspace{16mm} \forall i,j \in V(G)    
+    (x_i - x_j)^2 + (y_i-y_j)^2 = (r_i + r_j)^2 \hspace{16mm} \forall i,j \in E(G), i \neq j
 \end{equation*}
 
 \vspace{2mm}
 When using the minimizer however, we must input this equation such that the right hand side must be equal to 0. Therefore, we write this as 
 
 \begin{equation*}
-    (x_i - x_j)^2 + (y_i-y_j)^2 - (r_i + r_j)^2 = 0 \hspace{10mm} \forall i,j \in V(G)
+    (x_i - x_j)^2 + (y_i-y_j)^2 - (r_i + r_j)^2 = 0 \hspace{10mm} \forall i,j \in E(G), i \neq j
 \end{equation*}
 
 \vspace{2mm}
-As we saw in the example above, by trying to minimize a negative objective function, we end up maximizing it instead. To avoid such complications arising in this scenario, we square the entire function so that the values we work with are strictly positive.
+When calling the minimizer to minimize an objective function that evaluates to a number less than 0, it ends up maximizing the function instead. To avoid such complications arising in this scenario, we square the entire function so that the values we work with are strictly positive.
 
 \begin{equation*}
-    ((x_i - x_j)^2 + (y_i-y_j)^2 - (r_i + r_j)^2)^2 = 0 \hspace{11mm} \forall i,j \in V(G)
+    ((x_i - x_j)^2 + (y_i-y_j)^2 - (r_i + r_j)^2)^2 = 0 \hspace{11mm} \forall i,j \in E(G), i \neq j
 \end{equation*}
 
 \vspace{2mm}
@@ -371,7 +327,7 @@ To input Equation \ref{eq:circle_constraint} as the objective function into the 
 \end{code}
 
 \begin{flushleft}
-The argument \texttt{vars} represents a list of the variables \texttt{[x1,y1,r1, ... , xn,yn,rn]}. These are the variables that will be minimized when we use the minimizer, where \texttt{xi} and \texttt{yi} represent the $x$-coordinate and $y$-coordinate respectively of node $i$, and \texttt{ri} is the radius of the circle this node centers.
+The argument \texttt{vars} represents a list of the variables \texttt{[x1,y1,r1, ... , xn,yn,rn]}. These are the variables that will be minimized when we use the minimizer, where \texttt{xi} and \texttt{yi} represent the $x$-coordinate and $y$-coordinate respectively of node $\textbf{p}_i$, and \texttt{ri} is the radius of the circle this node centers.
 \end{flushleft}
 
 \begin{flushleft}
@@ -385,11 +341,11 @@ Inside \texttt{objective\_function}, we define three new functions, \texttt{x(i)
     \item The function \texttt{r(i)} returns \texttt{vars[3*i+2]}.
 \end{enumerate}
 
-For example, the $x$-coordinate of every node occurs in positions 0, 3, 6, ..., in \texttt{vars}, and so the function \texttt{x(i)} returns every third element of \texttt{vars}. The remaining two functions are definined similarly.
+For example, the $x$-coordinates of the nodes can be found in positions 0, 3, 6, ..., of \texttt{vars}, and so the function \texttt{x(i)} returns every third element of \texttt{vars}. The remaining two functions are defined similarly.
 \end{flushleft}
 
 \begin{flushleft}
-Lastly, we initialise a variable \texttt{total} to store the sum of the objective functions, and set it to 0. Looping through all the edges $(i,j) \in E(G)$, we compute the sum given in Equation \ref{eq:circle_constraint}, and return this sum as follows;
+We then initialise a variable \texttt{total} to store the sum of the objective functions, and set it equal to 0. Looping through all the edges $(i,j) \in E(G)$, we compute the sum given in Equation \ref{eq:circle_constraint}, and return this sum as follows;
 \end{flushleft}
 
 \begin{code}
@@ -417,7 +373,7 @@ All that's left to do is to return the output of the \texttt{objective\_function
 \end{code}
 
 \begin{flushleft}
-This completes the function \texttt{mk\_obj}, a function that takes in a graph, and returns its objective function. By feeding this into the minimizer, we are essentially telling the computer to make each variable in the list \texttt{vars} as small as they can be. The next step we will need to take is informing the minimizer of the constraints that should be obeyed.
+This completes the function \texttt{mk\_obj}, a function that takes in a graph, and returns its objective function. The next step we will need to take is informing the minimizer of the constraints that should be obeyed.
 \end{flushleft}
 
 \subsection{Defining the Constraints}
@@ -443,7 +399,7 @@ To ensure that the radius is positive, we set a tolerance value \texttt{epsilon}
 \end{flushleft}
 
 \begin{flushleft}
-Choosing an appropriate tolerance can be challenging as if it were too big, then we disallow circles of very small radii to be formed, which may not converge to a circle packing. On the other hand, picking a value too small can lead to numerical instability due to the nature of optimization, as well as increase the time it takes for the minimizer to converge to a solution.
+Choosing an appropriate tolerance can be challenging as if it were too big, then we disallow circles of small radii to be formed, which may not converge to a circle packing. On the other hand, picking a value too small can lead to numerical instability due to the nature of optimization, as well as increase the time it takes for the minimizer to converge to a solution.
 \end{flushleft}
 
 \begin{flushleft}
@@ -451,7 +407,7 @@ After some trial and error, letting \texttt{epsilon = 0.04} strikes the balance 
 \end{flushleft}
 
 \begin{code}
-    # radius must be greater than epsilon constraint
+    # radius must be positive constraint
     {`type': `ineq', `fun': lambda vars, i=i: vars[3*i + 2] - epsilon}
 \end{code}
 
@@ -461,9 +417,9 @@ Let us consider each term in this entry individually:
 \begin{itemize}
     \item (\texttt{`type': `ineq'}) means that the constraint that we are entering is an inequality.
     \vspace{-3mm}
-    \item (\texttt{`fun': lambda vars, i=i}) means that the function we are using is one named \texttt{lambda}, and this function takes in arguments \texttt{vars} and \texttt{i}.
+    \item (\texttt{`fun': lambda vars, i=i}) means that the function we are using is one named \texttt{lambda}, and this function takes in \texttt{vars} and \texttt{i} as arguments.
     \vspace{-3mm}
-    \item (\texttt{vars[3*i + 2] - epsilon}) is the inequality $r_i > \epsilon$ that we use to define positive radii. As the right hand side must be 0, we consider the inequality $r_i - \epsilon > 0$.
+    \item (\texttt{vars[3*i + 2] - epsilon}) is the inequality $r_i > \epsilon$ that we use to define positive radii, where $\epsilon$ is the tolerance we set. As the right hand side must be 0, we consider the inequality $r_i - \epsilon > 0$.
 \end{itemize}
 
 We then add this to the list \texttt{constraints}, and move onto the next constraint we wish to impose. 
@@ -480,6 +436,7 @@ Here, the maximum radius chosen will be 10 units, and is implemented as a constr
 \end{flushleft}
 
 \begin{code}
+    # radius must have an upper limit constraint
     {`type': `ineq', `fun': lambda vars, i=i: 10 - vars[3*i + 2]}
 \end{code}
 
@@ -490,7 +447,7 @@ to the list \texttt{constraints}, we continue to write the final constraint we n
 \subsubsection{3. The circles must not overlap or contain each other.}
 
 \begin{flushleft}
-By implementing the two constraints above, we have guaranteed the existence of circles in our packing. However, there is nothing stopping a circle from extending over into another circle's interior. This also includes the scenario where one circle lies completely within another circle. From Definition \ref{def: circle packing}, we know that each circle must either be tangential with another, or have nothing to do with each other.
+By implementing the two constraints above, we have guaranteed the existence of circles in our packing. However, there is nothing stopping a circle from extending over into another circle's interior. This also includes the scenario where one circle lies completely within another circle. Therefore, we must implement a constraint that follows from Definition \ref{def: circle packing}, which says that any pair of circles are tangential to each other.
 \end{flushleft}
 
 \begin{flushleft}
@@ -501,7 +458,7 @@ In order to achieve this, we set a final constraint such that the distance betwe
 \]
 
 \vspace{2mm}
-for all $i,j \in V(G)$ such that $i \neq j$. Then when we have equality, the circles with centers $(x_i, y_i)$ and $(x_j, y_j)$ are tangential. Otherwise, the circles do not interact.
+for all $i,j \in V(G)$ where $i \neq j$. Then when we have equality, the circles with centers $(x_i, y_i)$ and $(x_j, y_j)$ are tangential. Otherwise, the circles do not interact.
 \end{flushleft}
 
 \begin{flushleft}
@@ -509,6 +466,7 @@ We do this by first looping through all the vertices in \texttt{G}, indexed by \
 \end{flushleft}
 
 \begin{code}
+    # circles must not overlap constraint
     {`type': `ineq', `fun': lambda vars, i=i, j=j: 
     (vars[3*i] - vars[3*j])**2 + (vars[3*i + 1] - vars[3*j + 1])**2 - 
     (vars[3*i + 2] + vars[3*j + 2])**2}
@@ -519,7 +477,7 @@ which allows us to secure a packing where the circles are tangential and their i
 \end{flushleft}
 
 \begin{flushleft}
-So far, we have our objective function and a list of constraints that the circle packing should stick to. The very last thing that we need before we can invoke the minimizer is a list of initial conditions for the coordinates of each node in the graph, as well as for each radius in the circle packing.
+So far, we have our objective function and a list of constraints that the circle packing should respect. The very last thing that we need before we can invoke the minimizer is a list of initial conditions for the coordinates of the center, and the radius of each circle in the circle packing.
 \end{flushleft}
 
 \subsection{Generating Initial Conditions}
@@ -529,11 +487,11 @@ The initial conditions will be generated using a function we define as \texttt{i
 \end{flushleft}
 
 \begin{flushleft}
-We allow the initial $x$ and $y$ coordinates to be obtained from the continuous range $[0,10]$, and the radius $r$ will have initial radii generated from the range $[0,1]$. By choosing a small interval for the initial coordinates of each node, if the initial configuration of points closely matches a circle packing, then we can expect the minimizer to arrive there quickly.
+We allow the initial $x$ and $y$ coordinates to be obtained from the continuous range $[0,10]$, and the radius $r$ will have initial radii generated from the continuous range $[0,1]$. By choosing a small interval for the initial coordinates of each node, if the initial configuration of points closely matches a circle packing, then we can expect the minimizer to arrive there quickly.
 \end{flushleft}
 
 \begin{flushleft}
-To start generating the coordinates and radii, we begin by creating a list \texttt{IC}, and then loop through all the nodes in \texttt{G}. For each node, we generate an $x$ and $y$ coordinate using the function \texttt{random.uniform(0,10)} to draw a random number between 0 and 10 uniformly. For each radius $r$, we use \texttt{random.uniform(0,1)} to draw a random number between 0 and 1 uniformly.
+To begin generating the coordinates and radii, we create a list \texttt{IC}, and then loop through all the nodes in \texttt{G}. For each node, we generate an $x$ and $y$ coordinate using the function \texttt{random.uniform(0,10)} to draw a random number between 0 and 10 uniformly. For each radius $r$, we use \texttt{random.uniform(0,1)} to draw a random number between 0 and 1 uniformly.
 \end{flushleft}
 
 \begin{flushleft}
@@ -541,11 +499,11 @@ We insert each randomly generated number into \texttt{IC} in the order [$x,y,r$]
 \end{flushleft}
 
 \begin{flushleft}
-Summarizing everything we have so far, for a given graph \texttt{G}, we have defined functions that take in \texttt{G} and return the objective function that is to be minimized, a list of constraints to adhere to in order to form a circle packing, and a list of initial conditions for the coordinates of each circle's center, as well as their radii. The last step to take is to use the minimizer in order to obtain the circle packing for a planar graph.
+Summarizing everything we have so far, for a given graph \texttt{G}, we have defined functions that take in \texttt{G} and return the objective function that is to be minimized, a list of constraints to adhere to for the formation of a circle packing, and a list of initial conditions for the coordinates of each circle's center, as well as their radii. The last step to take is to use the minimizer in order to obtain the circle packing for a planar graph.
 \end{flushleft}
 
 \begin{flushleft}
-Before we do this though, let's take a quick detour and go through some fundamental ideas of numerical optimization, the issues that arise during minimization, and what we can do to overcome these issues. 
+Before we do this though, let us take a quick detour and go through some fundamental ideas of numerical optimization, the issues that arise during minimization, and what we can do to overcome these issues. 
 \end{flushleft}
 
 \subsection{Detour: Understanding Optimization}
@@ -557,13 +515,24 @@ The aim of this section is to learn a little bit about what happens behind the s
 \subsubsection{Example: Newton-Raphson Method}
 
 \begin{flushleft}
-The Newton-Raphson method is an algorithm used to find the roots $x_r$ of a given function $f(x)$. It is used as follows:
+The Newton-Raphson method is an algorithm used to find the roots $x_r$ of a given function $f(x)$. It is computed using Algorithm 4.1.
+
+\vspace{3mm}
+
+\textbf{Algorithm 4.1:}
+
 \begin{enumerate}
     \item Pick an initial $x = x_0$, and compute its corresponding $f(x_0)$.
     \vspace{-3mm}
-    \item Draw the tangent of $f(x)$ at the point $x = x_0$, and mark the tangent's intersection with the $x$-axis as $x_1$.
+    \item Compute the derivative $f'(x)$ of the function $f(x)$.
     \vspace{-3mm}
-    \item Repeat steps 1 and 2 by setting $x_0 = x_1$ until the algorithm converges to $x_r$.
+    \item Draw the tangent line to the curve $y = f(x)$ at the point $x = x_0$.
+    \vspace{-3mm}
+    \item Compute the intersection of this tangent line with the $x$-axis. Let this intersection point be $x_1$.
+    \vspace{-3mm}
+    \item Set $x_0 = x_1$.
+    \vspace{-3mm}
+    \item Repeat steps 1-5 until convergence to the root $x_r$.
 \end{enumerate}
 
 This is shown in Figure \ref{fig: newton}. Clearly, with an increasing number of iterations, our values for $x = x_i$ converge towards the root $x_r$. However, this is dependent on the function $f(x)$, as well as the initial position $x=x_0$ chosen, see Figure \ref{fig: bad newton}. 
@@ -572,7 +541,7 @@ This is shown in Figure \ref{fig: newton}. Clearly, with an increasing number of
 \begin{figure}[htbp]
     \centering
     \includegraphics[width = 1\textwidth]{Chapter 4/9. newton raphson.png}
-    \caption{(a) First iteration of the Newton-Raphson Method. (b) Second iteration of the Newton-Raphson Method.}
+    \caption{Two iterations of the Newton-Raphson method, where the lines tangent to $f(x)$ are drawn in blue. (a) First iteration of the Newton-Raphson Method. (b) Second iteration of the Newton-Raphson Method.}
     \label{fig: newton}
 \end{figure}
 
@@ -591,7 +560,7 @@ These two examples showcase how the convergence to a solution can be extremely s
 \subsubsection{Global vs Local Minimum}
 
 \begin{flushleft}
-An additional factor that can prevent us from obtaining a correct circle packing is when the minimizer reaches a \textit{local} minimum, and not the \textit{global} minimum. A circle packing is achieved if only if the minimizer converges to the global minimum. 
+An additional factor that can prevent us from obtaining a correct circle packing is when the minimizer reaches a \textit{local} minimum, and not the \textit{global} minimum. A circle packing with a contact graph isomorphic to the minimally rigid graph $G$ we start with is achieved if only if the minimizer converges to the global minimum. 
 \end{flushleft}
 
 \begin{figure}[htbp]
@@ -607,25 +576,25 @@ Initial conditions play a part in achieving a global minimum as well. Consider F
 \end{flushleft}
 
 \begin{flushleft}
-If the minimizer were to start here, then it would minimize the objective function until it reaches a local minimum, believe that it has reached the global minimum, and then return a false solution. Therefore, the ideal initial condition must be on the the slope going down to the global minimum (given as blue slopes).
+If the minimizer were to start here, then it would minimize the objective function until it reaches a local minimum, believe that it has minimized the function successfully, and then return a false solution. Therefore, the ideal initial condition must be on the the slope going down to the global minimum (given as blue slopes).
 \end{flushleft}
 
 \subsubsection{Overcoming pitfalls}
 
 \begin{flushleft}
-Such a situation can be tricky to navigate. Are we always able to pick suitable initial conditions such that the minimizer attains the global minimum? Moreover, how do we verify that it is indeed at a global minimum? Such questions can be hard to answer in general, but thankfully in our case, we can use some of the tools picked up along the way to aid us!
+Such a situation can be tricky to navigate. We are not able to pick initial conditions that guarantee the convergence to a global minimum, and so we try to tackle this by making use of random initial configurations. Moreover, from Definition \ref{def: contact graph}, we know that since the minimally rigid graph $G$ we start with has $2n-3$ edges, the circle packing obtained must have $2n-3$ contacts.
 \end{flushleft}
 
 \begin{flushleft}
-The first thing we do is verify whether the minimizer hits a global or local minimum. We know that a correct circle packing is generated when the minimizer achieves a global minimum. Additionally, we know from Definition \ref{def: contact graph} that since our graph $G$ has $2n-3$ edges, the circle packing obtained must also have $2n-3$ contacts. 
+That being said, this is not sufficient to verify whether the minimizer converges to a global minimum. The final check we implement to confirm whether the minimizer attains a global minimum is to study whether the contact graph of the circle packing is isomorphic to $G$, as a circle packing with a contact graph that is non-isomorphic to $G$ is produced when the minimizer converges to a local minimum, see Figure \ref{fig: isomorphic vs non-isomorphic packings}. 
 \end{flushleft}
 
 \begin{flushleft}
-Therefore, we can verify that the minimizer attains a global minimum if and only if the resulting circle packing has $2n-3$ contacts! 
+Therefore, we know that the minimizer attains a global minimum if and only if the resulting circle packing has $2n-3$ contacts, and has a contact graph isomorphic to $G$. 
 \end{flushleft}
 
 \begin{flushleft}
-If the minimizer produces a circle packing that doesn't have $2n-3$ contacts, then this means the initial conditions were unfavorable and it converged to a local minimum. In this case, we call the function \texttt{initial\_conditions}, generating a new random configuration of points and radii, and attempt to pack the graph once more. 
+If the minimizer produces a circle packing that does not have $2n-3$ contacts, or is not isomorphic to $G$, then this means the initial conditions were unfavorable and it converged to a local minimum. In this case, we call the function \texttt{initial\_conditions}, generating a new random configuration of points and radii, and attempt to pack the graph once more. 
 \end{flushleft}
 
 \begin{flushleft}
@@ -637,7 +606,7 @@ Armed with the knowledge to combat situations in which the minimizer arrives to 
 \subsubsection{Using the minimizer}
 
 \begin{flushleft}
-We begin the search for a circle packing of a given graph \texttt{G} by first defining a function \texttt{circle\_packing}, which takes \texttt{G} as an argrument. From here, start a \texttt{while} loop and call the \texttt{minimize} function like so;
+We begin the search for a circle packing of a given graph \texttt{G} by first defining a function \texttt{circle\_packing}, which takes \texttt{G} as an argrument. From here, we start a \texttt{while} loop, and write all following code within this loop. To use the minimizer, we call it like so;
 \end{flushleft}
 
 \begin{code}
@@ -646,7 +615,7 @@ We begin the search for a circle packing of a given graph \texttt{G} by first de
 \end{code}
 
 \begin{flushleft}
-where the first argument is the objective function of \texttt{G} we minimize, the second is the list of initial conditions for the configuration of nodes and radii, the third is the list of constraints imposed, and the last argument defines the method of optimization used (Constrained Optimization BY Linear Approximations, or COBYLA)\footnote{should i explain why this method? doesnt seem important}. 
+where the first argument is the objective function of \texttt{G} we minimize, the second is the list of initial conditions for the configuration of nodes and radii, the third is the list of constraints imposed, and the last argument defines the method of optimization used (Constrained Optimization BY Linear Approximations, or COBYLA). 
 \end{flushleft}
 
 \begin{flushleft}
@@ -654,7 +623,7 @@ The list \texttt{result.x} contains all the minimized variables, and recalling h
 \end{flushleft}
 
 \begin{flushleft}
-For example, the $x$-coordinates are saved in \texttt{x\_list} by;
+For example, the $x$-coordinates are saved in \texttt{x\_list} as follows;
 \end{flushleft}
 
 \begin{code}
@@ -665,14 +634,14 @@ For example, the $x$-coordinates are saved in \texttt{x\_list} by;
         x_list.append(x)
 \end{code}
 
-\subsubsection{Testing for a global minimum}
+\subsubsection{Testing for $2n-3$ contacts}
 
 \begin{flushleft}
-Before we use these variables to display a circle packing, we need to make sure that the minimizer achieved a global minimum and not a local one, which happens if the circle packing contains $2n-3$ contacts. We verify this by looping through every pair of coordinates $(x_i,y_i)$, where $x_i$ and $y_i$ are the $x$ and $y$ coordinates of node $i$ respectively, and check whether the the distance between two nodes equals the sum of the radii of their respective circles. We expect $2n-3$ such equalities.
+Before we use these variables to display a circle packing, we need to make sure that the minimizer produces a circle packing with the correct number of contacts. We verify this by looping through every pair of coordinates $(x_i,y_i)$, where $x_i$ and $y_i$ are the $x$ and $y$ coordinates of node $i$ respectively, and check whether the the distance between two nodes equals the sum of the radii of their respective circles. We expect $2n-3$ such equalities.
 \end{flushleft}
 
 \begin{flushleft}
-Initializing a \texttt{counter} with initial value 0, and a \texttt{tolerance} for 0 as 0.001, we check the number of contacts by;
+Initializing a variable \texttt{contacts} with initial value of 0, and a variable \texttt{tolerance} as a tolerance for 0 with a value of 0.001, we check the number of contacts as follows;
 \end{flushleft}
 
 \begin{code}
@@ -687,11 +656,11 @@ Initializing a \texttt{counter} with initial value 0, and a \texttt{tolerance} f
                 # check if the distance between the centers is equal to the sum of radii
                 if abs(np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) - 
                             (r_list[i] + r_list[j])) < tolerance:
-                    counter += 1  # add one to the counter
+                    contacts += 1  # add one to contacts
 \end{code}
 
 \begin{flushleft}
-We continue the code under the \texttt{if counter == (2*n - 3)} condition, as we have a successful packing if this is satisfied. If this condition fails, the loop restarts and the \texttt{minimize} function is called again with a new configuration of points and radii. 
+We continue the code under the \texttt{if contacts == (2*n - 3)} condition, as we have a successful packing if this is satisfied. If this condition fails, the loop restarts and the \texttt{minimize} function is called again with a new configuration of points and radii. 
 \end{flushleft}
 
 \subsubsection{Creating the contact graph}
@@ -701,7 +670,7 @@ In preparation for the analysis of the circle packings generated, we generate th
 \end{flushleft}
 
 \begin{flushleft}
-We start by initializing an empty \texttt{networkx} graph called \texttt{contact\_graph}, and if circles centered by nodes $i$ and $j$ are tangential, then we add an edge between nodes $i$ and $j$ in the contact graph. Doing this for every node in the circle packing produces the contact graph of the packing, which will be used later on.
+We start by initializing an empty \texttt{networkx} graph called \texttt{contact\_graph}, and if circles centered by nodes $\textbf{p}_i$ and $\textbf{p}_j$ are tangential, then we add an edge between vertices $i$ and $j$ in the contact graph. Doing this for every circle in the circle packing produces the contact graph of the packing, which will be used later on when checking the isomorphism between this contact graph, and the graph we start with.
 \end{flushleft}
 
 \subsubsection{Generating the circle packing}
@@ -716,113 +685,115 @@ Here, we will be generating three different figures named \texttt{fig1}, \texttt
     \item \texttt{fig3} will be the contact graph of the circle packing. 
 \end{itemize}
 
-Let's begin drawing circles!\footnote{do i need the details on how i plotted and scaled the circle packing?}
+Let's begin drawing circles!
 \end{flushleft}
 
 \begin{flushleft}
-We initialize \texttt{fig1}, along with its axis \texttt{ax1} using \texttt{fig1, ax1 = plt.subplots()}. From here, we start a loop over \texttt{n}, the number of nodes in the graph \texttt{G}, and index this loop using \texttt{i}. Recall that the coordinates of the circles in the packing are stored in lists \texttt{x\_list} and \texttt{y\_list}, while the radii are stored in \texttt{r\_list}. We set the variables \texttt{x,y} and \texttt{r} as \texttt{x\_list[i], y\_list[i]}, and  \texttt{r\_list[i]} respectively. Using the \texttt{circle} function from the \texttt{matplotlib} library, we plot the circle with center \texttt{(x,y)} and radius \texttt{r} in \texttt{fig1}. Doing this for every set of coordinates and radii completes the circle packing in \texttt{fig1}.
+We initialize \texttt{fig1}, and we start a loop over \texttt{n}, the number of nodes in the graph \texttt{G}, indexed by \texttt{i}. Recall that the coordinates of the circles in the packing are stored in lists \texttt{x\_list} and \texttt{y\_list}, while the radii are stored in \texttt{r\_list}. 
 \end{flushleft} 
 
 \begin{flushleft}
-For \texttt{fig2}, we repeat the process done in \texttt{fig1} to plot the same circle packing, with the additions of a visible center and a dashed line between the centers of tangential circles. Finally, \texttt{fig3} drops the plotting of the circles but keeps the plot of the contact graph generated within the packing, as done in \texttt{fig2}.
+We set the variables \texttt{x,y} and \texttt{r} as \texttt{x\_list[i], y\_list[i]}, and  \texttt{r\_list[i]} respectively. Using the \texttt{circle} function from the \texttt{matplotlib} library, we plot the circle with center \texttt{(x,y)} and radius \texttt{r} in \texttt{fig1}. Doing this for every set of coordinates and radii completes the circle packing in \texttt{fig1}.    
+\end{flushleft}
+
+\begin{flushleft}
+For \texttt{fig2}, we repeat the process done in \texttt{fig1} to plot the same circle packing, with the additions of a visible center of each circle, and a dashed line between the centers of tangential circles. Finally, \texttt{fig3} drops the plotting of the circles but keeps the plot of the contact graph generated within the packing, as done in \texttt{fig2}.
 \end{flushleft}
 
 \begin{flushleft}
 At the very end, the function \texttt{circle\_packing} returns the original graph \texttt{G}, the \texttt{networkx} contact graph of the packing \texttt{contact\_graph}, and the figures \texttt{fig1}, \texttt{fig2} and \texttt{fig3}. This completes the module \texttt{Circle\_Packing.py}!
 \end{flushleft}
 
-\subsubsection{Testing the code}
-
-\begin{flushleft}
-As with the \texttt{Rigidity.py} module, we must test the function \texttt{circle\_packing} on known examples before we venture out into the unknown. The graphs we use to test will be the Laman graphs on three and four vertices and five vertices, see Figures  \ref{fig4: n = 4 Laman} and \ref{fig4: n = 5 Laman}. Although these graphs have vertices of degree 2, this does not matter for testing purposes. 
-\end{flushleft}
-
-\begin{flushleft}
-We can construct the circle packing for each of these graphs easily, and then compare them to what the \texttt{circle\_packing} function returns. This is done in Figures \ref{fig4: 4 node packing} and \ref{fig4: 5 node packing}. The left column contains packings done by hand, and the right column contains the corresponding circle packing generated using the function \texttt{circle\_packing}.
-\end{flushleft}
-
-\begin{figure}[htbp]
-    \centering      
-    \includegraphics[width = 0.7\textwidth]{Chapter 4/12. 4 circle.png} \hspace{1 cm}
-    \caption{Circle packing for the Laman graph on 4 nodes seen in Figure \ref{fig4: n = 4 Laman}. Left: drawn by hand. Right: generated using \texttt{circle\_packing}.} 
-    \label{fig4: 4 node packing}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width = 0.7\textwidth]{Chapter 4/13. 5 circle.png}
-    \caption{Circle packings for the Laman graphs on 5 nodes seen in Figure \ref{fig4: n = 5 Laman}. Left column: drawn by hand. Right Column: generated using \texttt{circle\_packing}.}
-    \label{fig4: 5 node packing}
-\end{figure}
-
-\begin{flushleft}
-With these results, we confirm that the code developed in this module successfully finds a circle packing for a given planar graph.
-\end{flushleft}
-
 \section{Investigating the Conjecture}
 
 \begin{flushleft}
-To remind ourselves of what the conjecture is, we write it here once more:
-
-\begin{center}
-    \textit{``For every planar and minimally rigid graph, does there exist a circle packing that is also infinitesimally rigid?''}
-\end{center}
-
-Taking stock of everything we have;
+Taking stock of everything we have now;
 \begin{itemize}
-    \item Using \texttt{nauty}, we generated a list of non-isomorphic planar graphs with $n$ vertices and $2n-3$ edges.
+    \item Using \texttt{nauty}, we are able to generate a list of non-isomorphic planar graphs with $n$ vertices and $2n-3$ edges.
     \vspace{-3mm}
-    \item With the \texttt{Rigidity.py} module, we filter the list of planar graphs for minimally rigid ones with minimum degree 3.
+    \item With the \texttt{Rigidity.py} module, we can filter the list of planar graphs for minimally rigid ones with minimum degree 3.
     \vspace{-3mm}
-    \item Using the \texttt{Circle\_Packing.py} module, we are able to generate the circle packing for a planar graph.
+    \item Using the \texttt{Circle\_Packing.py} module, we are able to produce the circle packing for a planar graph.
 \end{itemize}
 
-Therefore, our plan of attack will follow Algorithm 4.1.
+Therefore, our plan of attack will follow Algorithm 4.2.
 \end{flushleft}
 \begin{flushleft}
-\textbf{Algorithm 4.1:} \footnote{use code language instead of plain english?}
+\textbf{Algorithm 4.2:}
 \begin{enumerate}
-    \item Generate a list of planar graphs on $n$ vertices using \texttt{nauty}.
+    \item[1)] Generate a list of planar graphs on $n$ vertices and $2n-3$ edges using \texttt{nauty}.
     \vspace{-3mm}
-    \item Use \texttt{find\_rigid\_graphs} from \texttt{Rigidity.py} and filter the list for minimally rigid planar graphs on $n$ vertices and minimum degree 3. Call this list \texttt{rigid\_graphs}.
+    \item[2)] Use \texttt{find\_rigid\_graphs} from \texttt{Rigidity.py} and filter the list for minimally rigid planar graphs on $n$ vertices and minimum degree 3. Call this list \texttt{rigid\_graphs}.
     \vspace{-3mm}
-    \item Initialize variables \texttt{attempt = 0}, \texttt{position = 0} and \texttt{max\_attempt = 500}.
+    \item[3)] Initialize variables \texttt{attempt = 0}, \texttt{position = 0} and \texttt{max\_attempt = 500}.
     \vspace{-3mm}
-    \item While \texttt{True}:
+    \item[4)] While \texttt{True}:
     \vspace{-3mm}
     \begin{enumerate}
-        \item Increment \texttt{attempt} by 1.
+        \item[5)] Increment \texttt{attempt} by 1.
         \vspace{-1mm}
-        \item Call \texttt{circle\_packing} from \texttt{Circle\_Packing.py} for \texttt{rigid\_graphs[position]}.
+        \item[6)] Call \texttt{circle\_packing} from \texttt{Circle\_Packing.py} for \texttt{rigid\_graphs[position]}.
         \vspace{-1mm}
-        \item If the contact graph of the packing is isomorphic to \texttt{rigid\_graphs[position]} \textbf{\underline{and}} \texttt{check\_rigidity(contact\_graph)} returns \texttt{True} \textbf{\underline{and}} \texttt{position} is less than the length of \texttt{rigid\_graphs}:
+        \item[7)] If the contact graph of the packing is isomorphic to \texttt{rigid\_graphs[position]} \textbf{\underline{and}} \texttt{check\_rigidity(contact\_graph)} returns \texttt{True} \textbf{\underline{and}} \texttt{position} is less than the length of \texttt{rigid\_graphs}:
         \begin{enumerate}
-            \item Save \texttt{G}, \texttt{contact\_graph} \texttt{fig1}, \texttt{fig2} and \texttt{fig3}.
+            \item[8)] Save \texttt{G}, \texttt{contact\_graph} \texttt{fig1}, \texttt{fig2} and \texttt{fig3}.
             \vspace{-1mm}
-            \item Increment \texttt{position} by 1.
+            \item[9)] Increment \texttt{position} by 1.
             \vspace{-1mm}
-            \item Set \texttt{attempt} to 0.
+            \item[10)] Set \texttt{attempt} to 0.
         \end{enumerate}
         \vspace{-1mm}
-        \item Else if the contact graph of the packing is isomorphic to \texttt{rigid\_graphs[position]} \textbf{\underline{and}} \texttt{check\_rigidity(contact\_graph)} returns \texttt{True} \textbf{\underline{and}} \texttt{position} is equal to the length of \texttt{rigid\_graphs}:
+        \item[11)] Else if the contact graph of the packing is isomorphic to \texttt{rigid\_graphs[position]} \textbf{\underline{and}} \texttt{check\_rigidity(contact\_graph)} returns \texttt{True} \textbf{\underline{and}} \texttt{position} is equal to the length of \texttt{rigid\_graphs}:
         \begin{enumerate}
-            \item Save \texttt{G}, \texttt{contact\_graph} \texttt{fig1}, \texttt{fig2} and \texttt{fig3}.
+            \item[12)] Save \texttt{G}, \texttt{contact\_graph} \texttt{fig1}, \texttt{fig2} and \texttt{fig3}.
             \vspace{-1mm}
-            \item \texttt{break} out of the loop
+            \item[13)] \texttt{break} out of the loop
         \end{enumerate}
         \vspace{-1mm}
-        \item Else if the contact graph of the packing is not isomorphic to \texttt{rigid\_graphs[position]}, \textbf{\underline{or}} \texttt{check\_rigidity(contact\_graph)} returns \texttt{False}, \textbf{\underline{and}} \texttt{attempt} is equal to \texttt{max\_attempt}:
+        \item[14)] Else if the contact graph of the packing is not isomorphic to \texttt{rigid\_graphs[position]}, \textbf{\underline{or}} \texttt{check\_rigidity(contact\_graph)} returns \texttt{False}, \textbf{\underline{and}} \texttt{attempt} is equal to \texttt{max\_attempt}:
         \begin{enumerate}
-            \item print ``Max attempts done, no viable packing found. Code terminating''
+            \item[15)] print ``Max attempts done, no viable packing found. Code terminating''
             \vspace{-1mm}
-            \item \texttt{break} out of the loop
+            \item[16)] \texttt{break} out of the loop
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
 \end{flushleft}
 
+\subsection{Testing the code}
+
 \begin{flushleft}
-This algorithm is implemented in a script named \texttt{Rigid\_Packings.py}, and was used to verify whether all minimally rigid planar graphs on $n \in [3, \hdots, 10]$ have circle packings such that they are infinitesimally rigid. Therefore, it is possible to confirm that confirm that all minimally rigid planar graphs on $n \in [3, \hdots, 9]$ satisfy the conjecture. However, the code written here has displayed a few limitations, which we are going to address now.
+We first test the function \texttt{circle\_packing} by implementing Algorithm 4.2 on known examples before we venture out into the unknown. The graphs we use to test will be the minimally rigid graphs on three and four vertices and five vertices, see Figures  \ref{fig4: n = 4 Laman} and \ref{fig4: n = 5 Laman}. Although these graphs are not of minimum degree 3, this does not matter for testing purposes, and we modify step 2 of the algorithm as needed to suit our purposes. 
+\end{flushleft}
+
+\begin{flushleft}
+We can construct the circle packing for each of these graphs easily, and then compare them to what the \texttt{circle\_packing} function returns. This is done in Figures \ref{fig4: 4 node packing} and \ref{fig4: 5 node packing}.
+\end{flushleft}
+
+\begin{figure}[htbp]
+    \centering      
+    \includegraphics[width = 0.6\textwidth]{Chapter 4/12. 4 circle.png} \hspace{1 cm}
+    \caption{Circle packing for the minimally rigid graph on 4 nodes seen in Figure \ref{fig4: n = 4 Laman}. (a) Drawn by hand. (b) Generated using \texttt{circle\_packing}.} 
+    \label{fig4: 4 node packing}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = 0.58\textwidth]{Chapter 4/13. 5 circle.png}
+    \caption{Circle packings for the minimally rigid graphs on 5 nodes seen in Figure \ref{fig4: n = 5 Laman}. Left column: drawn by hand. Right Column: generated using \texttt{circle\_packing}.}
+    \label{fig4: 5 node packing}
+\end{figure}
+\vspace{-3mm}
+\begin{flushleft}
+With these results, we confirm that the code developed in the module \texttt{Circle\_Packing.py}, along with the implementation of Algorithm 4.2 successfully finds an infinitesimally rigid circle packing for a given minimally rigid planar graph.
+\end{flushleft}
+
+\begin{flushleft}
+This algorithm is implemented in a script named \texttt{Rigid\_Packings.py}, and was used to verify whether all minimally rigid planar graphs on $n \in [3, \hdots, 10]$ have circle packings such that they are infinitesimally rigid. As a result, it is possible to confirm that confirm that all minimally rigid planar graphs on $n \in [3, \hdots, 9]$ satisfy the conjecture. 
+\end{flushleft}
+
+\begin{flushleft}
+However, the code written here has displayed a few limitations, which we are going to address now.
 \end{flushleft}
 
 \subsection{Limitations to the code}
@@ -830,18 +801,16 @@ This algorithm is implemented in a script named \texttt{Rigid\_Packings.py}, and
 \subsubsection{1. Huge differences in radii}
 
 \begin{flushleft}
-When Algorithm 4.1 was implemented to one of the minimally rigid graphs on 9 nodes, the code failed to produce a circle packing after 500 attempts. Let this graph be known as $G$, and it is shown in Figure \ref{fig4: interesting}.
+When Algorithm 4.2 was implemented to one of the minimally rigid graphs on 9 nodes, the code failed to produce a circle packing after 500 attempts. Let this graph be known as $G$, and it is displayed in Figure \ref{fig4: interesting}.
 \end{flushleft}
 
 \begin{figure}[htbp]
     \centering
-    \begin{tabular}{c | c}
-        \includegraphics[width = 0.4\textwidth]{Chapter 4/14. interesting graph.png} & \hspace{5 mm} \includegraphics[width = 0.3\textwidth]{Chapter 4/15. interesting planar.png}   
-    \end{tabular}
-    \caption{Left: The graph $G$ that could not be packed computationally. Right: The planar vizualization of this graph}
+    \includegraphics[width = 0.65\textwidth]{Chapter 4/15. interesting planar.png}
+    \caption{(a) The graph $G$ that could not be packed computationally. (b) The planar drawing of the graph in (a)}
     \label{fig4: interesting}
 \end{figure}
-
+\vspace{-3mm}
 \begin{flushleft}
 Upon further investigation, it can be shown that this graph has a circle packing such that its contact graph is isomorphic to $G$. This is shown in Figure \ref{fig4: interesting packing}. As we can see, there is a vast difference between the radius of the largest circles on the `outside', and the inner-most circles. 
 \end{flushleft}
@@ -855,33 +824,75 @@ Upon further investigation, it can be shown that this graph has a circle packing
 
 \vspace{-5mm}
 \begin{flushleft}
-It is believed that due to this large difference in radii, the minimizer finds it difficult to place the circles correctly. This was tested by setting initial conditions in a configuration that matches the circle packing shown in Figure \ref{fig4: interesting packing}, but even then, the minimizer failed to provide the correct packing. 
+It is believed that due to this large difference in radii, the minimizer finds it difficult to place the circles correctly. This was tested by setting initial conditions in a configuration that matches the circle packing shown in Figure \ref{fig4: interesting packing}, and adjusting the constraint function \texttt{cons} by increasing the maximum radius from 10 to 10000, as well as making the \texttt{epsilon} tolerance 0.00001 to allow for the formation of tiny circles. Even then, the minimizer failed to provide the correct packing. 
 \end{flushleft}
 
 \begin{flushleft}
-We can thereby conclude that even if an appropriate circle packing does exist for a graph, we may not be able to achieve it if the (absolute) difference between the biggest radius and the smallest radius in the packing is large. 
+We can thereby conclude that even if an appropriate circle packing does exist for a graph, we may not be able to achieve it if the absolute difference between the radii of the biggest circle and the smallest circle in the packing is large.
 \end{flushleft}
 
-\subsubsection{2. The initial conditions for increasing $n$}
+\subsubsection{2. Increasing number of local minima for increasing $n$}
 
 \begin{flushleft}
-The keen reader may have noticed that earlier, it was mentioned that Algorithm 4.1 was used to test minimally rigid graphs on $n \in [3, \hdots, 10]$ vertices, and that we can confirm the conjecture for $n \in [3, \hdots, 9]$ vertices. What about when $n = 10$?
-\end{flushleft}
-
-\begin{flushleft}
-The issue here arises from the fact that we require packings isomorphic to the graph we start from. Suppose we start with a graph \texttt{G}. When \texttt{circle\_packing(G)} is called, it finds any possible circle packing satisfying the packing constraints. Later, in \texttt{Rigid\_Graphs.py}, \texttt{circle\_packing(G)} is called under a \texttt{while} loop. If the circle packing's contact graph is not isomorphic to \texttt{G}, then we restart the process and attempt to find a new packing with a new configuration of points and radii. 
+The keen reader may have noticed that earlier, it was mentioned that Algorithm 4.2 was used to test minimally rigid graphs on $n \in [3, \hdots, 10]$ vertices, and that we can confirm the conjecture for $n \in [3, \hdots, 9]$ vertices. What about when $n = 10$?
 \end{flushleft}
 
 \begin{flushleft}
-With 10 nodes to pack, the number of possible circle packings satisfying the packing constraints is quite substantial. Unless the initial configuration of points is sufficiently close to the solution we want, we will probably never attain it. Thus, the random generation of configurations is not an efficient method of creating suitable initial conditions as $n$ gets larger\footnote{mention that i tested random number of thousand graphs upto 10 attempts?}.
-\end{flushleft}
-
-\subsection{Tying It All Together}
-
-\begin{flushleft}
-With these results, we gain some understanding about the nature of the problem at hand. Although we know that a circle packing exists for a planar graph, trying to computationally show it and then verify its rigidity is a difficult task that we have made some progress towards here. Even with the limitations present, we can be somewhat confident about the truth of the problem we investigate as all the circle packings isomorphic to the graph it was derived from satisfies the conjecture. 
+When we call the function \texttt{circle\_packing(G)}, where \texttt{G} is a minimally rigid graph on $n$ vertices created in \texttt{networkx}, the minimizer finds any possible circle packing satisfying the packing constraints. Later, in \texttt{Rigid\_Graphs.py}, \texttt{circle\_packing(G)} is called under a \texttt{while} loop. If the circle packing's contact graph is not isomorphic to \texttt{G}, this means the minimizer converged to a local minimum, and we restart the process and attempt to find a new packing with a new configuration of points and radii. 
 \end{flushleft}
 
 \begin{flushleft}
-(will need to flesh this out a little, work in progress)
+The issue here arises from the fact that we require packings isomorphic to the graph we start from. That is, we want the minimizer to converge to the global minimum, and with 10 nodes to pack, the number of local minima is quite substantial. Unless the initial configuration of points is sufficiently close to the solution we want, it is unlikely that the minimizer will attain the global minimum. 
+\end{flushleft}
+
+\begin{flushleft}
+Therefore, as the number of local minima increases as $n$ increases, the random generation of configurations is not an efficient method of creating suitable initial conditions for $n \geq 10$.
+\end{flushleft}
+
+\subsection{Results of the Investigation}
+
+\begin{flushleft}
+Here, we discuss the results of the investigating the conjecture. The minimally rigid graphs on $n = 3,4,5$ vertices necessarily contain a vertex of degree 2, as seen in Figure \ref{fig4: 4 node packing} and Figure \ref{fig4: 5 node packing}. Therefore, investigating minimally rigid graphs of minimum degree 3 only begins for $n \geq 6$.
+\end{flushleft}
+
+\begin{flushleft}
+For the remainder of this section, any minimally rigid graph $G$ we consider will be of minimum degree 3, and the circle packings mentioned will be those such that they are infinitesimally rigid and have contact graphs such that they are isomorphic to $G$.
+\end{flushleft}
+
+\subsubsection{Minimally rigid graphs on 6, 7 \& 8 vertices}
+
+\begin{itemize}
+    \item For $n = 6$, there is only one minimally rigid graph.
+    \vspace{-3mm}
+    \item For $n=7$, there are three minimally rigid graphs.
+    \vspace{-3mm}
+    \item For $n=8$, there are 18 minimally rigid graphs.
+\end{itemize}
+
+\begin{flushleft}
+For each minimally rigid graph on $n=6,7,8$ vertices, a circle packing was obtained successfully.
+\end{flushleft}
+
+\subsubsection{Minimally rigid graphs on 9 vertices}
+
+\begin{flushleft}
+For planar graphs on $n=9$ vertices, 122 minimally rigid graphs were obtained. From this, 121 correct circle packings were obtained computationally, whereas the code failed to produce a circle packing for the graph $G$ in Figure \ref{fig4: interesting}. However, we are able to construct the circle packing for $G$ by hand as demonstrated in Figure \ref{fig4: interesting packing}.
+\end{flushleft}
+
+\begin{flushleft}
+Therefore, we can conclude that a circle packing can successfully be derived for all minimally rigid graphs on 9 vertices.
+\end{flushleft}
+
+\subsubsection{Minimally rigid graphs on 10 vertices}
+
+\begin{flushleft}
+When investigating planar graphs on $n=10$ vertices, 1037 minimally rigid graphs were found. However, due to the number of local minima present, setting \texttt{max\_attempt = 500} proved to be too time consuming, as well as energy inefficient.
+\end{flushleft}
+
+\begin{flushleft}
+To combat this, a maximum of 5 attempts was set initially for a first sweep across all 1037 minimally rigid graphs. After this was completed, the number of maximum attempts was increased to 50 to allow for a longer investigation of as many graphs as possible that did not produce a circle packing in the first round of testing. Thus, at the cost of expending too much time and energy trying to find a viable circle packing for each minimally rigid graph, we try to find as many circle packings possible in a time friendly and energy efficient way.
+\end{flushleft}
+
+\begin{flushleft}
+In the end, 315 circle packings were obtained from the list of 1032 minimally rigid graphs. The number of circle packings obtained can be improved with some degree of parallelization (running the code simultaneously in different environments), and with an improved way of choosing initial conditions to reduce the time needed to find a circle packing. However, for $n > 10$, even these modifications may not be enough to find infinitesimally rigid circle packings efficiently as the number of local minima will grow as well.
 \end{flushleft}
