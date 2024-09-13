@@ -17,22 +17,4 @@ I was awarded a First Class Honors grade for the project, and it's up here for p
 
 The algorithm used to investigate the graphs of interest is noted in Write-up/Dissertation.pdf on page 45 under 'Algorithm 4.2', but it is mentioned here as well for completeness.
 
-### Algorithm 4.2
-
-1) Generate a list of planar graphs on n vertices and $2n − 3$ edges using `nauty`.
-2) Use find rigid graphs from `Rigidity.py` and filter the list for minimally rigid planar graphs on $n$ vertices and minimum degree 3. Call this list `rigid graphs`.
-3) Initialize variables `attempt = 0`,` position = 0` and `max attempt = 500`.
-4) While `True`:
-	5) Increment `attempt` by 1.
-	6) Call `circle packing` from `Circle Packing.py` for `rigid graphs[position]`.
-	7) If the contact graph of the packing is isomorphic to `rigid graphs[position]` **and**
-		`check rigidity(contact graph)` returns `True` **and** `position` is less than the length of `rigid graphs`:
-		8) Save `G`, `contact graph` `fig1`, `fig2` and `fig3`.
-		9) Increment `position` by 1.
-		10) Set `attempt` to 0.
-	11) Else if the contact graph of the packing is isomorphic to `rigid graphs[position]` **and** `check rigidity(contact graph)` returns `True` **and** `position` is equal to the length of `rigid graphs`:
-		12) Save `G`, `contact graph` `fig1`, `fig2` and `fig3`.
-		13) `break` out of the loop
-	14) Else if the contact graph of the packing is not isomorphic to `rigid graphs[position]`, **or** `check rigidity(contact graph)` returns `False`, **and** `attempt` is equal to `max attempt`:
-		15) print “Max attempts done, no viable packing found. Code terminating”
-		16) `break` out of the loop
+![image](https://github.com/user-attachments/assets/8eb3446e-efe2-4e0d-8518-ba78c3e0abea)
