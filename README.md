@@ -1,6 +1,43 @@
-# Dissertation repository
+# Minimally Rigid Graphs and their Circle Packings
 
-Progress on my dissertation on the Rigidity of circle packings formed from minimally rigid graphs has been committed here regularly throughout the academic year 2023-2024. 
+This repository contains the Python code involved in my final year dissertation project for the academic year 2023/2024. I was supervised by Dr Louis Theran, and investigated the the existence of circle packings for a given minimally rigid graph using numerical optimization methods.
 
-I have written two modules, "Rigidity.py" and "Circle_Packing.py", to find circle packings arising from minimally rigid graphs that are infinitesimally rigid. This is evaluated in the script "Rigid_Packings.py". The algorithm implemented to do this can be found in the file Write-up/Dissertation.pdf on page 45 under 'Algorithm 4.2'.
+I was awarded a First Class Honors grade for the project, and it's up here for people to view and play with if interested :)
 
+| ![image](https://github.com/user-attachments/assets/a2227e2a-6bc8-46bb-9764-76b8afdd9d87)
+ | ![image](https://github.com/user-attachments/assets/0108d178-8725-4dd7-83a9-98b9d9f8dadb)
+               | ![image](https://github.com/user-attachments/assets/ed4eabda-aba5-4fd8-8a68-e0b1a8db46c6)
+                   |
+| -------------------------------------------- | --------------------------------------------- | ---------------------------------------------------- |
+| A minimally rigid graph                      | A circle packing of the minimally rigid graph | The circle packing with its contact graph visualized |
+
+
+## The code involved
+
+- `Rigidity.py` contains functions that computes the rigidity matrix of a given graph/framework and verifies whether it is infinitesimally rigid
+- `Circle_Packing.py` takes a graph `G` and tries to find a circle packing for the graph. This is done using the `scipy.minimize` function, using the `COBYLA` method as it works well with problems that have constraints to adhere to. 
+- Finally, `Rigid_Packings.py` finds all minimally rigid graphs on $n$ vertices, and attempts to find a circle packing for each of these graphs such that the contact graph of the circle packing is infinitesimally rigid itself. 
+
+## The Algorithm
+
+The algorithm used to investigate the graphs of interest is noted in Write-up/Dissertation.pdf on page 45 under 'Algorithm 4.2', but it is mentioned here as well for completeness.
+
+### Algorithm 4.2
+
+1) Generate a list of planar graphs on n vertices and $2n − 3$ edges using `nauty`.
+2) Use find rigid graphs from `Rigidity.py` and filter the list for minimally rigid planar graphs on $n$ vertices and minimum degree 3. Call this list `rigid graphs`.
+3) Initialize variables `attempt = 0`,` position = 0` and `max attempt = 500`.
+4) While `True`:
+	5) Increment `attempt` by 1.
+	6) Call `circle packing` from `Circle Packing.py` for `rigid graphs[position]`.
+	7) If the contact graph of the packing is isomorphic to `rigid graphs[position]` **and**
+		`check rigidity(contact graph)` returns `True` **and** `position` is less than the length of `rigid graphs`:
+		8) Save `G`, `contact graph` `fig1`, `fig2` and `fig3`.
+		9) Increment `position` by 1.
+		10) Set `attempt` to 0.
+	11) Else if the contact graph of the packing is isomorphic to `rigid graphs[position]` **and** `check rigidity(contact graph)` returns `True` **and** `position` is equal to the length of `rigid graphs`:
+		12) Save `G`, `contact graph` `fig1`, `fig2` and `fig3`.
+		13) `break` out of the loop
+	14) Else if the contact graph of the packing is not isomorphic to `rigid graphs[position]`, **or** `check rigidity(contact graph)` returns `False`, **and** `attempt` is equal to `max attempt`:
+		15) print “Max attempts done, no viable packing found. Code terminating”
+		16) `break` out of the loop
