@@ -1,6 +1,6 @@
 # Minimally Rigid Graphs and their Circle Packings
 
-This repository contains the Python code involved in my final year dissertation project for the academic year 2023/2024. I was supervised by Dr Louis Theran, and investigated the the existence of circle packings for a given minimally rigid graph using numerical optimization methods.
+This repository contains the Python code involved in my final year dissertation project for the academic year 2023/2024. I was supervised by Dr Louis Theran, and investigated the existence of circle packings for a given minimally rigid graph using numerical optimization methods.
 
 I was awarded a First Class Honors grade for the project, and it's up here for people to view and play with if interested :)
 
