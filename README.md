@@ -4,12 +4,7 @@ This repository contains the Python code involved in my final year dissertation 
 
 I was awarded a First Class Honors grade for the project, and it's up here for people to view and play with if interested :)
 
-| ![image](https://github.com/user-attachments/assets/a2227e2a-6bc8-46bb-9764-76b8afdd9d87)
- | ![image](https://github.com/user-attachments/assets/0108d178-8725-4dd7-83a9-98b9d9f8dadb)
-               | ![image](https://github.com/user-attachments/assets/ed4eabda-aba5-4fd8-8a68-e0b1a8db46c6)
-                   |
-| -------------------------------------------- | --------------------------------------------- | ---------------------------------------------------- |
-| A minimally rigid graph                      | A circle packing of the minimally rigid graph | The circle packing with its contact graph visualized |
+![image](https://github.com/user-attachments/assets/d542dc06-cdc1-4a1d-bcbf-875b37516e33)
 
 
 ## The code involved
